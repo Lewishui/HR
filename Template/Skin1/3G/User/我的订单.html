@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>{#OrderTitle}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{M:G3InstallDir}Template01/user/images/user.css" rel="stylesheet" type="text/css">
+<link href="{M:G3InstallDir}Template01/user/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{M:G3InstallDir}Template01/user/agent.js"></script>
+</head>
+
+<body>
+<div class="headbar">
+   <div class="back"><a href="javascript:;" onClick="history.back()"><i class="fa fa-chevron-left"></i></a></div>
+   <h3>{#OrderTitle}</h3>
+   <div class="right_head fr">
+      <a href="index.aspx" class="myuser"><i class="fa fa-user"></i></a>
+   </div>
+</div> 
+<style>
+.my_project ul li{ background:#fff;}
+.f_money{padding-left:10px;font-weight:bold;color:brown;font-size:16px;}
+.order_title{background:#eee;height:30px;line-height:30px; padding:0 5px;}
+.pro_list ul{ border:#eee solid 1px; overflow:hidden;}
+.pro_list li{float:left;width:50%; border:none !important; box-sizing:border-box }
+.pro_list li .or_img{ width:90%;max-height:100%; display:block;}
+.pro_list li span{ display:inline-block; margin-top:5px; font-size:14px;}
+.wait,.wff,.wfk,.wxf{color:red; }
+.yff,.yfq, .yqs, .confirm,.yxf{color:green; }
+.wx{color:#999;}
+.jq{color:#888;}
+.ddff{color:brown;}
+.num{color:blue;}
+.attr{font-size:12px;}
+.info_zt{ font-size:12px; margin-top:10px; line-height:30px; height:30px;}
+</style>
+
+
+<!--我的购物订单-->
+<div class="my_project">
+   <ul>
+      
+     {#OrderList}
+	  <!--
+      <li>
+         <div class="wbox">
+            <div class="details wbox-flex">
+                <div class="order_title">20000221
+				   <span class="f_money">￥333</span>元
+				   <span style="float:right">2015/6/10 18:07:38</span>
+				</div>
+				<div class="pro_list">
+				   <ul>
+					   <li><img src="http://attach.angelclub.com/upload/2015/05/25/556291cd8e05e.png" /></li>
+					   <li><img src="http://attach.angelclub.com/upload/2015/05/25/556291cd8e05e.png" /></li>
+				   </ul>
+				</div>
+			    <div class="clear"></div>
+			
+			  <div class="info_zt">状态:   <span style='color:green'>已审核</span>&nbsp;<span style='color:red'>未支付</span>
+				 <div class="check_more"><a href="tzpay.asp?id=15">支付</a></div>
+			   </div>
+         </div>
+      </li>
+	 -->  
+	  
+   </ul>	 
+    <div id='fenye' class='fenye'> [KS:PageStr2]</div>
+
+</div>
+
+<!--我的购物订单-->
+
+
+{KS_T1_手机_会员底部通用}
+
+</body>
+</html>

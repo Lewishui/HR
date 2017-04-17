@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="Kesion.NET.Mobile.G3PayOnline" Codebehind="PayOnline.aspx.cs" %>

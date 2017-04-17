@@ -1,0 +1,360 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,p,blockquote,th,td,figure{margin:0;padding:0;}
+li{list-style-type:none}
+ul{margin:0px;padding:0px}
+img{border:0px;}
+a{text-decoration:none;color:#333;-webkit-transition: .3s; transition: .3s;}
+a:hover{text-decoration:none;color:#e10000}
+body{background:#fff;margin:0px;font-size: 12px;color:#333;FONT-FAMILY:"\5FAE\8F6F\96C5\9ED1";min-width:1190px} 
+::selection{background: #ed3232; color: white; }
+::-moz-selection{background: #ed3232; color: white;}
+
+.clear{ clear:both;height:0px; overflow:hidden}
+.blank10{height:10px; overflow:hidden}
+.blank15{height:15px; overflow:hidden}
+.blank30{height:30px; overflow:hidden}
+.mainbox{width:1190px;margin:0 auto}
+
+
+
+/**头部**/
+.toper .topright a.close{ background:url(/companyimages/close.png) no-repeat}
+.toper .topright a.messages{ background:url(/companyimages/messages.png) no-repeat}
+.top{ background:#f5f5f5; height:40px;}
+.toper{ width:1190px; margin:0 auto; font-size:14px; color:#9d9d9d; padding-top:10px;}
+.toper .topleft{ float:left;}
+.toper .topright{ float:right;}
+.toper .topright a{ margin:0px 7px; color:#9d9d9d;background:url(/companyimages/login.png) no-repeat left center; padding-left:20px;}
+.headline1{ width:1190px; margin:0 auto;}
+.head_left{ float:left; padding-top:20px;}
+.head_right{ float:right;padding:20px 20px 0px 20px; }
+.head_right p{ background:url(/companyimages/telephone.png) no-repeat; font-size:15px; height:60px; padding-left:80px; color:#437EE4}
+.head_right font{ font-size:26px; color:#437EE4; font-weight:bold}
+.logintip{ height:49px; width:100%; background:#333; color:#fff; z-index:999; position:relative}
+.nav{ width:1190px; margin:0 auto; z-index:999; position:relative}
+.nav ul li{ float:left; padding:0px 36px; position:relative}
+.nav ul li.navmoon a{}
+.nav ul li.curr{background:#437EE4; color:#fff;}
+.nav ul li:hover{ background:#437EE4; color:#fff}
+.nav ul li a{ color:#fff; font-size:16px; line-height:30px; line-height:49px;}
+.nav ul li a:hover{ color:#fff;}
+#navul li ul{display:none;position:absolute;z-index:100000;background:#437EE4;left:0px; top:49px;}
+#navul li ul li{display:block;width:78px;float:none;height:35px;position:relative;line-height:35px;border-bottom:#608AC0 1px dashed;font-size:12px;overflow:hidden; left:0px; z-index:999;padding: 0px 29px}
+#navul li ul li:last-child{ border-bottom:none}
+#navul li ul li:hover{ background:#2D71EB}
+#navul li.navmoon a{}
+#navul li.navmoon ul{display:block; z-index:999}
+#navul li.navmoon ul a{display:block;width:85px;height:35px;line-height:35px;}
+/**首页幻灯**/
+.flexslider {margin: 0px auto;position: relative;width: 100%;height: 398px;overflow: hidden;zoom: 1;}
+.flexslider .slides li {width: 100%;height: 100%;}
+.flex-direction-nav a {width: 45px;height: 45px;line-height: 99em;overflow: hidden;margin: -35px 0 0;display: block;background: url(/companyimages/sprite.png) no-repeat;position: absolute;top: 50%;z-index: 10;cursor: pointer;opacity: 0;filter: alpha(opacity=0);-webkit-transition: all .3s ease;border-radius: 35px;}
+.flex-direction-nav .flex-next {background-position:-42px 0;right: 15%;}
+.flex-direction-nav .flex-prev {left: 15%; background-position:5px 0px}
+.flexslider:hover .flex-next {opacity: 0.8;filter: alpha(opacity=25);}
+.flexslider:hover .flex-prev {opacity: 0.8;filter: alpha(opacity=25);}
+.flexslider:hover .flex-next:hover,
+.flexslider:hover .flex-prev:hover {opacity: 1;filter: alpha(opacity=50);}
+.flex-control-nav {width: 100%;position: absolute;bottom: 15px;text-align: center;}
+.flex-control-nav li {margin: 0 2px;display: inline-block;zoom: 1;*display: inline;}
+.flex-control-paging li a {background: url(/companyimages/dot.png) no-repeat 0 -16px;display: block;height: 16px;overflow: hidden;text-indent: -99em;width: 16px;cursor: pointer;}
+.flex-control-paging li a.flex-active,
+.flex-control-paging li.active a {background-position: 0 0;}
+.flexslider .slides a img {width: 100%;display: block; height:398px;}
+
+
+/**公告**/
+.annoce{ width:100%; height:49px; background:#f4f4f4; background:url(/companyimages/marquee_bg.jpg) no-repeat center 0}
+.mainano{ width:1190px; margin:0 auto;}
+.notice{ width:600px; float:left; height:33px; overflow:hidden; margin-top:3px;}
+.t_news{ height:30px; background:url(/companyimages/gonggao.png) no-repeat left top; line-height:32px; padding-left:40px; margin:8px 0; overflow:hidden; position:relative;}
+.t_news b{ line-height:24px; font-weight:bold; display:inline-block; font-size:16px;}
+.news_li,.swap{ line-height:24px; display:inline-block; position:absolute; top:0; left:138px; font-size:16px;}
+.news_li a,.swap a{}
+.swap{top:21px;}
+.inflow{ width:390px; float:right;margin-top:8px; position:relative;margin-right:100px;}
+.inflow .searchbox{ width:235px; border:none; height:35px;background:url(/companyimages/sousuo.png) no-repeat left center; padding-left:40px; line-height:35px; font-size:14px; color:#999; float:left}
+.inflow .searchbutton{ width:82px; background:#ADADAD; border:1px solid #ADADAD; height:36px; font-size:15px; color:#fff; float:left; position:absolute;top:1px; left:279px;}
+
+/**首页产品展示**/
+.product{ background:#437EE4 url(/companyimages/con1_bg.jpg) no-repeat}
+.productlist{ width:1190px; margin:0 auto;}
+.productlist h2{ text-align:center; display:block; color:#fff; font-size:30px; padding:10px 0px; position:relative}
+.productlist h2::before{ background:url(/companyimages/line.png) no-repeat left center; content:''; display:block; height:8px; width:311px; position:absolute; left:170px; top:30px;}
+.productlist h2::after{background:url(/companyimages/line.png) no-repeat left center; content:''; display:block; height:8px; width:311px; position:absolute; right:170px; top:30px; }
+.productlist .item{ text-align:center; padding:10px 0px;}
+.productlist .item a{ display:inline-block; padding:5px 10px; margin:10px; background:#6C8FFF; color:#fff; font-size:14px; line-height:30px; border-radius:10px;}
+.productlist ul li{ width:252px; height:230px; float:left; margin:0px 22px; background:#fff; text-align: center;display: block;position: relative;}
+.productlist .picture{border:1px solid #fff;width:250px; height:165px;}
+.productlist ul li img{ width:250px; height:165px; text-align:center;}
+.productlist ul li p a{ font-size:16px; text-align:center; color:#333; padding-top:10px; display:block}
+.carousel {position:relative;}
+.carousel ul {list-style: none;display: block;margin: 0;padding: 0;}
+.carousel ul li{ width:252px; height:230px; float:left; margin:0px 22px; background:#fff; text-align: center;display: block;position: relative;}
+.carousel ul li:hover{-webkit-box-shadow:0 10px 10px rgba(0, 0, 0, 0.1); box-shadow:0 10px 10px rgba(0, 0, 0, 0.1);-webkit-transition:.6s; transition:.6s;}
+.carousel .prev, .carousel .next {background: transparent url(/companyimages/return.png) no-repeat 0 0;text-indent: -999px;display: block;overflow: hidden;width: 15px;height: 21px;margin-left: 10px;position: absolute;top: 100px;}
+.carousel .prev {background-position: 0 0;left: -30px;}
+.carousel .prev:hover {left: -31px;}			
+.carousel .next {background-position: -18px 0;right: -20px;}
+.carousel .next:hover {right: -21px;}				
+.carousel .pager {text-align: center;margin: 0 auto;}
+.carousel .pager a {background: transparent url(/companyimages/carousel_control.png) no-repeat -2px -32px;text-decoration: none;text-indent: -999px;display: inline-block;overflow: hidden;width: 8px;height: 8px;margin: 0 5px 0 0;}
+.carousel .pager a.selected {background: transparent url(/companyimages/carousel_control.png) no-repeat -12px -32px;text-decoration: underline;}
+.productlist .button{ text-align:center; margin-top:10px;}
+.productlist .button a{ display:inline-block; padding-right:18px; font-size:16px; border-radius:10px; text-align:center; padding:10px 50px 10px 30px; border:1px solid #fff; color:#fff; background:url(/companyimages/you.png) no-repeat; background-position:100px 13px;}
+
+/**首页关于我们**/
+.about{  background:url(/companyimages/c2eb.jpg) no-repeat center center}
+.about .ustitle{ background:url(/companyimages/con2_title.png) no-repeat center bottom;text-align:center; font-size:30px; color:#fff; padding:10px 0px ;}
+.details{ background:url(/companyimages/con2.png) no-repeat; background-position:100px 90px; width:1190px; margin:0 auto;}
+.details .usdetail{ width:1000px; font-size:13px; color:#fff; line-height:26px; margin:10px auto; text-indent:2em; height:80px; overflow:hidden}
+.details .usdetail a{ color:#fff}
+.concept{ height:250px; position:relative}
+.concept h3{ position:absolute; top:10px; left:540px; color:#fff; font-size:26px;}
+.details .concept ul{}
+.details .concept ul li{ width:260px; height:60px; float:left; position:absolute; color:#fff; }
+.details .concept .tail1{ top:32px; left:158px;*top:18px;}
+.details .concept .tail2{ top:32px; right:158px;*top:18px;}
+.details .concept .tail3{ bottom:59px; left:158px; *bottom:66px;}
+.details .concept .tail4{bottom:59px; right:158px;*bottom:66px;}
+.details .concept ul li p{font-size:15px; padding-left:60px;}
+.details .concept ul li a{ font-size:17px; color:#fff; display:block; padding-bottom:10px;}
+
+/**首页相关常识**/
+.knowledge{ background:#437EE4 url(/companyimages/con1_bg.jpg) no-repeat}
+.know{ width:1190px; margin:0 auto; padding-top:20px;}
+.know h2{ text-align:center; display:block; color:#fff; font-size:30px; padding:10px 0px; position:relative}
+.know h2::before{ background:url(/companyimages/line.png) no-repeat left center; content:''; display:block; height:8px; width:311px; position:absolute; left:170px; top:30px;}
+.know h2::after{background:url(/companyimages/line.png) no-repeat left center; content:''; display:block; height:8px; width:311px; position:absolute; right:170px; top:30px; }
+.knowleft{ width:790px; float:left;padding-top:10px; height:225px; overflow:hidden}
+.knowleft ul li{ width:370px; height:108px; float:left; margin:0px 24px 10px 0px; overflow:hidden}
+.knowleft .leftimg{ width:150px; float:left;}
+.knowleft .leftimg img{ width:150px; height:100px;}
+.knowleft .rightitem{ width:210px; float:right;}
+.knowleft .rightitem h3{ font-size:18px; color:#fff; height:50px; overflow:hidden}
+.knowleft .rightitem a{ color:#fff;}
+.knowleft .rightitem p{ font-size:14px; color:#fff;line-height: 23px;padding-top: 8px;}
+.knowright{ width:390px; float:right; height:228px; overflow:hidden}
+.knowright ul li{ height:37px; border-bottom:1px dashed #fff; overflow:hidden; line-height:37px;}
+.knowright ul li span{ float:right; color:#fff;}
+.knowright ul li a{ color:#fff; font-size:15px; background:url(/companyimages/youbian.png) no-repeat; background-position:0px 3px;padding-left: 22px;}
+
+
+
+
+
+
+/**底部**/
+.foot{ background:#333;}
+.foot .link{ width:1140px; margin:0 auto; color:#FFF; padding-top:20px; font-size:18px; background:url(/companyimages/lianjie.png) no-repeat; background-position:0px 10px; padding-left:50px; padding-bottom:10px; font-weight:700; border-bottom:1px solid #050404}
+.foot .link a{ color:#fff;  margin:0px 20px; font-size:16px; font-weight:700}
+.mainfooter{ width:1190px; margin:0 auto; border-top:1px solid #6F6F6F; height:136px;}
+.footleft{ width:350px; float:left; padding-top:10px; padding-left:50px;}
+.footleft ul li{ width:116px; float:left}
+.footleft ul li a{ color:#fff; font-size:16px; line-height:36px; }
+.footcenter{ background:url(/companyimages/foot_line.jpg) no-repeat; background-position:0px 25px ; width:350px; float:left; padding-top:10px;}
+.footcenter .social{ padding-left:90px;}
+.footcenter .social .icon{ background:url(/companyimages/social.png) no-repeat; height:57px; width:50px; vertical-align:middle; display:inline-block; margin:0px 10px;}
+.footcenter .social .qq{ background-position:0px 0px;}
+.footcenter .social .weichat{ background-position:-143px 0px;}
+.footcenter .social .weibo{ background-position:-75px 0px;}
+.footcenter .cap{ padding-left:60px; padding-top:13px;}
+.footcenter .cap .ditu{ background:url(/companyimages/ditu.png) no-repeat; padding-left:60px; font-size:16px; color:#fff; line-height:40px; height:45px; display:block}
+.footright{ width:440px; float:left; height:136px; background:url(/companyimages/foot_tel_bg.jpg) no-repeat left top}
+.footright .contact{ padding-left:45px; padding-top:15px;}
+.footright .hotline{ padding-left:130px;font-size:16px; background:url(/companyimages/tel.png) no-repeat; background-position:100px 0px;}
+.footright p{color:#fff; font-size:14px; padding-bottom:6px;}
+.footright  font{ font-size:28px; color:#fff; font-weight:bold; border-bottom:1px dashed #fff; display:inline-block; width:220px; padding-left:70px; padding-bottom:10px; margin-left:7px;}
+.maincopyright{ background:#437EE4;}
+.maincopyright span{ float:left; color:#fff; margin:0px 30px; font-size:14px;}
+.maincopyright span a{ color:#fff;}
+.copy{ width:1030px; margin:0 auto;padding-top:15px; color:#fff; font-size:14px; line-height:30px;}
+
+
+/**客服**/
+.floating_ck{position:fixed;right:0;top:30%;}
+.floating_ck dl dd{position:relative;width:80px;height:80px;background-color:#000;border-bottom:solid 1px #555666;text-align:center;background-repeat:no-repeat;background-position:center 20%;cursor:pointer; margin-bottom:10px; opacity:0.6;}
+.floating_ck dl dd:hover{background-color:#437EE4;border-bottom:solid 1px #437EE4; opacity:0.8}
+.floating_ck dl dd:hover .floating_left{display:block;}
+.consult{background-image:url(/companyimages/zixun.png);}
+.qrcord{background-image:url(/companyimages/erweima.png);}
+.return{background-image:url(/companyimages/fanhui.png);}
+.floating_ck dd span{color:#fff;display:block;padding-top:54px;}
+.floating_left{position:absolute;left:-160px;top:0px;width:160px;height:80px;background-color:#437EE4;border-bottom:solid 1px #437EE4;display:none;}
+.floating_left a{color:#fff;line-height:80px;}
+.floating_ewm{height:213px;top:-133px;}
+.floating_ewm i{background-image:url(/companyimages/sao.png);display:block;width:145px;height:145px;margin:auto;margin-top:7px;}
+.floating_ewm p{color:#fff;margin-top:5px;}
+.floating_ewm .qrcord_p01{font-size:12px;line-height:20px;}
+.floating_ewm .qrcord_p02{font-size:16px;}
+
+
+/**关于我们**/
+.related{ background:#437EE4 url(/companyimages/zy-bg.png) center 0 no-repeat; height:75px;}
+.relatedtitle{ width:1190px; margin:0 auto; height:74px; overflow:hidden}
+.relatedtitle span{ color:#fff; float:left; display:block;font-size:26px;}
+.relatedtitle p{ float:right; color:#fff; font-size:15px; padding-top:27px;}
+.relatedtitle p a{ color:#fff;}
+.relatedtitle .classification{ font-size:26px; color:#437EE4; padding-left:85px; padding-top:25px;}
+.relatedtitle .ustip{padding-left:115px; padding-top:25px;}
+.relatedcontent{ width:1190px; margin:0 auto; position:relative}
+.relatedcontent .relatedleft{ background:url(/companyimages/zy-bb_07.png) repeat-y; width:241px; float:left;}
+.relatedcontent .relatedleft ul li{ width:200px; height:40px; border-bottom:1px dashed #ccc; margin-left:20px; background:url(/companyimages/right.png) no-repeat left center }
+.relatedcontent .relatedleft .curr a{ color:#ff9900}
+.relatedcontent .relatedleft ul li a{ font-size:15px; line-height:40px;padding-left:20px; color:#437EE4 }
+.relatedcontent .contactpeo{ background:url(/companyimages/zy-bb_10.jpg) no-repeat; height:258px;}
+.relatedcontent .contactpeo h4{ font-size:22px; color:#fff; text-align:center; padding-top:15px; padding-bottom:10px; background:url(/companyimages/contact.png) no-repeat 14% center}
+.relatedcontent .contactpeo p{ font-size:15px; color:#fff; padding:5px 10px; line-height:26px;}
+.relatedcontent .contactpeo span{ font-size:26px; font-weight:bold; color:#fff; text-align:center; display:block;}
+.relatedcontent .relatedright{ width:933px; float:right; padding-top:15px; overflow:hidden;}
+.relatedcontent .relatedright h3{ font-size:24px; color:#333; text-align:center; padding:10px 0px;}
+.relatedcontent .relatedright .relatedtext p{ font-size:15px; line-height:26px; text-indent:2em}
+.relatedcontent .relatedright img{width:100%;}
+
+.font1{ background:url(/companyimages/about.png) no-repeat 37% bottom}
+.font2{background:url(/companyimages/fontshow.png) no-repeat 37% bottom}
+.font3{background:url(/companyimages/fontcase.png) no-repeat 37% bottom}
+.font4{background:url(/companyimages/fontusua.png) no-repeat 37% bottom}
+.font5{background:url(/companyimages/fontarea.png) no-repeat 37% bottom}
+.font6{background:url(/companyimages/fontme.png) no-repeat 37% bottom}
+.font7{background:url(/companyimages/fonttel.png) no-repeat 37% bottom}
+
+
+/**产品展示**/
+.variety{ overflow:hidden}
+.empty{font-size:18px; font-weight:600; padding-left:55px; padding-top:40px; background:url(/companyimages/kulian.png) no-repeat 38% bottom; text-align:center}
+.variety ul li{ width:280px; height:230px; float:left; margin:10px 14px; background:#f3f3f3;}
+.variety ul li:hover{ box-shadow:0px 8px 8px rgba(0, 0, 0, 0.2);-webkit-box-shadow:0 5px 5px rgba(0, 0, 0, 0.2);-webkit-transition:.6s; transition:.6s; }
+.variety ul li p{ text-align:center; font-size:16px; padding-top:8px;}
+.variety ul li p a{ }
+.variety .varimg img{ width:280px; height:180px;}
+.varycont h2{ font-size:24px; display:block; text-align:center; margin:14px 0px;}
+.imggrouplist ul li{ text-align:center; float:left; width:280px; height:230px; margin:10px; background:#f2f2f2;}
+.imggrouplist ul li:hover{box-shadow:0px 8px 8px rgba(0, 0, 0, 0.2);-webkit-box-shadow:0 5px 5px rgba(0, 0, 0, 0.2);-webkit-transition:.6s; transition:.6s;}
+.imggrouplist ul li img{ width:280px; height:180px;}
+.imggrouplist ul li>div{ font-size:14px;}
+.imagetop{ height:30px; font-size:14px; text-align:center}
+.imagetop a{ color:#5493FF}
+
+.imagelist{margin:0 auto;width:930px;} /*总宽度*/
+.imagelist .defaultimagesrc{text-align:center;margin:5px;padding-bottom:10px;}
+.imagelist .defaultImagesrc img{border:1px solid #f1f1f1;padding:2px;}
+.imagelist .imageintro{ display:none;text-align:center;font-size:15px;padding-bottom:15px; line-height:22px;font-weight:bold; font-family:"微软雅黑"}
+.thumb {height:120px;padding:5px;}
+.thumb_1 {text-align: center;float: left;height: 50px;width: 80px;padding-top: 30px;font-weight: 700;font-size: 18px;color:#000; display:none;}
+.thumb_1 .font-28{font-size:28px;color:#000;}
+.thumb_2 {float: right;width: 870px;}
+.thumb_2_1 {background:url(/companyimages/leftarrow.png) no-repeat center center;float: left;height: 117px;width: 42px;cursor:pointer;margin-left:10px;_margin-left:0px;}
+.thumb_2_2 {background:url(/companyimages/rightarrow.png) no-repeat center center;float: right;height: 117px;width: 42px;cursor:pointer; margin-right:40px;}
+#scrool_div {width:728px;position:relative;height:120px;overflow:hidden;}
+#scrool_wrap {height:109px;position:absolute;width:20000px;}
+#scrool_wrap li {float:left;position:relative;margin-right:5px;}
+#scrool_div img{width:120px;height:90px;margin:5px;}
+.normalthumb img{padding:2px;border:4px solid #644E43; border-radius:10px;}
+.currthumb img{padding:2px;border:4px solid #437EE4;border-radius:10px;}
+.defaultimagesrc img{ max-width:800px;}
+
+
+
+
+/* 图片分页方式的样式结束*/
+#fenye{clear:both;margin:15px 0;height:35px; text-align:right;}
+#fenye table{ float:right}
+#fenye img{ margin:0px 2px}
+#fenye a{text-decoration:none; font-size:14px;height:24px; float:left; padding:0 8px; text-align:center; line-height:24px; display:inline-block;color:#666;margin:0px 5px; border-radius:5px;border:1px solid #ccc; background:#fff}
+#fenye .prev img,#fenye .next img{margin-top:8px}
+#fenye a.curr{ text-align:center;}
+#fenye a.num{}
+#fenye a:hover{text-decoration:none;}
+#fenye span{ line-height:30px;padding-left:5px; font-family:Arial, Helvetica, sans-serif}
+#fenye span#totalpage{padding-left:0px}
+
+
+
+
+
+/**相关常识**/
+.usually{ padding-left:25px; padding-top:22px;}
+.usually .usuallytop{}
+.usually .usuallytop ul{}
+.usually .usuallytop ul li{ width:425px; height:110px; float:left; margin-right:29px; margin-bottom:20px;}
+.usually .usuallytop ul li a{ font-size:16px; line-height:30px;}
+.usually .usuallytop .sense_left{ width:175px; float:left}
+.usually .usuallytop .sense_left img{ width:175px; height:110px}
+.usually .usuallytop .sense_right{ width:240px; float:right}
+.usually .usuallytop .sense_right h2{ padding-bottom:5px; height:27px; overflow:hidden}
+.usually .usuallytop .sense_right h2 a{ font-size:18px; display:block }
+.usually .usuallytop .sense_right p{ font-size:12px; color:#666; height:51px; overflow:hidden; margin-bottom:7px;}
+.usually .usuallytop .sense_right span{ background:url(/companyimages/time.png) no-repeat left center; display:block; padding-left:20px;}
+.usually .usuallybottom{}
+.usually .usuallybottom ul li{ width:391px; margin-right:40px; height:40px; line-height:40px; border-bottom:1px dashed #ccc; background:url(/companyimages/arrow.png) no-repeat; background-position:0px 14px; padding-left:23px; overflow:hidden; float:left}
+.usually .usuallybottom ul li:hover{background:#f2f2f2 url(/companyimages/arrow.png) no-repeat; background-position:0px 14px;}
+.usually .usuallybottom ul li a{ font-size:16px; line-height:40px;}
+.usually .usuallybottom ul li span{ float:right; line-height:40px; padding-left:10px;}
+.usually .common{font-size:18px; font-weight:600; padding-left:55px; padding-top:20px; background:url(/companyimages/kulian.png) no-repeat left bottom; }
+/**相关内容页**/
+.mainessay{}
+.mainessay h4{ font-size:20px; text-align:center; margin:10px 0px;}
+.mainessay p{ text-align:center; font-size:14px;}
+.mainessay p font{ color:#C00; font-style:normal}
+.mainessay .essaytitle{ margin-bottom:15px;}
+.chargetips{ font-size:16px; text-align:center; padding-top:50px; background:url(/companyimages/smile.png) no-repeat 31% bottom;}
+.chargetips a{ color:#437EE4;}
+.essay img{ max-width:850px;}
+.essay ul{ clear:both;padding-left: 245px;}
+.essay ul li{ float:left; margin:0px 10px;}
+.essay ul li p{ background:#f5f5f5; border:1px solid #ddd; padding:6px 10px}
+
+
+
+/**在线留言**/
+.online{ border:3px dashed #ccc; border-radius:10px;}
+.message{ margin-bottom:15px;}
+.message font{ font-weight:bold; color:#F00; padding-left:10px;}
+.message p{ text-align:center; font-size:15px; color:#39C}
+.message ul li{ width:424px; float:left; padding-left:30px; height:50px;}
+.message ul li span{ font-size:16px; font-weight:bold}
+.message ul li input{ margin-left:15px; height:30px; line-height:30px; width:270px; color:#999; font-size:14px; padding-left:10px;}
+.message .leave{padding-left:30px; width:860px; height:140px;}
+.message .leave span{ float:left;}
+.message .leave .textarea{ float:left; width:85.5%; height:120px; color:#999; font-size:14px; padding-left:10px; line-height:30px;}
+.message .code{ width:100px !important;}
+.message .submit{ background:#437EE4; border:1px solid #437EE4; width:120px; height:36px; color:#fff; margin-right:49px; border-radius:5px; box-shadow:0px 5px 0px #3A61DB}
+.tabCont {font-size:14px;}
+.tab_menu{height: 32px;border-bottom:1px solid #999;width: 100%;}
+.tab_menu li{height:31px;line-height:31px;float:left;margin-bottom: -1px;overflow: hidden;width:49.5%;}
+.tab_menu li a {display: block;padding: 0 20px;outline: none; font-size:18px; text-align:center}
+.tab_menu li a:hover { color:#ff9900}	
+.tab_menu .hover,.tab_menu .hover a:hover{background: #fff;border-bottom: 3px solid #ff9900;}
+.tab_menu .hover a{ color:#ff9900}
+
+.note{ width:910px; margin:0 auto}
+.note ul li{ border:1px solid #ccc; border-radius:8px; padding:15px; margin-bottom:15px;}
+.note ul li p{ line-height:24px;}
+.note .reply{ display:block; padding-left:42px; background:url(/companyimages/kefu.png) no-repeat left top; font-size:15px;font-size: 17px;line-height: 45px; font-weight:600}
+.note ul li p font{ padding-left:10px;}
+.note .text_left{}
+.note .text_left .text_name{ font-size:16px; font-weight:bold; background:url(/companyimages/ren.png) no-repeat left center; padding-left:40px; height:40px; line-height:49px;}
+.note .text_left .text_name span{padding-left:20px;float:right; font-weight:normal; font-size:14px;}
+.note .text_left .text_content{ padding-top:10px; line-height:30px; padding-bottom:10px; border-bottom:1px dashed #ccc;margin-bottom: 10px}
+
+/**分页**/
+#pageNext{ padding-top:15px;}
+#pageNext tr td a{ padding:6px 10px; background:#f5f5f5; border:1px solid #ddd; margin:0px 10px;border-radius: 4px;}
+#pagelist .curr{color:#F00;border-radius: 4px; }
+
+/**联系我们**/
+.track{ border:3px dashed #ccc; width:900px; padding-bottom:15px; border-radius:12px; margin-left:12px;}
+.track .company{ font-weight:800; font-size:22px; padding-top:10px; padding-bottom:10px;}
+.track p{ line-height:40px; font-size:18px; padding-left:20px;}
+.map{width:450px; float:left; padding-top:10px;}
+.map img{ width:450px; margin-top:16px;}
+.mapright{ width:400px; float:right; margin-top:10px;}
+
+
+
+
+
+
+

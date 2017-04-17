@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gb2312"?>
+<sysinfo>
+  <yunvideo>2</yunvideo>
+  <yunlive>2</yunlive>
+  <yunsms>1</yunsms>
+  <serverurl>
+    <yunurl>yun.kesion.com</yunurl>
+    <zhanshilivesite>kexun888.gensee.com</zhanshilivesite>
+  </serverurl>
+</sysinfo>

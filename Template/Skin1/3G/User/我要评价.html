@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>我要评价—{#productName}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{M:G3InstallDir}Template01/user/images/user.css" rel="stylesheet" type="text/css">
+<link href="{M:G3InstallDir}Template01/user/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+<script src="{M:G3InstallDir}Template01/user/agent.js"></script>
+
+<style>
+.store_msg{ overflow:hidden; margin-top:10px; padding:10px;}
+.form-group,.bgstore {margin-bottom: 15px;}
+strong label{ margin-bottom:8px; display:block}
+.form-group .textbox{display: block;width: 100%;height: 34px;padding: 6px 12px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;
+border-radius: 4px;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);box-shadow: inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;box-sizing: border-box;color: #434a54;
+border-color: #aab2bd;}
+.tips{ padding:8px 0; font-size:10px;}
+.skinlist{ overflow:hidden}
+.skinlist li{ width:47%; margin-right:2%; float:left; height:120px;border:1px solid #ccc;}
+li.curr{border:2px solid red; }
+.skinlist li img{ height:100%}
+.s_btn .button{display: block; width:100%;font-weight: 400;text-align: center;vertical-align: middle;cursor: pointer;border: 1px solid transparent;padding: 6px 0px;font-size: 14px;line-height: 1.42857143;border-radius: 4px; color:#fff;background-color: #da4453;border-color: #da4453 }
+.s_btn .button:hover{background-color: #d9534f;border-color: #d43f3a;}
+</style>
+<script>
+    $(function () {
+        $(".skinlist").find("li").click(function () {
+            $(".skinlist").find("li").removeClass("curr");
+            $(this).addClass("curr");
+            $("#skinid").val($(this).attr("id"));
+        });
+    });
+</script>
+</head>
+
+<body class="wrap">
+<div class="headbar">
+   <div class="back"><a href="javascript:;" onClick="history.back()"><i class="fa fa-chevron-left"></i></a></div>
+   <h3>评价我购买的商品</h3>
+   <div class="right_head fr">
+      <a href="ShopComment.aspx" class="myuser"><i class="fa fa-user"></i></a>
+   </div>
+</div> 
+
+  <script>
+      function checkComment() {
+          //alert("df");
+          if ($("#star").val() == 0) {
+             alert("请选择评定的星星数!");
+             return false;
+          }
+          if ($("#CmtContent").val()==""){
+		     alert("请输入评价内容!");
+			 $("#CmtContent").focus();
+             return false;
+		  }
+          return true;
+      }
+      </script>
+
+<div class="store_msg well">
+      <form name="myform" action="ShopComment.aspx?action=CommentSave" method="post">
+              <div class="form-group">
+                 <strong><label>商品名称：</label></strong>
+                   <input type="hidden" name="orderId" id="orderId" value="{KS:Field:orderid}" />
+                    <input type="hidden" name="proId" id="proId"  value="{#ProID}" />
+				 {#productName}
+              </div>       
+              <div class="form-group">
+                 <strong><label>购买时间：</label></strong>
+                 <input type="hidden" name="GMadddate" id="GMadddate" value="{#buyDate}" />
+                
+                 {#buyDate}
+              </div>   
+              <div class="form-group">
+                 <strong><label>评价等级：</label></strong>
+
+
+                 <input type="radio" name="CmtType" id="CmtType" value="0">好评
+                 <input type="radio" name="CmtType" value="1" id="CmtType" checked="checked">中评
+                   <input type="radio" name="CmtType" value="2" id="CmtType">差评
+				 
+              </div>   
+              <div class="form-group">
+                 <strong><label>得星星数：</label></strong>
+
+                  <SCRIPT>
+                      var startnum = 5; //星的个数
+                      var selectedcolor = "red"; //选上的颜色
+                      var uselectedcolor = "gray"; //未选的颜色
+                      function _$(id) {
+                          return document.getElementById(id);
+                      }
+                      function setstarover(k, index) {
+
+                          for (var i = 1; i <= index; i++) {
+                              _$("s" + k + i).style.color = selectedcolor;
+                              _$("s" + k + i).style.cursor = "hand";
+                          }
+                      }
+                      function setstar(k, index) {
+
+                          for (var i = 1; i <= startnum; i++) {
+                              _$("s" + k + i).style.color = uselectedcolor;
+                              _$("s" + k + i).style.cursor = "hand";
+                          }
+                          for (var i = 1; i <= starNum; i++) {
+                              _$("s" + k + i).style.color = selectedcolor;
+                              _$("s" + k + i).style.cursor = "hand";
+                          }
+                      }
+                      var starNum = 0;
+                      function clickstar(presetpoint, k, index) {
+                          starNum = index;
+                          _$("star").value = '' + index + '';
+                      }
+
+                      var str = '';
+                      var PresetPoint = Array('');
+                      for (var k = 0; k < PresetPoint.length; k++) {
+                          str += '<input type="hidden" name="star" value="0" id="star">';
+                          for (var i = 1; i <= startnum; i++) {
+                              str += ('<span id="s' + k + i + '" style="font-size:24px" onclick="clickstar(\'' + PresetPoint[k] + '\',' + k + ',' + i + ')" title="' + i + '星" onmouseout="setstar(' + k + ',' + starNum + ')" onmouseover="setstarover(' + k + ',' + i + ')">★</span>');
+                          }
+                          str += "&nbsp;"
+                      }
+                      document.write(str);
+                      </SCRIPT>
+
+                  <div class="form-group">
+					 <strong><label>评价内容：</label></strong>
+					  <textarea  name="CmtContent"  id="CmtContent"  placeholder="如请填写评价内容" class="textbox"  style="height:200px" ></textarea>
+				  </div>
+				  
+				   <div class="form-group"{$DisplayCmtPic}>
+					 <strong><label>评价晒图：</label></strong>
+					 
+					 <style>
+					 /*晒图*/
+					.imagebox .upshow li{float:left;width:55px;margin-top:10px;}
+					.imagebox .upshow li img{width:49px;height:49px;border:1px solid #ccc;}
+					 </style>
+					<input type="hidden" name="files" id='files'/>
+                     <!--上传图片开始-->
+                   <div class="imagebox">
+		             <script type="text/javascript">
+		                 function doSubmit(obj) { box = $.dialog({ title: false, content: '请稍等，正在上传文件...' }); }
+		                 function uploadOk(v,s) {
+		                     box.close();
+							 if (s==undefined) s=v;
+		                     if ($("#files").val() == '') {
+		                         $("#files").val(s+"|"+v);
+		                     } else {
+		                         $("#files").val($("#files").val() + "§" + s+"|"+v);
+		                     }
+                             $(".upshow").append("<li><img src='" + s + "'/></li>");
+		                 }
+                     </script>
+                       <div class="upshow"></div>
+                         <iframe  src="../../user/include/autoupload.aspx?channelid=4&fun=top.uploadOk" width="60" height="60" scrolling="no" frameborder="0"></iframe>
+                         <span class="tips"></span>
+		             </div> 
+	                <!--上传图片结束-->
+				
+				  </div>
+				  
+              </div>   
+             
+ 
+		   <div class="s_btn"><input type="submit" value="确认保存" onClick="return(checkComment());" class="button" {#disabled}/></div>
+	  </form>
+   
+</div>
+
+<!--支持的项目-->
+
+{KS_T1_手机_会员底部通用}
+</body>
+</html>

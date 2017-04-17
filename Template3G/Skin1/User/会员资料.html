@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>会员资料</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+<script>
+$(function(){
+  $(".skinlist").find("li").click(function(){
+      $(".skinlist").find("li").removeClass("curr");
+	  $(this).addClass("curr");
+	  $("#skinid").val($(this).attr("id"));
+  });
+});
+</script>
+</head>
+
+<body>
+<div class="header u-header">
+	<a href="javascript:;" onClick="history.back()" class="back"><i class="fa fa-angle-left"></i></a>
+    <div class="m-title">会员资料</div>
+    <div class="head-in">
+    	
+    </div>	
+</div> 
+<script>
+ $(function(){
+   $("input[name='sex'][value='{KS:Field:Sex}']").attr("checked",true);
+ });
+ function checkForm(){
+   if ($("#realname").val()==""){
+     alert('请输入您的姓名!');
+	 $("#realname").focus();
+	 return false;
+   }
+   if ($("#email").val()==""){
+     alert('请输入您的电子邮箱!');
+	 $("#email").focus();
+	 return false;
+   }
+ }
+</script>
+<div class="myform">
+      <form name="myform" action="zlsave.aspx" method="post">
+              <div class="form-group">
+                 <span class="bt">会员名称</span>
+				 <div class="pos-txt">{KS:Field:UserName}</div>
+              </div>       
+              <div class="form-group">
+                 <span class="bt">真实姓名</span>
+                 <input type="text" name="realname" id="realname" maxlength="200" placeholder="如请填写您的真实姓名" class="textbox" value="{KS:Field:RealName}">
+              </div>   
+              <div class="form-group">
+                 <span class="bt">性 别</span>
+                 <span class="pos-txt"><input type="radio" name="sex" value="男">男
+                 	<input type="radio" name="sex" value="女">女
+				 </span>
+              </div>   
+              <div class="form-group">
+                 <span class="bt">电子邮箱</span>
+                 <input type="text" name="email" id="email" maxlength="200" placeholder="如请填写电子邮箱" class="textbox" value="{KS:Field:Email}">
+              </div>   
+              <div class="form-group">
+                 <span class="bt">所在地区</span>
+                 <div class="pos-inp"><script src='/plus/area.aspx?pid={KS:Field:ProID}&cityid={KS:Field:CityID}&countyid={KS:Field:CountyID}&ext=true'></script></div>
+              </div>   
+            
+                    {#ShowDiyUserInfo}
+                  
+ 
+		     <input type="submit" value="确认保存" onClick="return(checkForm());" class="btn btn-info"/></div>
+	  </form>
+   
+</div>
+
+</body>
+</html>

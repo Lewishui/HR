@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="{$GetClassMetaKeyWords}"/>
+	<meta name="Description" content="{$GetClassMetaDescript}" />
+    <link href="{$GetSiteUrl}images/home.css" rel="stylesheet" />
+	<title>{$GetSiteTitle}-新闻频道-{$GetClassName}新闻-第[KS:CurrentPage]页</title>
+	<!--鼠标滑动特效start--> 
+	<script src="{$GetSiteUrl}ks_inc/jquery.js" type="text/javascript"></script>
+	<script src="{$GetSiteUrl}ks_inc/kesion.common.js" type="text/javascript"></script>
+	<!--鼠标滑动特效end--> 
+</head>
+
+<body>
+	{KS_T1_头部通用}
+	<div class="newsnav">
+		<ul>
+			{KS_T1_新闻栏目导航}
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="newsmain01 common_newsmain" >
+		<div class="left">
+           
+			<div class="left02">
+				<h1 style="border-top:0px"><span><a href="{=GetRewriteUrl(specialindex)}" style="color:#666;">论专题</a> | {KS_T1_最新专题新闻}</span>{$GetClassName}频道</h1>
+				<ul>
+					{KS_T1_新闻分页}
+				</ul>
+			</div>
+		</div>
+		<div class="right">
+             <div class="ad325">{=GetAdvertise(12)}</div>
+			<div class="right01zt">
+			    <h4><span><a href="/model/Topicindex.aspx">更多<em>&raquo;</em></a></span>精彩专题</h4>
+				<ul>
+					{KS_T1_最新专题}
+				</ul>
+			</div>
+			<div class="right02">
+				<h4><span><a href="{=GetClassUrl(1115)}">更多<em>&raquo;</em></a></span>图片新闻</h4>
+				<ul>
+					{KS_T1_图片新闻}
+				</ul>
+			</div>
+			<div class="clear"></div>
+			<div class="right03">
+				<h4>点击排行榜</h4>
+				<ul>
+					{KS_T1_文章点击榜}
+				</ul>
+			</div>			
+			<div class="clear"></div>
+			<div class="right03">
+				<h4>评论排行榜</h4>
+				<ul>
+					{KS_T1_评论排行榜}
+				</ul>
+			</div>			
+		</div>
+	</div>
+	{KS_T1_尾部通用}
+</body>
+</html>

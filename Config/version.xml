@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gb2312"?>
+<sysinfo>
+  <isbusiness>false</isbusiness>
+  <showver>cms</showver>
+  <model>
+    <exam>false</exam>
+	<ods>false</ods>
+	<mall>false</mall>
+  </model>
+</sysinfo>

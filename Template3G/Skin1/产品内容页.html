@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$Get3GSiteName}</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<link href="{$GetInstallDir}companyimages/3g.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jQuery.js" language="javascript" type="text/javascript"></script>
+<script src="{$GetInstallDir}KS_Inc/Kesion.Common.js" language="javascript" type="text/javascript"></script>
+</head>
+
+<body>
+{KS_T1_手机版头部}
+<div class="fabric content">
+	<h3>{$GetClassName}</h3>
+    <div class="blank10"></div>
+    <div class="showlist">
+        <div class="picList list">
+                {KS:ShowImages}
+        </div>
+        <div class="pd-10">
+            <div class="prev_art">
+                 上一篇：{KS:Field:PreItem}
+            </div>  
+              <div class="next_art mt-10">
+                 下一篇：{KS:Field:NextItem}
+              </div>
+             <div class="clear"></div>
+        </div>
+
+    </div>
+</div>
+
+
+
+{KS_T1_手机版底部}
+
+
+</body>
+</html>

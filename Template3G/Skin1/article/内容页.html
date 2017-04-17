@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>{$Get3GSiteName}</title>
+<meta name="keywords" content="{M:KeyWords}">
+<meta name="description" content="{M:Decription}">
+<link href="{M:G3InstallDir}style/style.css" rel="stylesheet" type="text/css" />
+<script src="{$GetInstallDir}ks_inc/jQuery.js" language="javascript" type="text/javascript"></script>
+<script src="{$GetInstallDir}KS_Inc/Kesion.Common.js" language="javascript" type="text/javascript"></script>
+</head> 
+<body>
+<div class="mod-content article-content">
+	{KS_T1_3G_头部通用}
+	<div class="article-head">
+    	<h2>{KS:Field:Title}</h2>
+        <p class="info">
+        	<span>{KS:Field:AddDate}</span><span>作者:{KS:Field:Inputer}</span><span>点击数:(<font color=red>{KS:Field:Hits}</font>)</span><span>评论:<font color=red>{KS:Field:CommentNum}</font></span>
+        
+       	  <!--  <span>{KS:Current:Favorite}</span>-->
+        </p>
+    </div>
+
+
+	
+    <div class="cont">
+    	 {KS:Field:Content}
+    </div>
+    <div class="art-other">    
+        <div class="pk">{KS_T1_手机_DIGG样式一}</div>
+
+        <div>关键字：{KS:Field:KeyTagsByLink}</div>
+
+        <div class="art-exetl">
+       		<div><span class="art-prev">上一篇：{KS:Field:PreItem}</span></div>
+        	<div><span class="art-next">下一篇：{KS:Field:NextItem}</span></div>
+        </div>
+
+       	 <div class="ct_mood"><script src="{$GetInstallDir}plus/mood.aspx?id=6&c_id={KS:Current:ItemID}&M_id={KS:Current:ModelID}" ></script></div>
+    </div>    
+       
+	<div class="discuss">
+		<div class="commenTit">网友评论</div>
+        <div class="commentWrite">{KS:Field:WriteComment}</div>
+		<div class="commentShow">{KS:Field:ShowComment}</div>
+	</div>
+
+
+</div>
+<!--mod-content end-->
+
+{KS_T1_3G_底部通用}  
+  
+{KS_T1_3G_底部按钮}
+
+</body>
+</html>

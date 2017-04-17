@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>会员中心-{$GetSiteName}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+<link href="{M:G3InstallDir}Template01/user/images/user.css" rel="stylesheet" type="text/css">
+<link href="{M:G3InstallDir}Template01/user/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script>
+$(function () {
+		 getNewMessage(); //短消息
+});
+function returnMessage(text) {
+            var obj = document.getElementById("NewMessage");
+            obj.innerHTML = text;
+        }
+        function getNewMessage() {
+            jQuery.ajax({ url: "{$GetInstallDir}plus/ajaxs.ashx", cache: false, data: "type=1&a=GetNewMessage&now=" + new Date().getTime(), success: function (obj) {
+                returnMessage(obj);
+            } 
+            });
+            setTimeout("getNewMessage()", 5000);
+        }
+</script>
+</head>
+
+<body style=" background:0">
+
+
+<div class="user_top">
+  
+  <div class="my_details">
+     <div class="user_pic">
+        <img src="{KS:Field:UserFace}" onerror="this.onerror=null;this.src='/sysimg/face/boy.jpg'" >
+     </div>
+     <div class="u_name">
+	 {KS:Field:UserName}【{#GroupName}】
+	</div>
+     <p> <a href="message.aspx">站内消息<span id="NewMessage" style="background:red;color:#fff;"></span></a></p>
+  </div>
+  
+</div>
+
+<div class="MiddleCont">
+	<div class="userbox">
+	   
+<div class="user_info">
+   <ul>
+      <li>
+         
+          <span class="user_ico" style="background:#47aef0;"><i class="fa fa-list-alt"></i></span>
+          <div class="specific_items">
+            <h5>余额</h5>
+            <span class="u_money"><span style="font-size: 1.3rem;">￥</span>{KS:Field:Money(2)}</span>
+             积分：<span class="u_money">{KS:Field:Score}</span>
+			 点券：<span class="u_money">{KS:Field:Point(2)}</span>
+          </div>
+      
+      </li>
+  </ul> 
+  [binduser]
+  <ul>
+   <li>
+         <a href="binduser.aspx">
+            <span class="user_ico" style="background:#FA82A5;"><i class="fa fa-link"></i></span>
+            <div class="specific_items">
+              <h5 style="color:#F60">微信自动登录，请先绑定账号</h5>
+            </div>
+            <i class="seer fa fa-chevron-right"></i>
+        </a>  
+      </li>
+  </ul>
+[/binduser]
+  
+  <ul>
+  <li>
+         <a href="favorite.aspx">
+            <span class="user_ico" style="background:#9bcd46;"><i class="fa fa-star-o"></i></span>
+            <div class="specific_items">
+              <h5>我的收藏夹</h5>
+            </div>
+            <i class="seer fa fa-chevron-right"></i>
+        </a>  
+      </li>
+      <li>
+         <a href="?action=comment">
+            <span class="user_ico" style="background:#9bcd46;"><i class="fa fa-pencil-square-o"></i></span>
+            <div class="specific_items">
+              <h5>我的评论</h5>
+            </div>
+            <i class="seer fa fa-chevron-right"></i>
+        </a>  
+      </li>
+  </ul>
+
+  <ul>
+   <li>
+         <a href="MyOnlineMessage.aspx">
+            <span class="user_ico" style="background:#9bcd46;"><i class="fa fa-book"></i></span>
+            <div class="specific_items">
+              <h5>我的留言</h5>
+            </div>
+            <i class="seer fa fa-chevron-right"></i>
+        </a>  
+      </li>
+      <li>
+         <a href="?action=zl">
+            <span class="user_ico" style="background:#9bcd46;"><i class="fa fa-smile-o"></i></span>
+            <div class="specific_items">
+              <h5>个人资料</h5>
+            </div>
+            <i class="seer fa fa-chevron-right"></i>
+        </a>  
+      </li>
+     
+      <li>
+         <a href="payonline.aspx">
+             <span class="user_ico" style="background:#fa82a5;"><i class="fa fa-yen"></i></span>
+            <div class="specific_items">
+              <h5>在线充值</h5>
+            </div>
+            <i class="seer fa fa-chevron-right"></i>
+        </a>  
+      </li>
+      <li>
+         <a href="payonline.aspx?action=record">
+            <span class="user_ico" style="background:#fa82a5;"><i class="fa fa-calculator"></i></span>
+            <div class="specific_items">
+              <h5>充值记录</h5>
+            </div>
+            <i class="seer fa fa-chevron-right"></i>
+        </a>  
+      </li>
+      <li>
+         <a href="?action=logmoney">
+             <span class="user_ico" style="background:#fa82a5;"><i class="fa fa-money"></i></span>
+            <div class="specific_items">
+              <h5>资金明细</h5>
+            </div>
+            <i class="seer fa fa-chevron-right"></i>
+        </a>  
+      </li>
+     
+      
+     
+  </ul>   
+  
+  <ul>
+      <li>
+         <a href="UserLoginOut.aspx" onClick="return(confirm('确定退出吗？'));">
+            <span class="user_ico" style=" background:#47aef0;"><i class="fa fa-minus-circle"></i></span>
+            <div class="specific_items">
+              <h5>退出登录</h5>
+            </div>
+            <i class="seer fa fa-chevron-right"></i>
+        </a>  
+      </li>
+    
+      
+     
+  </ul>   
+</div>
+
+
+
+		
+	</div>
+</div>
+
+{KS_T1_手机_会员底部通用}
+
+</body>
+</html>

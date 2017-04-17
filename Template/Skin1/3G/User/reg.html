@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>{M:G3SiteName}-新会员注册</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<link href="{M:G3InstallDir}style/user.css" rel="stylesheet" type="text/css" />
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javaScript"></script>
+<script src="{$GetInstallDir}ks_Inc/Kesion.Common.js"></script>
+<script language="javascript">
+  var minlen={$Show_UserNameLimitChar};
+  var maxlen={$Show_UserNameMaxChar};
+  var MobileReg={$MobileReg};
+  var SessionID="{$SessionID}"; //防止恶意发短信和注册
+  var OutTimes ="{$SendSMSInterval}";
+  var VerifyCodeReg={$VerifyCodeReg};
+  var EnabledRegField="{$EnabledRegField}";
+   var uType={=GetShopCommonConfig(56)};     //会员格式
+</script>
+<script type="text/javascript">
+	$(function(){
+	   if (uType==3){  
+		  $("#showSmsCode").hide();
+	   }
+	});
+	function Check3GRegForm() {
+		var userName=$("#UserName").val();
+		if (userName == "" || userName == "{$GetLoginUserNameTips}") {
+			alert("请填写您的{$GetLoginUserNameTips}！");
+			document.myform.UserName.focus();
+			return false;
+		}
+		if (document.myform.PassWord.value == "") {
+			alert("请填写您的密码！");
+			document.myform.PassWord.focus();
+			return false;
+		}
+		if (uType==0){
+			if (document.myform.Question.value == "" && EnabledRegField.indexOf("question") != -1) {
+				alert("请填写您的密码问题!");
+				document.myform.Question.focus();
+				return false;
+			}
+			if (document.myform.Answer.value == "" && EnabledRegField.indexOf("question") != -1) {
+				alert("请填写您的问题答案！");
+				document.myform.Answer.focus();
+				return false;
+			}
+		}else if (uType==3){
+		
+			   if (!ismobile(userName) && !is_email(userName)){
+				   alert('对不起，请输入正确的手机号码或电子邮箱!')
+				   $('#UserName').focus();
+				   return false;
+			   }else if (ismobile(userName) &&MobileReg==1){
+				
+				 if ($("#showSmsCode").is(":hidden")){
+				   $("#showSmsCode").show();
+				   return false;
+				 }
+				 if ($("#MobileCode").val()==''){
+				  alert('对不起，请输入短信验证码!');
+				  $('#MobileCode').focus();
+				  return false;
+				 }
+			   }
+		}
+	   if (uType!=3){
+			var mobileField='Mobile';
+			if (uType==1){
+				mobileField='UserName';
+			}
+			 var mobile = $("#"+mobileField).val()
+
+			if (mobile == "" && (EnabledRegField.indexOf("mobile") != -1 || MobileReg == 1)) {
+				alert("请输入您的手机号码！");
+				$("#"+mobileField).focus();
+				return false;
+			}
+			if (ismobile(mobile) == false && (EnabledRegField.indexOf("mobile") != -1 || MobileReg == 1)) {
+				alert('手机号码格式不正确，请重新输入！');
+				$("#"+mobileField).focus();
+				return false;
+			}
+			if (MobileReg == 1 && ($("#MobileCode").val() == '' || document.myform.MobileCode.value == '手机验证码')) {
+				alert("请输入手机验证码！");
+				$("#MobileCode").focus();
+				return false;
+			}
+			var emailField='Email';
+			if (uType==2){
+			 emailField='UserName';
+			}
+			if ($("#"+emailField).val() == "" && EnabledRegField.indexOf("email") != -1) {
+				alert("请输入您的电子邮件地址！");
+				$("#"+emailField).focus();
+				return false;
+			}
+			if ($("#"+emailField).val()!='' && is_email($("#"+emailField).val()) == false) {
+				alert('电子邮件地址格式不正确，请重新输入！');
+				$("#"+emailField).focus();
+				return false;
+
+			}
+	 }
+		if (VerifyCodeReg == 1 && $("#Verifycode").val() == '') {
+			alert("请输入验证码！");
+			$("#Verifycode").focus();
+			return false;
+		}
+
+		return true;
+	}
+	
+	var tOutTimes=OutTimes;
+	function leavePage(SendBtn) {
+					 if (tOutTimes==0){
+					 tOutTimes=OutTimes;
+					 $("#"+SendBtn).attr("disabled",false);
+					 $("#"+SendBtn).val("免费获取手机验证码")
+					 }
+					 else{
+					 tOutTimes -= 1;
+					 $("#"+SendBtn).val("已发，"+tOutTimes+"秒后没有收到，可以重发!");
+					 setTimeout("leavePage('"+SendBtn+"')", 1000);
+					 }
+			}
+			
+			function getMobileCode(mField,SendBtn){
+				var mobile=$("#"+mField).val();
+				if (mobile==undefined){
+				 mField="UserName";
+				 mobile=$("#"+mField).val();
+				}
+				if (mobile==''){
+				  $.dialog.alert('请选输入手机号码！',function(){ $("#"+mField).focus();});
+				   return false;
+				}
+
+				if (ismobile(mobile)==false){
+				  $.dialog.alert('手机号码格式不正确，请重新输入！',function(){ $("#"+mField).focus();});
+				  return false;
+				}
+				$("#"+SendBtn).attr("disabled",true);
+				$.ajax({type:"get",async:false,url:"/user/regajax.ashx?istest=0&action=sendmobilecode&model=userreg&mobile="+mobile+"&anticache=" + Math.floor(Math.random()*1000),cache:false,dataType:"html",success:function(d){
+					 if (d=='true'){
+						leavePage(SendBtn);
+					 }else{
+						 $.dialog.alert(d,function(){ $("#"+SendBtn).attr("disabled",false); });
+					 }
+				}});
+				return false;
+				
+			}
+
+</script>
+
+
+<body>
+
+
+<iframe src="about:blank" name="hidframe" id="hidframe" style="display:none"></iframe>
+ <form name="myform" onSubmit="return Check3GRegForm();" action="Reg.aspx?action=dosave" method="post" target="hidframe">
+<div class="header m-topbar u-header">
+	<div class="back"><a href="javascript:history.back();void(0)"><i class="fa fa-chevron-left"></i></a></div>
+    <div class="m-title">账号注册</div>
+    <div class="head-in"><input class="btn btn-head" value="登陆" type="button"  onclick="location.href='login.aspx'" /></div>
+    
+</div>
+<div class="gb-content">
+    <div class="user_topd reg_box">
+         <div class="usertopd u-form">
+        
+             <!--注册信息start-->
+                  
+                  <dl class="form-item"{$DisplayUserType}>
+                          
+                          <dd class="put">
+                              {$ShowUserType}
+                          </dd>
+                          
+                   </dl>
+                  
+                  
+                  <dl class="form-item">
+                      
+                          <dd class="put">
+                              <input name="UserName" class="input-txt" placeholder="{$GetLoginUserNameTips}" maxlength="30" id="UserName" type="text" >
+                          </dd>
+                          
+                   </dl>
+                  <div class="blank10 clear"></div>
+                  
+                   <dl class="form-item">
+                          <dd class="put">
+                              <input id="PassWord" name="PassWord" onKeyUp="$('#RePassWord').val(this.value)" placeholder="登录密码" class="input-txt" type="PassWord" >
+                              <input id="RePassWord" name="RePassWord" type="hidden" style="font-FAMILY: verdana;">
+                          </dd>
+                   </dl>
+                   
+              
+                 [ShowQuestion]
+                   <div class="blank10 clear"></div>
+                    <dl class="form-item"{$DisplayQuestion}>
+                          <dd class="put">
+                              <Select id="Question" name="Question" class="text">
+                                <Option value="" selected>--请选择提示问题--</Option>
+                                <Option value="我的宠物名字？">我的宠物名字？</Option>
+                                <Option value="我最好的朋友是谁？">我最好的朋友是谁？</Option>
+                                <Option value="我最喜爱的颜色？">我最喜爱的颜色？</Option>
+                                <Option value="我最喜爱的电影？">我最喜爱的电影？</Option>
+                                <Option value="我最喜爱的影星？">我最喜爱的影星？</Option>
+                                <Option value="我最喜爱的歌曲？">我最喜爱的歌曲？</Option>
+                                <Option value="我最喜爱的食物？">我最喜爱的食物？</Option>
+                                <Option value="我最大的爱好？">我最大的爱好？</Option>
+                                <Option value="我中学校名全称是什么？">我中学校名全称是什么？</Option>
+                                <Option value="我的座右铭是？">我的座右铭是？</Option>
+                                <Option value="我最喜欢的小说的名字？">我最喜欢的小说的名字？</Option>
+                                <Option value="我最喜欢的卡通人物名字？">我最喜欢的卡通人物名字？</Option>
+                                <Option value="我母亲/父亲的生日？">我母亲/父亲的生日？</Option>
+                                <Option value="我最欣赏的一位名人的名字？">我最欣赏的一位名人的名字？</Option>
+                                <Option value="我最喜欢的运动队全称？">我最喜欢的运动队全称？</Option>
+                                <Option value="我最喜欢的一句影视台词？">我最喜欢的一句影视台词？</Option>
+                              </Select>    
+                        </dd>
+                     </dl>
+                     <div class="blank10 clear"></div>
+                     <dl class="form-item"{$DisplayQuestion}>
+                          <dd class="put">
+                              <input name="Answer"  type="text" id="Answer" class="input-txt"  placeholder="提示答案" ></dd>
+                     </dl>
+               [/ShowQuestion]
+                   
+               [ShowMobile]	
+                  <div class="blank10 clear"></div>
+                    <dl class="form-item"{$DisplayMobile}>
+                          <dd class="put">
+                              <input name="Mobile"   type="text" id="Mobile" class="input-txt"  placeholder="手机号码" ></dd>
+                    </dl>
+                [/ShowMobile]	
+                
+                    <div class="blank10 clear"></div>
+                    <dl id="showSmsCode" class="form-item cc"{$DisplayMobileReg}>
+                          <dd class="put">
+                      <table border="0" cellpadding="0" cellspacing="0">
+                       <tr>
+                       <td><input name="MobileCode" style="width:120px"  type="text" id="MobileCode" class="input-txt" placeholder="手机验证码" ></td>
+                       <td><input type="button" id="SendMobileBtn" onClick="getMobileCode('Mobile','SendMobileBtn')"  value="获取手机验证码" class="qrzcbtn" style="width:170px;"/></td>
+                      </tr>
+                      </table>
+                              </dd>
+                     </dl>
+                     
+               [ShowEmail]	
+                  <div class="blank10 clear"></div>
+                    <dl class="form-item"{$DisplayEmail}>
+                          <dd class="put">
+                              <input name="Email" id="Email" type="text" class="input-txt"  placeholder="邮箱" > </dd>
+                     </dl>
+        [/ShowEmail]	
+                  <div class="blank10 clear"></div>
+                      
+                      <dl class="form-item"{$DisplayVerifyCode}>
+                          <dd class="put">
+                              <input  placeholder="验证码" name="Verifycode" type="text" id="Verifycode" class="input-txt"  maxlength="6">
+                              <span id="showVerify"><img onClick="this.src='/plus/ValidateCode.aspx?time='+Math.random();" src="/plus/ValidateCode.aspx?n="/></span>
+                          </dd>
+                      </dl> 
+                   <div class="clear blank10"></div>
+                   
+                   <div class="submit-btn"><input type="submit" value="确定注册" align="middle" border="0" class="qrzcbtn"></div>
+                        
+                      
+               </form>
+              <!--注册信息end-->
+              <div class="clear" style="height:60px"></div>
+        </div>
+</div>
+{KS_3G_底部通用}         
+</body>
+</html>

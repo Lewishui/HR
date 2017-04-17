@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="Kesion.NET.Mobile.CleanViewRecord" Codebehind="CleanViewRecord.aspx.cs" %>

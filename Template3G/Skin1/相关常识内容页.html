@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$Get3GSiteName}</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link href="{$GetInstallDir}companyimages/3g.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jQuery.js" language="javascript" type="text/javascript"></script>
+<script src="{$GetInstallDir}KS_Inc/Kesion.Common.js" language="javascript" type="text/javascript"></script>
+</head>
+
+<body>
+{KS_T1_手机版头部}
+<div class="fabric content">
+	<h3>{$GetClassName}</h3>
+	<div class="common">
+    	<h2>{KS:Field:Title}</h2>
+        <p class="info">
+        	<span>{KS:Field:AddDate}</span><span>作者:{KS:Field:Inputer}</span><span>点击数:(<font color=red>{KS:Field:Hits}</font>)</span>
+        <div class="clear"></div>
+       	  <!--  <span>{KS:Current:Favorite}</span>-->
+        </p>
+        <p class="nation">
+            	 {KS:Field:Content}
+
+        </p>
+        <div class="art-other">    
+    
+            <div>关键字：{KS:Field:KeyTagsByLink}</div>
+    
+            <div class="art-exetl">
+                <div><span class="art-prev">上一篇：{KS:Field:PreItem}</span></div>
+                <div><span class="art-next">下一篇：{KS:Field:NextItem}</span></div>
+            </div>
+    
+        </div>    
+        
+        
+        
+        
+        
+    </div>
+
+
+</div>
+
+
+
+{KS_T1_手机版底部}
+
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$GetAskName}-{KS:Field:SEOTitle}</title>
+<meta content="{KS:Field:SEOKeyWords}" name=keywords>
+<meta content="{KS:Field:SEODescription}" name=description>
+<link href="{$GetInstallDir}images/home.css" rel="stylesheet" />
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/Kesion.Common.js" type="text/javascript"></script>
+{#EchoEditorHead}
+<script>
+     var box='';
+	function handle(action,topicid,title){
+	  box=jQuery.dialog.open("handle.aspx?Action="+action+"&topicid="+topicid,{title:title,width:500,height:200});
+	}
+</script>
+</head>
+<body style="background:#F4F4F4">
+	{KS_T1_头部通用}
+<div class="Dg">{KS_T1_位置导航}</div>
+	<div class="idx">{=GetAdvertise(7)}</div>
+
+<div class="askmain" style="margin-top:0px">
+	<div class="ask_ct">
+		<div class="ct_one">
+			<div class="tit"><h4 class="l">{KS:Field:Subject} ([KS:Favorite])</h4><div class="r">{KS:Field:AskShowQuestionManage}</div></div>
+			<div class="l" style=" line-height:20px"> <a href="../space/?{KS:Field:UserID}" target="_blank"><img name="" src="/UploadFiles/avatar/{KS:Field:UserId}.jpg" onerror="this.src='../user/images/noavatar_small.gif';" width="20" height="20" align="left" style="margin-right:5px" /></a>提问者： <em>{KS:Field:username}</em> | 等级：<img src='/sysimg/rank/rank{$askrankid}.gif'>  | 浏览次数：{KS:Field:hits}次  <span class="xsf">悬赏：{KS:Field:Reward}分</span></div><div class="r" style="line-height:20px">{KS:Field:adddate} </div>
+			
+			<div class="clear"></div>
+			<div class="ct_into"><div class="l" style="width:600px">{KS:Field:AskContent}</div><img src="images/askjj{KS:Field:IsSolve}.jpg" width="99" height="42" align="right" />
+			</div>
+			<div class="clear"></div>
+            <div class="ct_ask">
+			   [Answer]
+				<h4>我来帮他回答^^</h4>
+				<br/>
+				  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                     
+                      <td valign="top">
+					  
+					  <script>
+					    function checkanswer(){
+						  if (editor.hasContents()==false){
+						   $.dialog.alert('请输入回答内容!',function(){
+						     editor.focus();
+						   });
+						   return false;
+						  }
+						  if ({$MustVerifyCode}==1 && $("#VerifyCode").val()==''){
+						   $.dialog.alert("请输入验证码!",function(){
+							$("#VerifyCode").focus();
+							});
+							return false;
+						}
+						  
+						  return true;
+						}
+						
+					  </script>
+                        <form method="post" name="answerform" id="answerform" action="?" target="_hideframe">
+                          <input type="hidden" name="topicid" value="{KS:Field:topicid}"/>
+                          <input type="hidden" name="action" value="save" />
+					  <table width="100%" border="0" cellspacing="10" cellpadding="10">
+                          <tr>
+                            <td>
+							   <textarea style="width:680px;height:100px;margin:-18px 0px 0px -8px" name="content" id="content" cols="80" rows="8" wrap="PHYSICAL"></textarea>
+							   <script>setTimeout("editor = UE.getEditor('content',{toolbars:[  ['fullscreen',  'undo', 'redo', '|','bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript','|','insertimage', 'wordimage', 'emotion'] ],wordCount:false,autoHeightEnabled:false,scaleEnabled:false,elementPathEnabled:false});",1);</script>
+							   
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> 
+                             <input name="answerbutton" onClick="return(checkanswer())" id="answerbutton" type="image" src="{$GetInstallDir}images/ask/ans_btn.png" align="absmiddle" style="position:relative;margin-left:-9px" />
+							 <span{$DisplayVerifyCode}>
+							 验 证 码:<input type="text" name="VerifyCode" id="VerifyCode" maxlength="6" class="textbox" style="width:60px"/>{$Show_VerifyCode}<span>请输入验证码</span>
+							 </span>
+							 
+                              
+                              第一次回答可获<font color=red>{$firstanswerscore}</font>分，
+                              
+                              答案被采纳还可获得悬赏分和额外<font color=red>{$bestanswerscore}</font>分奖励
+                              </td>
+                          </tr>
+                      </table>
+                        </form>
+					  
+					  </td>
+                    </tr>
+                  </table></td>
+                </tr>
+              </table>
+             [/Answer]
+			 </div>
+			
+		</div>
+		<div class="ct_two">
+			<h4 class="l">回答</h4><font color="#666666" style=" line-height:16px;padding-left:5px">共{KS:Field:PostNum}条</font>
+			<div class="clear"></div>
+             <ul>
+			 [Loop Times="10"]
+				<li>
+					<div class="liname"><div class="l">{KS:Field:UserName}</div><div class="r">{$Field(AddDate,text,0,,2,)}</div></div>
+					<div class="clear"></div>
+					<div class="liinto">
+						<a href="../space/?{KS:Field:UserID}" target="_blank"><img name="" src="/UploadFiles/avatar/{KS:Field:UserID}.jpg" onerror="this.src='../user/images/noavatar_small.gif';" width="52" height="50" alt="{$Field(username,text,0,,2,)}" align="left" style="margin-right:10px" /></a>
+						等级：<img src='/sysimg/rank/rank{KS:Field:AskRankID}.gif'> 
+						
+						<div class="liinto_r">{KS:Field:AskContent}{KS:Field:AskBestIco}<br />{KS:Field:AskShowAnswerManage}
+</div><div class="clear"></div>
+					</div>
+				</li>			
+              [/loop]
+			</ul>  
+			  <iframe name="_hideframe" id="_hideframe" style="display:none;"></iframe>
+		
+			  [KS:PageStr]
+		</div>
+		
+	</div>	
+	<div class="askmain_r">
+        <div class="rightask">
+					<ul>
+						<li><img src="/images/askicon02.png" align="left" /><a href="list.aspx?issolve=0">{=Execute(Select count(1) From KS_AskTopic Where IsSolve=0 and verify=1)}</a><strong>待解决</strong><span>等待解决的问题</span></li>
+						<li><img src="/images/askicon03.png" align="left" /><a href="list.aspx?issolve=1">{=Execute(Select count(1) From KS_AskTopic Where IsSolve=1)}</a><strong>已解决</strong><span>成功解决的问题</span></li>
+						<li><img src="/images/askicon01.png" align="left" /><a href="list.aspx">{=Execute(Select count(1) From KS_AskTopic Where Verify=1)}</a><strong>条问题</strong><span>全部问题</span></li>
+					</ul>
+				</div>
+                <div class="clear blank10"></div>
+		<div class="r_four" style="margin-top:0px">
+			<div class="tit"><h4 class="l">热门问答</h4></div>
+			<ul>
+				{KS_T1_问答右侧_热门问答}
+			</ul>
+		</div>
+		<div class="r_two">
+			<div class="tit"><h4 class="l"><a href="/ask/zj.aspx">专家在线</a></h4><div class="r"><a href="/user/index.aspx?mainurl=ask/myAsk.aspx?flag=2" target="_blank">我也要认证</a></div></div>
+			<ul>
+			{KS_T1_问答右侧_专家在线}
+			</ul>
+		</div>
+		<div class="r_three">
+			<h4>用户积分排行</h4>
+			<ul>
+			  {SQL_会员积分排行()}
+			</ul>
+		</div>
+	</div>
+	</div>
+</div>
+
+{KS_T1_尾部通用}
+
+</body>
+</html>

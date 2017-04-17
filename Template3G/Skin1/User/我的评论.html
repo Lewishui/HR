@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>我的评论</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.search_img').toggle(function () {
+            $(this).addClass('open');
+
+        }, function () {
+            $(this).removeClass('open');
+        });
+    });
+
+    function delMyComment() {
+        var id = '';        
+       $("input[name='CheckGroup']").each(function(){
+	       if ($(this).prop('checked')==true){
+		     if (id==''){
+		     id=$(this).val();
+			 }else{
+		     id+=","+$(this).val();
+			 }
+		   }
+	   });
+	   
+        if (id == '') {
+            alert('请选择择要删除的评论内容!');
+        }else{
+		    jQuery.ajax({
+						type: "get",
+						url: "index.aspx",
+						data: "action=delcomment&id="+id,
+						success: function (data) {
+						    if (data == "success") {
+							   alert('恭喜，删除成功！');
+							 }else{
+							  alert(data);
+							 }
+						}
+			});
+					
+		    var ids=id.split(',');
+			for(var i=0;i<ids.length;i++){
+				 var cmtId=ids[i];
+				 $("#item"+cmtId).remove();
+			}	 
+		
+		
+		}
+
+    }
+  
+</script>
+</head>
+<body>
+<div class="header u-header">
+	<a href="{M:G3InstallDir}user/" class="back"><i class="fa fa-angle-left"></i></a>
+    <div class="m-title">我的评论</div>
+    <div class="head-in">
+    
+    </div>	
+</div> 
+<div class="navtab tab-sy2 clearfix">
+  <ul class="flexbox">
+      <li{#css1}><a href="?action=comment">用户给我的评论</a></li>
+      <li{#css2}><a href="?action=comment&flag=2">我发表的评论</a></li>
+  </ul>
+</div>
+
+<div class="class_goods">
+  <div class="dropdown clearfix">
+     <div class="search_img">
+        <i class="fa fa-th"></i>
+        <div class="submenu dro_menu">
+           <ul>
+		   {#CommentCategoryList}
+           </ul>
+        </div>
+     </div>
+    {#全选}
+  
+  </div>
+</div>
+
+   <form name="addform" id="addform" method="post" action="index.aspx?action=delcomment">
+     <input type="hidden" name="ids" id="ids" value="0"/>
+	 <input type="hidden" name="flag" value="{#flag}"/>
+<div class="u-order">
+   <ul id="pagelist">
+      [Loop Times="3"]
+      <li class="item" id="item{KS:Field:id}">
+          <div class="info">
+          	  <div class="com_list">
+                 <ul>
+                      <li class="title"><span>标题:</span>{KS:Field:title}</li>
+                      <li class="con"><span>评论内容:</span>{KS:Field:Content}</li>
+                      <li class="price"><span>分类:</span>{KS:Field:ClassID}</li>
+                      <li class="comment"><span>评论人:</span>{KS:Field:UserName}</li>
+                      <li class="date tar">{KS:Field:AddDate}</li>
+                  </ul>
+                  <div class=""><input type="checkbox" name="CheckGroup" id="CheckGroup{KS:Field:id}" value='{KS:Field:id}' /></div>
+               </div>
+           </div>       
+       </li>
+      [/Loop]
+   </ul>
+   <script>
+       var pageCount = "{#PageCount}";
+       var postUrl = "index.aspx";
+       var postParam = "action=comment&flag=2";
+   </script>
+   <script src="{M:G3InstallDir}Handler/loadpage.js"></script>
+   </div>
+   
+	<ul id="pagelistend" style="display:none"></ul>
+
+   <!--<a class="btn" href="index.aspx?action=delcomment" onClick="return(confirm('确认删除吗？'))">删除</a>-->
+   <div class="bcz-box" onClick="delMyComment()">
+
+   {#btnname}
+
+ 
+       </form>
+</body>
+</html>
+

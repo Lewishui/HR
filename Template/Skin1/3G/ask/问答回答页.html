@@ -1,0 +1,150 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>{$Get3GSiteName}</title>
+<meta name="keywords" content="{M:KeyWords}">
+<meta name="description" content="{M:Decription}">
+<link href="{M:G3InstallDir}style/style.css" rel="stylesheet" type="text/css" />
+<script src="{$GetInstallDir}ks_inc/jQuery.js" language="javascript" type="text/javascript"></script>
+<script src="{$GetInstallDir}KS_Inc/Kesion.Common.js" language="javascript" type="text/javascript"></script>
+
+
+
+<!--<script type="text/ecmascript" src="{M:G3InstallDir}Template01/ask/animate.js"></script>
+<script type="text/ecmascript" src="{M:G3InstallDir}Template01/ask/ajax.js"></script>
+<script type="text/ecmascript" src="{M:G3InstallDir}Template01/ask/pop.js"></script>-->
+
+<script type="text/javascript">
+		function checkanswer(){
+		  if ($('#content').val()==''){
+		   $.dialog.alert('请输入回答内容!',function(){
+			$('#content').focus();
+		   });
+		   return false;
+		  }
+	  if ({$MustVerifyCode}==1 && $("#VerifyCode").val()==''){
+		   $.dialog.alert("请输入验证码!",function(){
+			$("#VerifyCode").focus();
+			});
+			return false;
+		}
+		  return true;
+		}
+                  
+</script>
+<script type="text/javascript">
+	  var box = '';
+	  function handle(action, topicid, title) {
+		  box = jQuery.dialog.open("{M:G3InstallDir}ask/handle.aspx?Action=" + action + "&topicid=" + topicid, { title: title, width: 500, height: 200 });
+	  }
+</script>
+</head>
+<body>
+
+<div class="mod-content gb-content main">
+    <!--header-->
+{KS_T1_3G_头部通用}
+
+    <div class="content ask-cont">
+           <!--query-->
+        <section class="query mb10">
+        	<div class="query_con">
+        		<h1 id="summary">{KS:Field:title}</h1>
+                <span>([KS:Favorite])</span><span>浏览数:{KS:Field:hits}次</span>      
+            </div>
+
+            <div class="r">{KS:Field:AskShowQuestionManage}</div>
+            
+            <div class="query_info">
+                <a href="javascript:(0)" target="_blank"><img name="" src="/UploadFiles/avatar/{KS:Field:UserId}.jpg" onerror="this.src='/user/images/noavatar_small.gif';" class="userImg" width="20" height="20" align="left" /></a>
+                <h4 class="userNmae">提问者:{KS:Field:username}</h4>
+                <p class="twTime">{KS:Field:adddate}</p>
+                
+                <p class="xsf"><i class="gold-ico"></i>悬赏：{KS:Field:Reward}分
+                	<span class="askjj-{KS:Field:IsSolve}"></span>
+                <img src="images/askjj{KS:Field:IsSolve}.jpg"/></p>
+            </div>
+            <!--query_info end-->
+            <div class="i_answer">
+                  <p class="green">我来帮他回答^_^</p>
+                   <form method="post" name="answerform" id="answerform" action="?">
+                                <input type="hidden" name="topicid" value="{KS:Field:topicid}"/>
+                                <input type="hidden" name="action" value="save" />
+                  <textarea style="width:100%;height:100px;margin-top: 10px;" name="content" id="content" cols="80" rows="8" wrap="PHYSICAL"></textarea>
+                  <p class="mt10 f16 answer_icon gray"> 
+                  <span{$DisplayVerifyCode}>
+               验 证 码:<input type="text" name="VerifyCode" id="VerifyCode" maxlength="6" class="textbox" style="width:60px"/>{$Show_VerifyCode}<span>请输入验证码</span>
+                  </span>
+      
+                  <input name="answerbutton" onClick="return(checkanswer())" id="answerbutton" type="submit" value="我来回答" align="absmiddle" class="btn btn-asksea" />
+                  <p class="tips">第一次回答可获得<font color=red>{$firstanswerscore}</font>分，答案被采纳还可以获得悬赏分<font color=red>{$bestanswerscore}</font>分</p>
+                  </p>
+                    </form>
+            </div>
+            <!--i_answer end-->
+         
+        </section>
+        <!--query-end-->
+
+        <!--专业or网友回答-->
+        <section class="mb10 query_type">
+              <div class="ask-hd">
+               	<i></i><span class="ask-tit">精彩问答</span>
+              </div> 
+              <div class="response_user">
+				<div>
+
+                     <!--style-->
+                    [Loop Times="10"]                	 
+                    <div class="underline">
+                      <div class="response_ans" id="response_ans">
+                          <p>
+                                {KS:Field:AskContent}
+                          </p>
+                      </div>
+                      <div class="query_info">
+                       		<span class="answer-men">回答者：{KS:Field:UserName}</span>
+                            <span class="split"></span>
+                            <span><i class="fa fa-clock-o"></i>{$Field(AddDate,text,0,,2,)}</span>
+                      </div>
+                    
+                          <div class="AskBestIco">{KS:Field:AskBestIco}</div>
+                                      
+                          {KS:Field:AskShowAnswerManage}              
+                      </div>
+                      [/Loop]     
+              
+                    <iframe name="_hideframe" id="_hideframe" style="display:none;"></iframe>
+                     <!--style-end-->
+                  
+				 </div>
+
+              </div>
+              <!--response_user end-->
+                             
+                                    
+        </section>
+        <!--专业or网友回答-end-->
+     
+
+     </div>
+    <!--content-end-->
+[KS:PageStr]
+  <!--toTop
+         <aside class="totop"><div><a href="#"><img src="{M:G3InstallDir}Template01/ask/totop.png"></a></div></aside>
+ <!--toTop-end-->
+</div>
+
+<!--<script type="text/ecmascript" src="{M:G3InstallDir}Template01/ask/share.js"></script>
+<script src="{M:G3InstallDir}Template01/ask/brand.js"></script>
+<script src="{M:G3InstallDir}Template01/ask/search.js"></script>
+<script src="{M:G3InstallDir}Template01/ask/addajax.js"></script>-->
+{KS_T1_3G_底部通用}  
+  
+{KS_T1_3G_底部按钮}
+</body>
+</html>

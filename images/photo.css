@@ -1,0 +1,99 @@
+/* wrapper css */
+h4{font-family:"\5FAE\8F6F\96C5\9ED1";}
+.shoppictitle{margin:15px auto; max-width:960px; height:40px; line-height:40px; overflow:hidden; padding:0 10px; border:#eee solid 1px; background:#fff; }
+.shoppictitle h4{padding-left:2px; height:32px; position:relative; font-size:14px;}
+.shoppictitle .r{ margin-top:10px;}
+.shoppictitle .r a{border:1px solid #ccc; background:url(shop/shopbg1.png); float:left;color:#444;padding:0px 6px; height:20px; line-height:20px;margin-left:-1px; position:relative;}
+.shoppictitle .r a.curr{background:url(shop/shopbg2.png);border:1px solid #ccc;color:#444;margin-right:0px}
+#wrapper{
+	zoom:1
+}
+#wrapper:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+#wrapper hgroup{
+	text-align:center;
+}
+#wrapper h2{
+	margin:5px 0;
+	color:#FF6D99;
+	text-shadow:1px 1px 2px #A50031;
+	font-size:33px;
+	font-family:Arial Narrow, Arial, sans-serif;
+}
+#wrapper h3{
+	font-style:italic;
+	font-weight:normal;
+	font-size:18px;
+	text-shadow:1px 1px 0 #fff;
+	color:#888;
+	margin:5px 0;
+}
+
+
+#wrapper .shopList{ width:758px; float:right}
+
+#container{
+	position:relative;
+	padding-bottom: 10px;
+	
+}
+.grid{height:295px;
+position:relative;
+	float:left;
+	width:221px;
+	padding:15px;
+	background:#fff;
+	font-size:12px;
+	color:#666;
+	border-bottom:#eee solid 1px;
+	border-right:#eee solid 1px;
+}
+
+.grid:hover{box-shadow:0 0 8px #999; background:#fff; z-index:1 }
+.grid strong {
+	
+	margin-top:15px;font-weight:normal;font-size:16px; line-height:22px;
+	display:block;
+	height:44px;
+	overflow:hidden;
+}
+.grid strong a{font-size:14px;font-family:"\5FAE\8F6F\96C5\9ED1";color:#333;}
+.grid .intro{
+	color:#888; line-height:22px;
+	max-height:22px;
+	_height:22px;
+	overflow:hidden;
+	display:none;
+}
+.grid .jgbox{ padding-top:5px; line-height:25px; white-space:nowrap; overflow:hidden}
+.grid .jgbox font{font-size:16px;color:#e00;font-family:"\5FAE\8F6F\96C5\9ED1";}
+.grid .jgbox em{ color:#888; text-decoration:line-through; padding-left:5px}
+.grid .pl_num{ clear:both; text-align:right; color:#888;margin-top:10px}
+.grid .pl_num span{background:#eee; padding:1px 10px; float:right; height:20px; line-height:20px; }
+.grid .pl_num span a{color:#666; font-family:"\5FAE\8F6F\96C5\9ED1";}
+.grid .imgholder{ width:100%; text-align:center; min-height:150px;}
+.grid .imgholder img{
+	max-width:100%;
+	background:#ccc;
+	height:173px;
+}
+
+@media screen and (max-width : 1240px) {
+	body{
+		overflow:auto;
+	}
+}
+@media screen and (max-width : 900px) {
+	#backlinks{
+		float:none;
+		clear:both;
+	}
+	#backlinks a{
+		display:inline-block;
+		padding-right:20px;
+	}
+	#wrapper{
+		margin-top:90px;
+	}
+}
+

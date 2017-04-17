@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>在线留言-{$GetSiteTitle}</title>
+<meta name="Keywords" content="{$GetClassMetaKeyWords}"/>
+<meta name="Description" content="{$GetClassMetaDescript}" />
+<link href="{$GetTemplateDir}/css/index.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+<script src="{$GetTemplateDir}/js/text.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$GetTemplateDir}/js/top.js"></script>
+<script type="text/javascript"  src="{$GetTemplateDir}/js/nav.js"></script>
+</head>
+
+<body>
+{KS_T1_企业头部通用}
+
+  <script type="text/javascript">
+          $(function () {
+              $("#Content").val("既然来了，就顺便留句话儿吧...");
+              $("#Content").focus(function () {
+                  if ($(this).val() == '既然来了，就顺便留句话儿吧...') {
+                      $(this).val("");
+                  }
+              }).blur(function () {
+                  if ($(this).val() == '') {
+                      $(this).val("既然来了，就顺便留句话儿吧...");
+                  }
+              });
+          });
+
+         
+          function CheckMsgForm() {
+		      if ($("#username").val()==''){
+			     $.dialog.alert("请输入您的称呼！", function () { $('#username').focus(); });
+                  return false;
+			  }
+		      if ($("#title").val()==''){
+			     $.dialog.alert("请输入您的联系方式！", function () { $('#title').focus(); });
+                  return false;
+			  }
+              if ($("#Content").val() == "既然来了，就顺便留句话儿吧...") {
+                  $.dialog.alert("请输入你的留言内容！", function () { $('#Content').focus(); });
+                  return false;
+              }
+			  if ( {#CheckVerifyCode} ){
+			 if (jQuery("#TxtVerifyCode").val()=='' || jQuery("#TxtVerifyCode").val()=='验证码')
+			 {
+			  jQuery.dialog.alert("请输入验证码!",function(){
+			  jQuery("#TxtVerifyCode").focus();
+			  });
+			  return false;
+			 }
+		 }
+              return true;
+          }
+   </script>
+
+
+<script  type="text/javascript"> 
+$(".navbg").capacityFixed();
+</script>
+{KS_顶部图片}
+<div class="annoce">
+	<div class="mainano">
+    	<div class="notice">
+            <div class="t_news">
+                <b>最新播报：</b>
+                <ul class="news_li">
+					{KS_T1_最新播报}
+                </ul>
+                <ul class="swap"></ul>
+            </div>
+        </div>
+        <div class="inflow">
+			<form method="post" action="{=GetRewriteUrl(search)}">
+                   <input type="hidden" name="m" value="1"/>
+                   <input type="text" name="key" value="搜索您感兴趣的内容关键字" class="searchbox" onfocus="if (value =='搜索您感兴趣的内容关键字')
+    {value =''}" onblur="if (value ==''){value='搜索您感兴趣的内容关键字'}" />
+                   <input type="submit" value="搜索"  class="searchbutton"/>
+             </form>
+        </div>
+    </div>
+</div>
+
+<div class="related">
+    <div class="relatedtitle">
+        <span class="classification">产品分类</span>
+        <span class="ustip font6">在线留言</span>
+        <p>{KS_T1_位置导航}</p>
+    </div>
+</div>
+<div class="relatedcontent">
+		{KS_T1_左边联系我们}
+	<script type="text/javascript">
+    $(document).ready(function() {
+        jQuery.tab = function(tabtit,tab_conbox,sj) {
+            $(tab_conbox).find(".tabCont").hide();
+            $(tabtit).find("li:first").addClass("hover").show(); 
+            $(tab_conbox).find(".tabCont:first").show();
+            $(tabtit).find("li").bind(sj,function(){
+              $(this).addClass("hover").siblings("li").removeClass("hover"); 
+                var activeindex = $(tabtit).find("li").index(this);
+                $(tab_conbox).children().eq(activeindex).show().siblings().hide();
+                return false;
+            });
+        };
+          $.tab(".click",".tabBox02","click");
+    
+    });
+    </script>
+    <div class="relatedright">
+        <ul class="tab_menu click">
+           <li><a href="#">在线留言</a></li>
+           <li><a href="#">查看留言</a></li>
+        </ul>
+        <div class="tabBox02">
+            <div class="tabCont">
+            	<div class="blank15"></div>
+                <div class="online">
+                <h3>在线留言</h3>
+                 <form name="msgform" action="?action=do" method="post" >
+		    <iframe src="about:blank" name="hidframe" style="display:none"></iframe>
+                    <div class="message">
+                    <p>提示：请务必填写真实信息，我们将及时联系您并为您解决您的疑问。（ <font style="padding-left:0">* </font>为必填选项）</p>
+                    <div class="blank30"></div>
+                        <ul>
+                            <li>
+                                <span>姓 &nbsp;&nbsp; &nbsp;名:</span>
+                                <input type="text" value="请输入您的姓名" class="name" value="{#username}" name="username" id="username" onFocus="if (value =='请输入您的姓名') {value =''}" onBlur="if (value ==''){value='请输入您的姓名'}"><font>*</font>
+                            </li>
+                            <li>
+                                <span>联系方式:</span>
+                                <input type="text" value="请输入您的联系方式" class="touch" name="title" id="title" onFocus="if (value =='请输入您的联系方式') {value =''}" onBlur="if (value ==''){value='请输入您的联系方式'}"><font>*</font>
+                            </li>
+                            <li class="leave">
+                                <span>留言内容：</span>
+                                <textarea class="textarea" name="Content" id="Content" value="请输入您的留言" onFocus="if (value =='请输入您的留言') {value =''}" onBlur="if (value ==''){value='请输入您的留言'}">请输入您的留言</textarea>
+                            </li>
+                            <li{#ShowVerify}>
+                                <span>验证码：</span>
+								
+								<input type="text" onfocus="this.value=(this.value=='验证码')?'':this.value" onblur="this.value=(this.value=='')?'验证码':this.value" name="TxtVerifyCode" value="验证码" id="TxtVerifyCode" class="code" style="width:60px"><font>*</font> <img title="点击刷新" id="verifyimg" src="ValidateCode.aspx" border="0" style="cursor:pointer;margin-top:10px" onClick="this.src='ValidateCode.aspx?t='+Math.random();" />
+								
+                            </li>
+                            <li style="text-align:right">
+                                <input type="submit" class="submit" value="确认提交" onClick="return(CheckMsgForm());" >
+                            </li>
+                            <div class="clear"></div>
+                        </ul>        	
+                    </div> 
+                </form>
+                            <div class="clear"></div>
+                </div>
+            </div>
+                
+            <div class="tabCont">
+            	<div class="blank15"></div>
+           		<div class="note">
+				
+		
+                	<ul>
+					  [Loop Times="10"]
+                    	<li>
+                            <div class="text_left">
+                            	<p class="text_name"><span>{$Field(AddDate,date,YY-MM-DD,0,red)}</span>{$Field(UserName,text,0,...,2,)}:</p>
+                                <p class="text_content">{$Field(MessageContent,text,0,...,2,)}</p>
+                            </div>
+                            <div class="text_right">
+                               <p><span class="reply">回复:</span>{KS:状态} </p> 
+                           </div>     
+                            <div class="clear"></div>
+                        </li>
+						[/Loop]
+                    </ul>
+					 <div class="fenyexinxi">[KS:PageStr2]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="clear blank30"></div>
+</div>
+
+
+
+
+<!--底部通用 begin-->
+{KS_T1_企业底部通用}
+<!--底部通用 end-->
+
+
+{KS_T1_右侧客服}
+
+</body>
+</html>
+
+

@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>购买套餐包</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+</head>
+
+<body>
+<div class="header u-header">
+	<a href="{M:G3InstallDir}user/" class="back"><i class="fa fa-angle-left"></i></a>
+    <div class="m-title">购买套餐包</div>
+    <div class="head-in">
+    	
+    </div>	
+</div>  
+     <script>
+         function CheckForm() {
+             if (jQuery('#txtCardnumber').val() == '') {
+                 KesionJS.Alert('请输入卡号!', "jQuery('#txtcardid').focus()");
+                 return false;
+             }
+             if (jQuery('#txtpassword').val() == '') {
+                 KesionJS.Alert('请输入密码!', "jQuery('#txtpassword').focus()");
+                 return false;
+             }
+
+         }
+     
+         var pid={#Pid};
+         $(document).ready(function(){
+             $(".paylist").find("li").click(function(){
+                 pid=$(this).attr("payid");
+                 $(".paylist").find("li").attr("style","");
+                 $(this).attr("style","border-color:red");
+             });
+         });
+
+         function payOnline() {
+             var id = $("input[name='packid']:checked").val();
+             
+             window.open('/user/Payconfirm.aspx?from=feepackages&PlatID=' + pid + '&id='+id);
+         }
+         function check() {
+             jQuery("#flag").val("addpackage");
+             KesionJS.Confirm("此操作不可逆，确定购买选中的套餐吗？", "jQuery('#aspnetForm').submit();", "");
+             return false;
+         }
+
+   </script>
+    <div class="navtab tab-sy1">
+    <ul class="flexbox">
+        <li><a href="?"><span>在线充值</span></a></li>
+        <li><a href="?action=recharge"><span>充值卡充值</span></a></li>
+        <li class="activenum"><a href="?action=package"><span>购买套餐包</span></a></li>
+    </ul>
+</div>
+<form name="myform" action="PayOnline.aspx?action=package" methoid="post">
+
+    <div class="myform">
+              <div class="form-group package">
+              <p class="bt">选择要购买的收费套餐服务包</p>
+             {#PackageList}
+             </div>
+              <div class="form-group">
+                 <p class="bt">在线支付</p>
+                 <div class="paylist">
+                 <ul>
+                     <!--{#PayMoney}-->
+				 {#ShowPayMent}
+				 </ul>
+				 </div>
+              </div>   
+            
+ 
+		   <div class="s-btn">
+		   <input type="hidden" name="PlatID" id="PlatID" value="{#Pid}"/>
+		   <input type="hidden" name="OrderID" id="OrderID" value="{#OrderID}"/>
+           <input type="hidden" name="action" value="package"/>
+           <input type="hidden" name="flag" value="moneypay"/>
+		   <input type="button" value="在线支付" class="btn btn-danger" onClick="payOnline();" />
+           <input type="submit"  class="btn btn-info" value="账户余额支付" />
+           <input type="button"  class="btn btn btn-default" value="查看套餐包充值列表" onclick="$('.cart-box').show();"/>
+		   </div>
+   </form>
+</div>
+<div class="cart-box" style="display:None">
+   <form name="myform" action="PayOnline.aspx?action=package" methoid="post">
+  <input type="hidden" name="action" value="package"/>
+  <!--<input type="hidden" name="flag" value="showlist"/>-->
+        <ul id="pagelist">
+           [Loop Times="2"] 
+           <li class="item">
+            <div class="slice">
+                <div class="info">
+                  <div>序号:{#num}</div>
+                  <div>套餐名:{KS:Field:title}</div>
+                  <p>拥有权限:{KS:Field:Authority}</p>
+                  <p class="date">购买时间:{KS:Field:AddDate}</p>
+                  <p class="date">有效时间:{KS:Field:date}</p>
+                </div>
+            </div>
+            </li>
+            [/Loop]
+        </ul>
+          <script>
+              var pageCount = "{#PageCount}";
+              var postUrl = "PayOnline.aspx";
+              var postParam = "action=package";
+       </script>
+       <script src="{M:G3InstallDir}Handler/loadpage.js"></script>
+    </form>
+        <ul id="pagelistend" style="display:none"></ul>
+
+
+</body>
+</html>

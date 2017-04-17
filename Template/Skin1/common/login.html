@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" />
+	<link href="{$GetTemplateDir}/css/index.css" rel="stylesheet" type="text/css">
+
+	<title>{$GetSiteTitle}-用户登录</title>
+	<script src="/ks_inc/jQuery.js" language="javascript" type="text/javascript"></script>
+	<script src="/KS_Inc/Kesion.Common.js" language="javascript" type="text/javascript"></script>
+	<script type="text/javascript"  src="{$GetTemplateDir}/js/nav.js"></script>
+
+</head>
+<body>
+
+<script>
+function CheckLoginForm()
+{
+	     if (jQuery("#UserName").val()=='' || jQuery("#UserName").val()=='{$GetLoginUserNameTips}')
+		 {
+		  jQuery.dialog.alert("请输入{$GetLoginUserNameTips}!",function(){
+		  jQuery("#UserName").focus();
+		  });
+		  return false;
+		 }
+	     if (jQuery("#passWord").val()=='' || jQuery("#passWord").val()=='******')
+		 {
+		  jQuery.dialog.alert("请输入会员登录密码!",function(){
+		  jQuery("#passWord").focus();
+		  });
+		  return false;
+		 }
+		 if (jQuery("#PassWord").val().length<6)
+		 {
+		  jQuery.dialog.alert("登录密码长度不能少于6位!",function(){
+		  jQuery("#PassWord").focus();
+		  });
+		  return false;
+		 }
+		 if ( {$CheckVerifyCode} ){
+			 if (jQuery("#TxtVerifyCode").val()=='' || jQuery("#TxtVerifyCode").val()=='验证码')
+			 {
+			  jQuery.dialog.alert("请输入验证码!",function(){
+			  jQuery("#TxtVerifyCode").focus();
+			  });
+			  return false;
+			 }
+		 }
+		 return true;
+	  }
+	 
+	</script>
+	
+{KS_T1_企业头部通用}
+		
+		<div class="clear"></div>
+		<div class="login">
+			<div class="baiyunbg">
+			
+			<div class="l_m">
+			  
+				<div class="login_box">
+					<h4>用户登录</h4>
+					<form name="myform" action="{$GetSiteUrl}User/UserLogin.aspx" method="post" id="loginForm">
+					<input type="hidden" name="action" value="checklogin"/>
+					<input type="hidden" name="backurl" value="{$GetComeUrl}"/>
+			        <ul>  
+                        <li>		
+                          <input type="input" onfocus="this.value=(this.value=='{$GetLoginUserNameTips}')?'':this.value" onblur="this.value=(this.value=='')?'{$GetLoginUserNameTips}':this.value" name="UserName" value="{$GetLoginUserNameTips}" id="UserName" class="username" >
+                        </li>
+                        <li>
+                          <input type="password" onfocus="this.value=(this.value=='******')?'':this.value" onblur="this.value=(this.value=='')?'******':this.value" name="passWord" value="******" id="passWord" class="password" >
+                        </li>
+                        <li>  
+                          <span{$ShowVerify}><input type="input" onfocus="this.value=(this.value=='验证码')?'':this.value" onblur="this.value=(this.value=='')?'验证码':this.value" name="VerifyCode" value="验证码" id="TxtVerifyCode" class="password" style="width:60px"> <img title="点击刷新" id="verifyimg" src="../plus/ValidateCode.aspx" border="0" style="cursor:pointer;margin-top:10px" onClick="this.src='../plus/ValidateCode.aspx?t='+Math.random();" /></span>
+                        </li>
+                        <li>
+                          <div class="cook">
+                            <div class="l"><input id="Cookies" type="checkbox" name="Cookies" style="outline:none;vertical-align:middle" checked="checked"> <label for="Cookies">&nbsp;记住我的登录信息</label></div><div class="fr"><a href="{=GetRewriteUrl(getpassword)}">忘记密码？</a><a href="/user/ActivateUser.aspx" >激活</a>
+                            </div>
+                          </div> 
+                        </li>
+                        <li> 
+                          <div style="margin-top:10px;"><input name="Button1" value="立即登录"  class="btn-login" onclick="return(CheckLoginForm())" type="submit"  /></div>
+                        </li>
+                        <li>
+                          <div class="zc">
+                              使用合作网站账号登录：{$ShowApiLogin}
+                          </div>
+                        </li>
+                     </ul>
+					</form>
+				</div>
+                <div class="fr rightBox">
+                   <span>还不是{$GetSiteName}会员?</span>
+                   10秒免费免费注册成为{$GetSiteName}会员!
+                   <a href="{=GetRewriteUrl(reg)}">免费注册</a>
+                </div>
+				
+			</div>
+			</div>
+		</div>
+		
+<!--底部通用 begin-->
+{KS_T1_企业底部通用}
+<!--底部通用 end-->
+{KS_T1_右侧客服}
+</body>
+</html>

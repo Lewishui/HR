@@ -1,0 +1,9 @@
+.Wdate,.Wdate:hover,.Wdate:focus{
+	background:#fff url(datePicker.gif) no-repeat right !important;
+	margin-right:7px;
+}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}

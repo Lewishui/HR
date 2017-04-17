@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>会员中心 - {$GetSiteName}</title>
+<link href="/user/images/css.css" rel="stylesheet" type="text/css" />
+<script src="/ks_inc/jquery.js" type="text/javascript"></script>
+<script src="/ks_inc/kesion.common.js" type="text/javascript"></script>
+<script src="/user/images/Tab.js" type="text/javascript"></script>
+<script>
+        var box = null;
+        function openWin(title, url, isreload, width, height) {
+            if (width == null) width = 760;
+            if (height == null) height = 450;
+            box = $.dialog.open(url, {
+                id: 'topbox', lock: true, title: title, width: width, height: height, close: function () {
+                    if (isreload) {
+                       frames['main'].location.reload();
+                    }
+                }
+            });
+        }
+        function returnMessage(text) {
+            var obj = document.getElementById("NewMessage");
+            obj.innerHTML = text;
+        }
+        function getNewMessage() {
+            jQuery.ajax({ url: "{$GetInstallDir}plus/ajaxs.ashx", cache: false, data: "type=1&a=GetNewMessage&now=" + new Date().getTime(), success: function (obj) {
+                returnMessage(obj);
+            } 
+            });
+            setTimeout("getNewMessage()", 5000);
+        }
+
+		
+		 $(function () {
+                 IsVIP();//判断是否VIP
+		         getNewMessage(); //短消息
+				 
+				//菜单隐藏展开
+				var tabs_i=0
+				$('.vtitle').click(function(){
+				    var _self = $(this);				 
+					var j = $('.vtitle').index(_self);
+				    //if( tabs_i == j ) return false; 
+					tabs_i = j;
+					$('.vtitle em').each(function (e) {				
+					    if (e == tabs_i) {					    
+							$('em',_self).removeClass('v01').addClass('v02');
+						}else{
+							$(this).removeClass('v02').addClass('v01');
+						}
+					});
+					$('.vcon').slideUp().eq(tabs_i).slideDown();
+				});
+
+			})
+		 
+      function IsVIP() {
+
+            if ("{#IsVIP}" == "1") {
+                jQuery("#VIP").show();
+                jQuery("#mianfei").hide();
+            } else {
+                jQuery("#mianfei").show();
+                jQuery("#VIP").hide();
+            }
+        }
+
+
+		
+
+</script>
+<!--[if IE 6]>
+	<script src="/ks_inc/iepng.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	   EvPNG.fix('div, ul, img, li, input'); 
+	</script>
+	<![endif]-->
+</head>
+<body style="background:#F2F6F8">
+<div class="logo_box">
+  <div class="user_wrap clearfix">
+     <h1 class="logo"><a href="index.aspx"><img src="/user/images/logo.png" /><span class="logo_txt">个人中心</span></a></h1>
+     <div class="logo_box_r">
+       <ul class="top-info">
+        <li><a href="/"><i class="ico ico-home"><img src="/user/images/ico-home.png" /></i>返回首页</a></li>
+        <li><a href="{#SpaceUrl}" target="_blank" title="浏览个人主页"><i class="ico ico-z"><img src="/user/images/ico-kongjian.png" /></i>查看空间</a></li>
+        <li><a href="{$GetInstallDir}user/message/receivedmessage.aspx?menu=message" target="main"><i class="ico ico-msg"><img src="/user/images/ico-xiaoxi.png" /></i>消息<span class="num" id="NewMessage"></span></a></li>
+        <li class="parent set">
+            <a href="#"><i class="ico ico-set"><img src="/user/images/ico-shezhi.png" /></i>设置<i class="ico ico-arrew"></i></a>
+            <ul class="second-menu">
+              <li><a href="basic/editinfo.aspx" target="main">个人资料</a></li>
+              <li><a href="basic/MobileBind.aspx" target="main">手机绑定</a></li>
+              <li><a href="basic/editPass.aspx" target="main">修改密码</a> </li>
+              <li><a href="basic/ApiBind.aspx" target="main">账&nbsp;号&nbsp;&nbsp;通</a></li>
+            </ul>
+       </li>
+       <li><a href="UserLoginOut.aspx" onClick="return(confirm('确定退出吗？'))"><i class="ico ico-exit"><img src="/user/images/ico-tuichu.png" /></i>退出</a></li>
+       
+       </ul>
+     </div>
+     <!--logo_box_r End-->
+      <div class="pos"><a class="qdbtn" href="javascript:SignIn();"><i class="iconfont"></i>今日签到</a></div>
+	  <script>
+		 function SignIn() {
+	
+		     jQuery.ajax({
+		         url: "/user/SignIn.aspx?action=SignInUser&rnd="+Math.random(), success: function (d) {
+		             if (d == "no") {
+		                 box = jQuery.dialog.open("/user/SignIn.aspx?rnd="+Math.random(), {id:"loginbox",lock:true,fixed:true, title: "<div style='text-align:left'>用户签到</div>", width: 700, height: 530, max: false, min: false });
+		             }
+					 else
+		             { 
+					     KesionJS.Alert('你已签到过了!','');
+		             }
+		         }
+		     });
+		 }
+		$(document).ready(function(){
+			 jQuery.ajax({
+				  url: "/user/SignIn.aspx?action=SignInUser&rnd="+Math.random(), success: function (d) {
+					  if (d=='close'){
+					  $('.pos .qdbtn').hide();
+					  }else if (d == "no") {
+						  $('.pos .qdbtn').html('签到');
+					  } else {
+						 $('.pos .qdbtn').addClass('btn-ok').html('<i class="iconfont"></i>签到记录 >').click(function(){
+							 $("#main").attr("src","SignInList.aspx");
+							 return false;
+						 });
+					  }
+					  
+				  }
+			  });  
+		  });
+	  </script>
+	  
+	  </div>
+</div>
+
+<div class="usermain">
+    <div class="user_wrap usermainbox clearfix">
+          <div class="left">
+              <div class="faceimg">
+                  <div class="userface"></div>
+                  <!--头像 beign-->
+                   <div class="ar_r_t"><div class="ar_l_t"><div class="ar_r_b"><div class="ar_l_b">
+                  <img onerror="this.src='/sysimg/face/boy.jpg';" src="{$GetInstallDir}UploadFiles/avatar/{KS:Field:UserID}_60x60.jpg"/>
+                  <span class="edit_face"><a href="basic/userface.aspx" target="main">更改头像</a></span>
+                  </div></div></div></div>
+                  <!--头像 end-->
+              </div>    
+              <div class="user_desc">
+                   <span><a href="{#SpaceUrl}" target="_blank" title="
+                     注册时间：{KS:Field:RegDate} 
+                     登录次数：{KS:Field:LoginTimes}次
+                     最后登录：{#LastLoginTime} 
+                     最后登录IP：{KS:Field:LastLoginIP}">{KS:Field:UserName} 
+                    <script>
+                    if ("{KS:Field:RealName}"!=''){
+                    document.write('({KS:Field:RealName})');
+                    }
+                    </script>
+                    </a></span>
+                      用户组：{#GroupName}</span>
+
+                        <div class="hydj" id="mianfei">
+                          <strong><i class="iconfont">&#xe600;</i>体验会员</strong>
+                      <script>
+                      function ddd(obj, sType) { var oDiv = document.getElementById(obj); if (sType == 'show') { oDiv.style.display = 'block';} if (sType == 'hide') { oDiv.style.display = 'none';} }
+                      </script>
+                      <span onMouseMove="$('#sjvip').show();" onMouseOut="$('#sjvip').hide();" class="xlbox"><i class="iconfont">&#xe62f;</i>升级为VIP
+                          <div class="vipintro" id="sjvip" style="display:none">升级为VIP后，您可以使用网站内所有的免费内容。是否升级？<a href="/user/?mainurl=Basic/UserVIP.aspx"><img src="../../User/Images/qczkt.png" alt="去充值开通" /></a></div>
+                       </span>
+                      </div>
+
+                    <div class="hydj" id="VIP">
+                      <strong>VIP会员</strong>
+                  <script>
+                      function ddd(obj, sType) { var oDiv = document.getElementById(obj); if (sType == 'show') { oDiv.style.display = 'block'; } if (sType == 'hide') { oDiv.style.display = 'none'; } }
+                  </script>
+                  <span onMouseMove="$('#Div2').show();" onMouseOut="$('#Div2').hide();" class="xlbox"><i class="iconfont">&#xe62f;</i>查看我的VIP
+                      <div class="vipintro" id="Div2" style="display:none">您的VIP截止时间为：{#Enddate}<a href="/user/?mainurl=Basic/UserVIP.aspx"><img src="../../User/Images/qczkt.png" alt="去续费" /></a>
+    
+                      </div>
+                   </span>
+                  </div> 
+
+
+                     <!--部门：{#DepartMentName}
+                     <br />认证用户：<span>V</span> &nbsp;&nbsp;&nbsp; 
+                     注册时间：{KS:Field:RegDate} 
+                     登录次数：<b>{KS:Field:LoginTimes}</b>次<br />
+                     最后登录：{#LastLoginTime} 
+                     最后登录IP：<em>{KS:Field:LastLoginIP}</em>-->
+          
+              </div>
+          </div>
+          <div class="right">
+              <div class="stat">
+                 <ul>
+                    <li>
+                        <span class="num s_cor1">{$GetCurrencySymbol}{KS:Field:Money(2)}{$GetCurrencyUnit}</span>
+                        <p><a href="basic/LogMoney.aspx" target="main"  class="txt"title="查看资金明细">资金</a></p>
+                      </li>
+                                            
+                       <li id="showpoint">
+                        <span class="num s_cor2">{KS:Field:Point(2)}{=GetCacheConfig(50)}</span>
+                        <p><a href="basic/Consumer.aspx" target="main" class="txt" title="查看{=GetCacheConfig(49)}明细">可用{=GetCacheConfig(49)}</a></p>
+                     </li>
+					 <script>
+					   if ({=getshopcommonconfig(98)}=="0"){
+					    $("#showpoint").hide();
+					   }
+					 </script>
+                    <li>
+                        <span class="num s_cor3">{KS:Field:Score}</span>
+                      <p><a href="basic/LogScore.aspx" target="main" class="txt" title="查看积分明细">总积分</a></p>
+                    </li>
+                    <li>
+                        <span class="num s_cor4">
+                        <script>
+                        	document.write({KS:Field:Score}-{KS:Field:ScoreHasUse});
+                        </script>
+                        </span>
+                      <p><span class="txt">可用积分</span></p>
+                    </li>
+                    <li>
+                        <span class="num s_cor5">{KS:Field:ScoreHasUse}</span>
+                      <p><span class="txt">已消费积分</span></p>
+                    </li>
+    
+                 </ul>
+              </div>
+          </div>
+    </div>
+</div>
+
+<div class="user_main user_wrap">  
+
+  <div class="user_main_l">
+        <div class="left04">
+        {#LeftMenu}
+        </div>
+        <div class="clear"></div>
+  </div>
+  
+  <div class="user_main_r">
+      {#UserMain}
+     
+  </div>
+  
+</div>   
+<div class="clear"></div>
+<div class="copyright" style="text-align:center;border-top:1px solid #EBF0F3;color:#888;line-height:30px; margin-top:20px; background:#fff;">
+{$GetCopyRight}
+</div>
+</body>
+</html>

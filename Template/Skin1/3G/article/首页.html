@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>{$Get3GSiteName}</title>
+<meta name="keywords" content="{M:KeyWords}">
+<meta name="description" content="{M:Decription}">
+<link href="{M:G3InstallDir}style/style.css" rel="stylesheet" type="text/css" />
+<script src="{$GetInstallDir}ks_inc/jQuery.js" language="javascript" type="text/javascript"></script>
+<script src="{$GetInstallDir}KS_Inc/Kesion.Common.js" language="javascript" type="text/javascript"></script>
+<script src="{M:G3InstallDir}js/TouchSlide.1.1.js" type="text/javascript"></script>
+</head> 
+<body>
+	{KS_T1_3G_头部通用}
+<div class="mod-content">   
+    <!-- 幻灯 Start -->
+    <div id="slideBox" class="slideBox">
+        <div class="hd">
+            <ul></ul>
+        </div>
+        <div class="bd">
+            <ul>
+                {KS_T1_手机_文章首页幻灯}
+            </ul>
+        </div>
+    </div>
+   		<script type="text/javascript">
+				TouchSlide({ slideCell:"#slideBox", mainCell:".bd ul", effect:"leftLoop" });
+    	</script>
+    <!-- 幻灯 End  --> 
+    <div class="news-box">
+        <div class="nav-col">
+        	<div class="nav-wrap">
+        		<ul class="scroll-w">
+            		{KS_T1_3G_通用栏目}
+            	</ul>
+            </div>    
+        </div>
+        <div class="tit-rel newsTop">
+        	<div class="item">
+            	{KS_T1_手机_文章首页头条}
+            	<div class="rel">
+                    {KS_T1_手机_文章首页推荐}
+            	</div>
+            </div>
+            <div class="item">
+            	{KS_T1_手机_文章首页头条2}
+            	<div class="rel">
+            		{KS_T1_手机_文章首页推荐2}
+            	</div>
+            </div>
+        </div>
+        <div class="news-item">
+            <div class="pic-txt">
+                <ul>
+                    {KS_T1_3G文章首页_文章列表}
+                </ul>
+            </div>
+        </div>
+	</div>            
+
+</div>   
+<!--mod-content end-->
+{KS_T1_3G_底部通用}  
+  
+{KS_T1_3G_底部按钮}
+
+</body>
+</html>

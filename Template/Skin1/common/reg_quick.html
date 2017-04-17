@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" />
+	<link href="{$GetTemplateDir}/css/index.css" rel="stylesheet" type="text/css">
+	<title>{$GetSiteTitle}-新会员注册</title>
+    <script src="{$GetInstallDir}ks_Inc/CheckPassWord.js"></script>
+	<script src="{$GetInstallDir}ks_Inc/jQuery.js"></script>
+	<script src="{$GetInstallDir}ks_Inc/Kesion.Common.js"></script>
+	<script src="{$GetInstallDir}KS_Inc/DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript"  src="{$GetTemplateDir}/js/nav.js"></script>
+
+</head>
+<body>
+
+
+	
+    
+    
+<script> 
+
+function setTab(m,n){ 
+var tli=document.getElementById("menu"+m).getElementsByTagName("li"); 
+var mli=document.getElementById("main"+m).getElementsByTagName("ul"); 
+for(i=0;i<tli.length;i++){ 
+tli[i].className=i==n?"hover":""; 
+mli[i].style.display=i==n?"block":"none"; 
+} 
+} 
+
+</script> 
+<style>
+.menu0 { width: 400px; margin:auto;position: relative;top: -31px;} 
+.menu0 li { display:block; float: left; padding: 4px 0; height:22px; line-height:22px;background: #58a4ed;color:#fff; width:100px; text-align: center; cursor:pointer;  border:1px solid #54bacc;  margin-right: 15px;} 
+.menu0 li.hover { background: #fff;height:23px; line-height:23px;  border: 1px solid #54bacc; border-bottom:none; color:red; font-weight:bold;} 
+#main0 ul { display: none; } 
+#main0 ul.block { display: block; } 
+
+.rank { border:none; background:url(/sysimg/rank2.png) no-repeat left top; width:250px; height:14px; vertical-align:middle; cursor:default; overflow:hidden;}
+.r0 { background-position:0 0; }
+.r1 { background-position:0 -22px; }
+.r2 { background-position:0 -44px; }
+.r3 { background-position:0 -66px; }
+.r4 { background-position:0 -66px; }
+.r5 { background-position:0 -66px; }
+.r6 { background-position:0 -66px; }
+.r7 { background-position:0 -66px; }
+
+</style>
+
+{KS_T1_企业头部通用}
+
+<div id="tabs0">
+
+	<div class="mmmain" id="main0">
+	<div class="reg_box">
+	     <div class="w">
+			<div class="reg_box_l fl">
+			 <h4>注册会员</h4>
+              <script>
+			  var VerifyCodeReg={$VerifyCodeReg}; //是否启用验证码
+			  var uType={$Show_UserNameType};     //会员格式
+			  var mobileReg={$MobileReg};         //是否启用验证码注册
+	          var OutTimes ="{$SendSMSInterval}";
+
+			  function getlicense(){
+				  if (document.getElementById('viewlicense').checked==true){
+				    var dialog = art.dialog({
+						title: '阅读服务条款',
+						content: "<div class='readCon' style='width:800px;height:400px;line-height:30px;overflow:auto'>"+$("#license").html()+"</div>",
+						fixed:true,
+						lock:true,
+						okVal:'同意',
+						ok: function () {   
+							this.close();   
+							return false;   
+						},   
+						cancelVal: '不同意',   
+						cancel:function(){
+							  $("#viewlicense").attr("checked",false);
+					     } 
+					});
+					}
+				}
+			  function checkregform(){
+			    var userName=$("#UserName").val();
+			    if (userName==''){
+				   KesionJS.Alert('请输入{$GetLoginUserNameTips}!',"$('#UserName').focus()");
+				   return false;
+				}
+				if (uType==1){
+				   if (!ismobile(userName)){
+					   KesionJS.Alert('对不起，请输入正确的手机号码!',"$('#UserName').focus()");
+					   return false;
+				   }else if (ismobile(userName) &&mobileReg==1){
+				     if ( $("#showSmsCode").is(":hidden")){
+				       $("#showSmsCode").show();
+					   return false;
+					 }
+					 if ($("#MobileCode").val()==''){
+					  KesionJS.Alert('对不起，请输入短信验证码!',"$('#MobileCode').focus()");
+					  return false;
+					 }
+				   }
+				}else if (uType==2){
+				   if (!is_email(userName)){
+					   KesionJS.Alert('对不起，请输入正的电子邮箱!',"$('#UserName').focus()");
+					   return false;
+				   }
+				}else if (uType==3){
+				   if (!ismobile(userName) && !is_email(userName)){
+					   KesionJS.Alert('对不起，请输入正确的手机号码或电子邮箱!',"$('#UserName').focus()");
+					   return false;
+				   }else if (ismobile(userName) &&mobileReg==1){
+				     if ($("#showSmsCode").is(":hidden")){
+				       $("#showSmsCode").show();
+					   return false;
+					 }
+					 if ($("#MobileCode").val()==''){
+					  KesionJS.Alert('对不起，请输入短信验证码!',"$('#MobileCode').focus()");
+					 }
+				   }
+				}
+				if ($("#PassWord").val()==''){
+				   KesionJS.Alert('请输入登录密码!',"$('#PassWord').focus()");
+				  return false;
+				}
+				if ($("#RePassWord").val()==''){
+				   KesionJS.Alert('请输入确认密码!',"$('#RePassWord').focus()");
+				   return false;
+				}
+				if ($("#RePassWord").val()!=$("#PassWord").val()){
+				   KesionJS.Alert('两次输入的密码不一致!',"$('#RePassWord').focus()");
+				   return false;
+				}
+				if (VerifyCodeReg==1 && $("#Verifycode").val()==''){
+					$.dialog.alert("请输入验证码！",function(){ $("#Verifycode").focus();});
+					 return false;
+				}
+						
+				if ($("#viewlicense")[0].checked==false){
+					$.dialog.alert("同意本站的会员服务条款才能完成注册！",function(){});
+					return false;
+				}
+				
+			  }
+			  
+			    var tOutTimes=OutTimes;
+				function leavePage(SendBtn) {
+						 if (tOutTimes==0){
+						 tOutTimes=OutTimes;
+						 $("#"+SendBtn).attr("disabled",false);
+						 $("#"+SendBtn).val("免费获取手机验证码")
+						 }
+						 else{
+						 tOutTimes -= 1;
+						 $("#"+SendBtn).val("已发，"+tOutTimes+"秒后没有收到，可以重发!");
+						 setTimeout("leavePage('"+SendBtn+"')", 1000);}
+				}
+				
+				function getMobileCode(mField,SendBtn){
+				
+					var mobile=$("#"+mField).val();
+					if (mobile==''){
+					  $.dialog.alert('请选输入手机号码！',function(){ $("#"+mField).focus();});
+					   return false;
+					}
+					if (ismobile(mobile)==false){
+					  $.dialog.alert('手机号码格式不正确，请重新输入！',function(){ $("#"+mField).focus();});
+					  return false;
+					}
+					$("#"+SendBtn).attr("disabled",true);
+					
+					$.ajax({type:"get",async:false,url:"/user/regajax.ashx?istest=0&action=sendmobilecode&model=userreg&mobile="+mobile+"&anticache=" + Math.floor(Math.random()*1000),cache:false,dataType:"html",success:function(d){
+						 if (d=='true'){
+							leavePage(SendBtn);
+						 }else{
+							 $.dialog.alert(d,function(){ $("#"+SendBtn).attr("disabled",false); });
+						 }
+					}});
+					return false;
+					
+				}
+			 
+			 </script>
+			 <iframe src="about:blank" name="hidframe" id="hidframe" style="display:none"></iframe>
+			 <form name="myform" id="myform"  method="post"  onsubmit="return(checkregform())" action="{=GetRewriteUrl(regok)}" target="hidframe" style="font-size:14px;  line-height: 40px;">
+               <ul class="block">
+						<li><span class="title">{$GetLoginUserNameTips}：</span>
+                           <div class="item-ifo">
+							<input name="UserName" id="UserName" type="text" class="text" >
+                            <font style="color:red;  font-family: -webkit-body;">*</font>
+                           </div>
+						</li>	
+						<li id="showSmsCode" style="display:none"><span class="title">短信验证码：</span>
+                           <div class="item-ifo">
+							<input maxlength="6" name="MobileCode"  type="text" id="MobileCode" class="text_yz text" style="width:80px;" >
+							<input type="button" id="SendMobileBtn" onclick="getMobileCode('UserName','SendMobileBtn')" value="免费获取手机验证码" class="btn_yz"/>
+                            <font style="color:red;  font-family: -webkit-body;">*</font>
+                           </div>
+						</li>	
+						
+						<li style="clear:both;"><span class="title" >用户密码：</span>
+                           <div class="item-ifo">
+							<input id="PassWord" name="PassWord" type="PassWord" class="text" onBlur="setPasswordLevel(this, document.getElementById('passwordLevel'));"  onKeyUp="setPasswordLevel(this, document.getElementById('passwordLevel'));">
+                            <font style="color:red;  font-family: -webkit-body;">*</font>
+                            
+                           </div>
+                           
+						</li>
+                       <li style="padding-top:0; line-height:30px"><span class="title">&nbsp;&nbsp;</span><input name="Input" disabled="disabled" class="rank r0" id="passwordLevel" /></li>
+						
+						<li style="clear:both;"><span class="title">确认密码：</span>
+                            <div class="item-ifo">
+							<input name="RePassWord" id="RePassWord" type="PassWord" class="text" >
+                            <font style="color:red;  font-family: -webkit-body;">*</font>
+                           </div>
+                            
+							
+						 </li>
+                         
+					
+						<li {$DisplayVerifyCode}><span class="title"><font style="color:red; display:none;">*</font>验 证 码：</span>
+                          <div class="item-ifo">
+							<input maxlength="6"  name="Verifycode" type="text" id="Verifycode" class="text_yz" style="float: left;height: 30px;border: 1px solid #ccc;" >
+                            
+                            
+                            <div class="l" style=" float: left;  margin-top: 12px; margin-left:5px;">{$Show_VerifyCode} </div>	<div class='d_default' id='chkcodemsg' style="margin-left:75px;margin-top:-30px; float:left;font-family:'宋体'; color:#747474; font-size:13px;"></div>
+                            
+                            </div>
+						</li>					 
+						
+						
+						
+						<li><div class="agree">
+						<input name="viewlicense" id="viewlicense" type="checkbox" onClick="getlicense()" value="1" ><label for="viewlicense">同意阅读服务条款</label>&nbsp;&nbsp;&nbsp;<input type="image" src="{$GetInstallDir}user/images/agree.gif" align="middle"></div></li>
+                        
+                 </ul>        
+			</form>
+						
+					<div id="license" style="display:none;">
+						<pre>{$GetUserRegLicense}</pre>
+					</div>
+				
+        	</div>
+            
+            <div class="reg_box_r">
+                <h5>我已有帐号？</h5>
+                <a href="{=GetRewriteUrl(userlogin)}"><IMG src="/User/Images/login.gif" /></a><br /><div class="i_t">登录我的会员中心，发心事、刷微博、与知心好友畅谈心事。</div>
+                <br/><h5>第三方平台登录</h5>
+                <div class="clear"></div>
+                <span class="ApiLogin">
+                  <script>
+                  if ("{=GetAccountApiConfig(qq,enable)}"=="true"){
+                  document.write('<a href="{=GetRewriteUrl(qqlogin)}" class="qq"></a>');
+                  }
+                  if ("{=GetAccountApiConfig(sina,enable)}"=="true"){
+                  document.write('<a href="{=GetRewriteUrl(sinalogin)}" class="sina"></a>');
+                  }
+                  if ("{=GetAccountApiConfig(alipay,enable)}"=="true"){
+                  document.write('<a href="{=GetRewriteUrl(alipaylogin)}" class="alipay"></a>');
+                  }
+                  </script>
+                </span>
+		   </div>
+
+		</div>
+        
+     
+        
+       
+        
+	  </div>
+    
+    
+    
+	</div>
+
+
+</div>
+	
+<!--底部通用 begin-->
+{KS_T1_企业底部通用}
+<!--底部通用 end-->
+{KS_T1_右侧客服}
+    
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>账目明细管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+</head>
+
+<body>
+
+<div class="header u-header">
+	<a href="{M:G3InstallDir}user/" class="back"><i class="fa fa-angle-left"></i></a>
+    <div class="m-title">账目明细管理</div>
+    <div class="head-in">
+    
+    </div>	
+</div>
+<div class="navtab tab-sy2">
+  <ul class="flexbox">
+      <li class="activenum"><a href="index.aspx?action=logmoney">资金明细</a></li>
+      <li id="showpoint"><a href="index.aspx?action=logmoney&type=1">{$GetPointName}明细</a></li>
+	   <script>
+			 if ({=getshopcommonconfig(98)}=="0"){
+				    $("#showpoint").hide();
+			  }
+		 </script>
+      <li><a href="index.aspx?action=logmoney&type=2">积分明细</a></li>
+  </ul>
+</div>
+<!--资金明细-->
+    <div class="myform">
+      <form name="myform" action="index.aspx?action=logmoney" method="post">
+          <input type="hidden" name="action" value="logmoney"/>
+<div class="u-record tbbox">
+     <ul id="pagelist">
+          [Loop Times="5"]    
+        <!--{#OrderList}-->
+        
+        <li class="tr">
+           
+                <div class="sz">{KS:Field:remark} [ {KS:Field:IncomeOrPayOutstr} ]<!--", dr["IncomeOrPayOut"].ToString().Equals("1") ? @"<span class=""in"">收入</span>" : @"<span class=""out"">支出</span>"));-->
+                 <br><span class="wx">{KS:Field:PayTime}</span></div>
+                <!--", dr["remark"].ToString(), Utils.FormatHumanizedTime(Convert.ToDateTime(dr["PayTime"].ToString()))));-->
+               
+                <div class="td">交易金额：<span class="u-money">{KS:Field:Money}</span></div>
+                    <!--", MyCache.GetCurrencySymbol + " " + Kesion.APPCode.Public.ReturnShopPrice(dr["money"].ToString())));-->
+                <div class="td last">本次余额：<br>{KS:Field:currmoney}</div>
+                    <!--", MyCache.GetCurrencySymbol + " " + Kesion.APPCode.Public.ReturnShopPrice(dr["currmoney"].ToString())));-->
+         
+         
+        </li>
+         [/Loop]
+    </ul>
+    <ul id="pagelistend" style="display:none"></ul>
+      <script>
+          var pageCount = "{#PageCount}";
+          var postUrl = "index.aspx";
+          var postParam = "action=logmoney";
+   </script>
+   <script src="{M:G3InstallDir}Handler/loadpage.js"></script>
+      
+</div>
+          </form>
+        </div>
+
+<!--资金明细-->
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>会员中心</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+
+<script>
+$(function () {
+		 getNewMessage(); //短消息
+});
+function returnMessage(text) {
+            var obj = document.getElementById("NewMessage");
+            obj.innerHTML = text;
+        }
+        function getNewMessage() {
+            jQuery.ajax({ url: "{$GetInstallDir}plus/ajaxs.ashx", cache: false, data: "type=1&a=GetNewMessage&now=" + new Date().getTime(), success: function (obj) {
+                returnMessage(obj);
+            } 
+            });
+            setTimeout("getNewMessage()", 5000);
+        }
+</script>
+<script>
+
+$(document).ready(function(e) {
+    $(".umall-item").find(".num").each(function(){
+		if(parseInt($(this).html())>0){
+			$(this).show();
+		}else{
+			$(this).hide();
+		}
+	});
+});
+function SignIn() {      
+  jQuery.ajax({
+	  url: "/user/SignIn.aspx?action=SignInUser&rnd="+Math.random(), success: function (d) {
+		  if (d == "no") {
+			  jQuery.ajax({
+				  url: "/user/SignIn.aspx?action=SignIn&rnd="+Math.random(), success: function (d) {
+					  alert(d);
+					 $('.pos .btn').addClass('btn-ok').html('已签到');
+
+				  }
+			  });
+		  } else {
+			  //alert("你已签到过了!");
+		  }
+		  
+	  }
+  });                     
+}
+jQuery.ajax({
+	  url: "/user/SignIn.aspx?action=SignInUser&rnd="+Math.random(), success: function (d) {
+		  if (d == "no") {
+			  $('.pos .btn-qd').html('签到');
+		  } else {
+			 $('.pos .btn-qd').addClass('btn-ok').html('签到记录').click(function(){
+				 window.location='SignInList.aspx';
+				 return false;
+			 });
+		  }
+		  
+	  }
+  });    
+</script>
+
+</head>
+<body class="user-index">
+<div class="header u-header">
+    <div class="m-title">个人中心</div>
+    <div class="head-in">
+    	<a href="message.aspx" class="u-message"><i class="fa fa-bell-o"></i><span id="NewMessage"></span></a>
+    </div>	
+</div> 
+<div class="user_top" >
+  <div class="my_details">
+  	 <div onClick="window.location='?action=userinfo'">
+         <div class="user_pic">
+            <img src="{$GetInstallDir}UploadFiles/avatar/{KS:Field:UserID}_60x60.jpg" onerror="this.onerror=null;this.src='/sysimg/face/boy.jpg'" >
+         </div>
+         <p class="u_name" onClick="window.location='?action=userinfo'">
+            {KS:Field:UserName}<span class="ts"> ( {#GroupName} )</span>
+         </p>
+         <p class="u-mobile"><i class="fa fa-mobile"></i>{KS:Field:mobile}</p>
+     </div>
+     [sign]<span class="pos signbtn"><a href="javascript:;" class="btn btn-qd"  onClick="SignIn()"><em>签到</em></a>
+<!--         <a href="SignInList.aspx"  class="jl"><em>记录</em></a>
+-->     <!--<a href="javascript:;" class="jl"  onClick="SignIn()"><em></em></a>--></span>[/sign]
+  </div>
+  <i class="fa fa-angle-right u-more-icon"></i>
+</div>
+<div class="user-info">
+   <ul class="menu-list">
+     	 <li>
+          <span class="user-icon"><i class="fa fa-rmb"></i></span>
+          <div class="specific_items">
+              <h5>我的钱包</h5>
+          </div>
+      	</li>
+   </ul>
+   <ul class="menu-list-grid umall-item clearfix">
+        <li>
+              <a href="javascript:;">
+              <span class="u_money"><span>￥</span>{KS:Field:Money(2)}</span>
+              <div class="specific_items">
+                <h5>余额</h5>
+              </div></a>
+        </li>
+        <li>
+              <a href="javascript:;">
+              <span class="u_money">{KS:Field:Score}</span>
+              <div class="specific_items">
+                <h5>积分</h5>
+              </div></a>
+        
+        </li>
+        <li id="showpoint">
+              <a href="javascript:;">
+              <span class="u_money">{KS:Field:Point(2)}</span>
+              <div class="specific_items">
+                <h5>点券</h5>
+              </div></a>
+        </li>
+       		 <script>
+			 if ({=getshopcommonconfig(98)}=="0"){
+					    $("#showpoint").hide();
+			  }
+		 </script>
+    </ul>
+   <ul class="menu-list clearfix">
+   
+      <li>
+         <a href="favorite.aspx">
+            <span class="user-icon"><i class="fa fa-star-o"></i></span>
+            <h5>收藏夹</h5>
+        </a>  
+      </li>
+      <li>
+         <a href="?action=comment">
+            <span class="user-icon"><i class="fa fa-pencil-square-o"></i></span>
+            <h5>我的评论</h5>
+        </a>  
+      </li>
+      <li>
+         <a href="MyOnlineMessage.aspx">
+            <span class="user-icon"><i class="fa fa-book"></i></span>
+            <h5>我的留言</h5>
+        </a>  
+      </li>
+      <li>
+         <a href="payonline.aspx">
+             <span class="user-icon"><i class="fa fa-yen"></i></span>
+             <h5>在线充值</h5>
+        </a>  
+      </li>
+     
+      <li>
+         <a href="?action=logmoney">
+             <span class="user-icon"><i class="fa fa-money"></i></span>
+             <h5>资金明细</h5>
+        </a>  
+      </li>
+     
+  </ul>   
+	
+</div>
+{KS_3G_底部按钮}
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /> 
+<title>{$Get3GSiteName}</title> 
+<meta name="keywords" content="{M:KeyWords}"> 
+<meta name="description" content="{M:Decription}"> 
+<link rel="Bookmark" href="favicon.ico" > 
+<link rel="Shortcut Icon" href="favicon.ico" /> 
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js" type="text/javascript"></script>
+<link href="{M:G3InstallDir}Template01/download/H-ui.css" rel="stylesheet" type="text/css" />
+<link href="{M:G3InstallDir}Template01/download/style.css" rel="stylesheet" type="text/css" />
+<link href="{M:G3InstallDir}Template01/images/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{M:G3InstallDir}Template01/download/font-awesome.min.css"/>
+
+
+</head> 
+<body>
+	<div class="com-content">
+		<header>
+			<div class="head">
+				<a href="javascript:history.back();void(0)" class="h_back"><i class="icon-angle-left f-20 c-white">&nbsp;&nbsp;</i></a>
+				<h4 class="text-c" style="margin: 0;"><a href="#" class="c-white">{$GetClassName}</a></h4>
+				<a href="{M:G3InstallDir}index.aspx" class="h_home"><i class="icon-home f-20 c-white">&nbsp;&nbsp;</i></a>
+			</div>
+
+		</header>
+<div>
+ 	<div id="content">		
+	<div class="down_conment">
+		<div class="nav_imgbar clearfix">
+			<img src="{KS:Field:DefaultPic}"/>
+			<h5>{KS:Field:Title}</h5>
+			<span class="f-18 c-orange">{KS:Field:rjxj}</span>
+			<p class="clearfix"><a class="f-l">上传者：{KS:Field:Inputer}</a><a class="f-r">浏览量：(<font color=red>{KS:Field:Hits}</font>)</a></p>
+			<div class="change_col">
+				<span>分类：{$GetClassName}</span>
+				<span>更新时间：<font color=blue>{KS:Field:AddDate}</font></span>
+				<span>大小：(<font color=red>{KS:Field:rjdx}</font>)</span>
+				<span>软件语言：<font color=red>{KS:Field:yuyan}</font></span>
+				<span>软件类别：{KS:Field:rjlx}</span>
+				<span>试用系统：{KS:Field:syxt}</span>
+			</div>
+								
+								<div class="liintro pd-10">
+									<h5>软件介绍：</h5>{KS:Field:Intro}
+								</div>
+								
+							
+		</div>
+        <div class="downbox03">
+							<h4><span>下载地址</span></h4>
+							<div class="xz_list">{KS:Field:DownUrl}</div>
+		</div>
+        <div class="user_box">
+        	<div class="user_tit">
+        		<h4>用户评论</h4>
+        	</div>
+        	<div class="user_con">
+            {KS:Field:WriteComment}
+        	{KS:Field:ShowComment}
+           
+
+        	</div>
+        </div>
+        
+	</div>
+
+
+	</div>
+
+</div>
+<footer>
+		{KS_T1_手机_底部通用}
+	
+</footer>
+
+	</div>
+
+</body>
+</html>

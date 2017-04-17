@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>站内消息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+</head>
+<script>
+    function del(id) {
+        if (confirm('确认删除吗？')) {
+            jQuery.ajax({
+                type: "get",
+                url: "Message.aspx",
+                data: "action=delmessage&id=" + id,
+                success: function (data) {
+                    if (data == "success") {
+                        $("#tr" + id).remove();
+                    } else {
+                        alert(data);
+                    }
+                }
+            });
+
+        }
+        return false;
+    }
+    </script>
+<body>
+<div class="header u-header">
+	<a href="javascript:;" onClick="history.back()" class="back"><i class="fa fa-angle-left"></i></a>
+    <div class="m-title">站内消息</div>
+    <div class="head-in">
+   
+    </div>	
+</div>  
+[ShowList]
+<div class="u-msg">
+    <ul id="pagelist">
+        [Loop Times="5"]
+        <li class="item" id="tr{KS:Field:id}">
+            <div class="slice">
+                <div class="info">
+                    <a href="?action=show&id={KS:Field:id}"><div class="title"><span class="fr date">{KS:Field:AddDate}</span>{KS:Field:FromUserName}({KS:Field:readtfStr})</div>
+                    <div class="con">{KS:Field:MsgTitle}</div></a>
+                    <div class="tar default-btn">
+                       <a class="btn" href="javascript;" onClick="return(del({KS:Field:id}))">删除</a>
+                    </div>
+                </div>
+                
+            </div>
+        </li>
+        [/Loop]
+    </ul>
+    <ul id="pagelistend" style="display:none"></ul>
+   
+   <script>
+       var pageCount = "{#PageCount}";
+       var postUrl = "Message.aspx";
+       var postParam = "";
+   </script>
+   <script src="{M:G3InstallDir}Handler/loadpage.js"></script>
+   
+</div>
+[/ShowList]
+
+[ShowDetail]
+<div class="u-msg">
+	<div class="slice info">
+        <ul>
+            <li>主题：{KS:Field:MsgTitle}</li>
+            <li>来自：{KS:Field:FromUserName}</li>
+            <li>时间：{KS:Field:AddDate}</li>
+            <!-- //  string msg = dr["MsgContent"].ToString();-->
+            <li>内容：{KS:Field:MsgContent}</li>
+            <!--", msg));-->
+        </ul>
+	</div>
+</div>
+[/ShowDetail]
+
+
+</body>
+</html>

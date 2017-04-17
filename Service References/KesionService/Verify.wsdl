@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckAllow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAllowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckAllowResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckAllowSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckAllow" />
+  </wsdl:message>
+  <wsdl:message name="CheckAllowSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckAllowResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VerifySoap">
+    <wsdl:operation name="CheckAllow">
+      <wsdl:input message="tns:CheckAllowSoapIn" />
+      <wsdl:output message="tns:CheckAllowSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VerifySoap" type="tns:VerifySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckAllow">
+      <soap:operation soapAction="http://tempuri.org/CheckAllow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VerifySoap12" type="tns:VerifySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckAllow">
+      <soap12:operation soapAction="http://tempuri.org/CheckAllow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Verify">
+    <wsdl:port name="VerifySoap" binding="tns:VerifySoap">
+      <soap:address location="http://www.kesion.com/websystem/Verify.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VerifySoap12" binding="tns:VerifySoap12">
+      <soap12:address location="http://www.kesion.com/websystem/Verify.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

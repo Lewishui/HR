@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>会员资料</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+
+<script>
+$(function(){
+  $(".skinlist").find("li").click(function(){
+      $(".skinlist").find("li").removeClass("curr");
+	  $(this).addClass("curr");
+	  $("#skinid").val($(this).attr("id"));
+  });
+});
+</script>
+</head>
+
+<body>
+<div class="header u-header">
+	<a href="?action=userinfo" class="back"><i class="fa fa-angle-left"></i></a>
+    <div class="m-title">手机绑定</div>
+    <div class="head-in">
+    	
+    </div>	
+</div>  
+
+<!--店铺资料-->
+<script>
+ 
+    function checkform() {
+       
+        if ($("#txtmobile").val() == '') {
+          
+                alert('请输入手机号码！');
+                return false;           
+        }
+        //alert($("#EnabledSms").val());
+        if ($("#EnabledSms").val() == 1)
+        {
+            //alert("2222");
+            if ($("#TxtMobileCode").val() == '') {
+               
+                    alert('请输入验证码！');
+                    return false;              
+                 }
+        }
+
+ }
+			
+			
+ var OutTimes=$("#outtimes").val();
+ function leavePage() {
+		 if (OutTimes==0){
+		 $("#SendMobileBtn").attr("disabled",false);
+		 $("#SendMobileBtn").val("免费获取手机验证码")
+		 }
+		 else{
+		 OutTimes -= 1;
+		 $("#SendMobileBtn").val(OutTimes+"重发")
+		 setTimeout("leavePage()", 1000);}
+}
+    function getMobileCode() {
+        var mobile = $("#txtmobile").val();
+        
+        if (mobile == '') {
+         alert('请输入手机号码！');
+         return false;
+     }
+        if (ismobile(mobile) == false) {
+         alert('手机号码格式不正确，请重新输入！');
+         return false;
+        }
+        
+        $("#SendMobileBtn").attr("disabled", true);
+        //alert(Math.floor(Math.random() * 1000));
+     $.ajax({
+         type: "get",
+         async: false,
+         url: "../../user/regajax.ashx?action=sendmobilecode&istest=1&model=modifymobile&mobile=" + mobile + "&SessionID=" + $("#sessionID").val() + "&anticache=" + Math.floor(Math.random()*1000),
+         cache: false,
+         dataType: "html",
+         success: function (d) {
+             if (d == 'true') {                
+                 leavePage();
+             } else {
+                 alert(d);
+                 $("#SendMobileBtn").attr("disabled", false);
+             }
+         }
+     });
+     return false;
+
+ }
+</script>
+<div class="myform">
+      <form name="myform" action="index.aspx?action=mobilebind" method="post">
+          <input type="hidden" name="action" value="mobilebind"/>
+          <input type="hidden" name="flag" value="dobind"/>
+          
+          <input type="hidden" name="EnabledSms" id="EnabledSms" value="{#EnabledSms}" />
+          <input type="hidden" name="sessionID" id="sessionID" value="{#sessionID}" />
+          <input type="hidden" name="outtimes" id="outtimes" value="{#times}" />
+		  
+		   [MobileRZ]
+           <div>
+              <div class="slice form-group">
+                  <p class="ts">温馨提示：</p>
+                  <p class="tips">您的手机号码已经过本站认证绑定。</p>         
+                  <p class="ts">手机号码：{#mobile}</p>
+              </div>
+              <input type="button" class="btn btn-info" onClick="location.href='?action=mobilebind&change=dochange'" value="修改绑定" />
+           </div>    
+          [/MobileRZ]
+          
+          [ModifyMobile]
+              <div class="form-group">
+                 <span class="bt">手机号码</span><input type="text" name="txtmobile" placeholder="请输入您的手机号码" id="txtmobile" style="width:250px" class="textbox intxt" value="{#mobile}"></div>       
+             <div class="form-group">
+                 <span class="bt">验证码</span><input name="TxtMobileCode" type="text" placeholder="手机验证码" maxlength="6" id="TxtMobileCode" class="mobile" /><input type="button" id="SendMobileBtn" class="btn v-btn" onClick="getMobileCode()" value="免费获取"/>
+             </div>    
+ 
+		  <input type="submit" value="确认保存" onClick="return(checkform());" class="btn btn-info"/>
+          <!--<div class="s_btn"><input type="button" value="重置" onClick="return (clear());"  class="reset"/></div>-->
+          [/ModifyMobile]
+	  </form>
+   
+</div>
+
+
+</body>
+</html>

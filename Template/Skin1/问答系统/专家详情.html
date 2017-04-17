@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="{$GetInstallDir}images/home.css" rel="stylesheet" />
+<title>{KS:Field:realname}-专家详情</title>
+<!--鼠标滑动特效start--> 
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js" type="text/javascript"></script>
+<!--鼠标滑动特效end--> 
+<style type="text/css">
+
+.tagslist{width:950px;margin:0 auto;margin-top:5px; background:#fff; padding:15px; line-height:22px;color:#666;}
+.tagslist h3{margin-top:10px;border-top:1px dashed #ddd;color:#555; height:58px; line-height:45px;font-weight:normal;font-size:31px;}
+.tagslist h3 a{ line-height:40px;}
+.tagslist h2{font-size:12px;font-weight:normal;padding-top:5px;}
+.tagslist a{ line-height:24px;color:#1472b4; font-family:Arial, Helvetica, sans-serif}
+.tagslist li:hover{background:#fafafa}
+.tagslist li{border-bottom:1px dotted #d5d5d5;padding:10px; line-height:22px}
+.tagslist li a.title{font-size:14px;color:#0F5BB1; float:left;font-weight:bold; text-decoration:underline; line-height:24px; height:30px}
+
+</style>
+</head>
+<body style="background:#f5f5f5">
+	<div style="background:#fff">{KS_T1_头部通用}</div>
+	
+		<div class="tagslist">
+		    <img src="{KS:Field:UserFace}" width="300"/>
+			<br/>
+			专家姓名：{KS:Field:realname}<br/>
+			专家性别：{KS:Field:sex}<br/>
+			专家咨询量：{KS:Field:AskNum}<br/>
+			解决量：{KS:Field:BestNum}<br/>
+			专家电话：{KS:Field:tel}<br/>
+			专家QQ：{KS:Field:QQ}<br/>
+			联系地址：{KS:Field:Address}<br/>
+			擅长分类：{KS:Field:SCFL}<br/>
+			问吧分类：{KS:Field:AskClassName}<br/>
+			专家分类：{KS:Field:TypeName}<br/>
+			所在地区：{KS:Field:Area}<br/>
+			专家单位：{KS:Field:danwei}<br/>
+			简要介绍：{KS:Field:intro}<br/>
+			专家姓名：{KS:Field:realname}<br/>
+			<br/>
+			<a href="/Ask/ask.aspx?zjuserid={KS:Field:UserID}" target="_blank">　向该专家咨询</a>
+		</div>
+		
+{KS_T1_尾部通用}
+</body>
+</html>

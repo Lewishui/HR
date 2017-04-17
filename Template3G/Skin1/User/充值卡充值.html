@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>充值卡充值</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+</head>
+
+<body>
+<div class="header u-header">
+	<a href="{M:G3InstallDir}user/" class="back"><i class="fa fa-angle-left"></i></a>
+    <div class="m-title">充值卡充值</div>
+    <div class="head-in">
+    	
+    </div>	
+</div>
+<div class="navtab tab-sy1">
+    <ul class="flexbox">
+        <li><a href="?"><span>在线充值</span></a></li>
+        <li class="activenum"><a href="?action=recharge"><span>充值卡充值</span></a></li>
+        <li><a href="?action=package"><span>购买套餐包</span></a></li>
+    </ul>
+</div>
+
+     <script>
+         function CheckForm() {
+             if (jQuery('#txtCardnumber').val() == '') {
+                 KesionJS.Alert('请输入卡号!', "jQuery('#txtcardid').focus()");
+                 return false;
+             }
+             if (jQuery('#txtpassword').val() == '') {
+                 KesionJS.Alert('请输入密码!', "jQuery('#txtpassword').focus()");
+                 return false;
+             }
+
+         }
+   </script>
+<div class="myform">   
+<form name="myform" action="PayOnline.aspx?action=recharge" methoid="post">
+  <input type="hidden" name="action" value="recharge"/>
+  <input type="hidden" name="flag" value="add"/>
+    <div class="form-group"><span class="bt">充值卡号</span><input name="txtCardnumber" placeholder="请输入充值卡号" type="text" id="txtCardnumber" class="textbox" /></div>
+    <div class="form-group"><span class="bt">卡号密码</span><input name="txtpassword" placeholder="请输入卡号密码" type="text" id="txtpassword" class="textbox" style="width: 300px;" /></div>
+	 <input type="submit" name="Button1" value="确定充值" onClick="return (CheckForm());" id="Button1" class="btn btn-danger" /></span>
+   <span><input type="button"  class="btn btn-default" value="查看充值记录" onclick="$('.cart-box').show();"/></span>
+
+</form>
+</div>
+<div class="cart-box" style="display:None">
+        <ul id="pagelist">
+            [Loop Times="2"]
+            <li class="item">
+            <div class="slice">
+                <div class="info">
+                    <div class="title">名称:{KS:Field:name}</div>
+                    <div>充值卡号:{KS:Field:Cardnumber}</div>
+                    <div>面值:{KS:Field:FaceValue}</div>
+                    <div>充值金额:{KS:Field:PointNumber}</div>
+                    <p class="date">充值时间:{KS:Field:UseDate}</p>
+                    <p class="date">过期时间:{KS:Field:enddate}</p>
+                    <span class="tags">{KS:Field:statue}</span>
+                </div>
+            </div>
+            </li>
+            [/Loop]
+        </ul>
+          <script>
+              var pageCount = "{#PageCount}";
+              var postUrl = "PayOnline.aspx";
+              var postParam = "action=recharge";
+       </script>
+       <script src="{M:G3InstallDir}Handler/loadpage.js"></script>
+        <ul id="pagelistend" style="display:none"></ul>
+
+</div>
+
+</body>
+</html>

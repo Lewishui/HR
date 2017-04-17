@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="gb2312"?>
+<sysinfo>
+  <isbusiness>true</isbusiness>
+  <showver>MALL</showver>
+  <model>
+    <exam>false</exam>
+	<mall>true</mall>
+  </model>
+</sysinfo>

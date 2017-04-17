@@ -1,0 +1,93 @@
+﻿body {
+	background-color:#ffffff; 
+	color:#000000;
+	margin:0px auto;
+	padding:0;
+	font-size:16px;
+}
+a,a:link,a:visited,a:hover,a:active {
+	font-size: 16px;
+	color:#2CA8AA;
+	text-decoration: none;
+	font-family: "microsoft yahei";
+}
+.headmain {
+height: 44px;
+background: #2687ce;
+text-align: center;
+font-size: 18px;
+line-height: 44px;
+color: #fff;
+padding: 0px 12px;
+}
+user agent stylesheetdiv {
+display: block;
+}
+
+img {
+border: 0px;
+}
+.user_topd .usertopd {
+padding: 15px 15px 0px 15px;
+}
+
+
+.user_topd .usertopd .qrzcbtn {
+display: block;
+width: 85%;
+margin: 0 auto;
+height: 37px;
+background: #469ad5;
+color: #fff;
+font-family: "\5FAE\8F6F\96C5\9ED1";
+font-size: 16px;
+border: 0px;
+border-radius: 3px;
+margin-top: 5px;
+}
+.headmain{height:44px;background:#2687ce; text-align:center;font-size:18px; line-height:44px;color:#fff; padding:0px 12px;}
+.headmain a{color: #FFF;font-weight: bold;}
+.headmain a.back{position: absolute;left:3%}
+.headmain a.home{position: absolute;right:3%}
+.headmain b{font-weight:normal;float:left;}
+.headmain span{float:right}
+.headmain span img{height:15px;float:right;margin-top:13px;}
+.header{ padding:5px 0; background:#949494; text-align:center;}
+.header img{ max-width:100%;}
+.nav .ng{ border-right:none;}
+.clear{ height:0; line-height:0; clear:both;}
+.clear10{height:10px; line-height:0; clear:both;}
+dl.cc{overflow: hidden;}
+dd.put{overflow: hidden;display: block;width:85%;margin: 0 auto;}
+dd.put .text{
+	margin:0;
+    box-sizing: content-box; /*W3C标准(IE9+，Safari5.1+,Chrome10.0+,Opera10.6+都符合box-sizing的w3c标准语法)*/
+	display: block;
+	width:95%;
+	height: 30px;
+	font-size: 16px;	
+	 border-radius: 3px;
+	  background:#e5e5e5;
+	  border:0px;
+	  color:#aaa;
+}
+.user_topd .usertopd{padding:15px 15px 0px 15px;}
+.user_topd .usertopd dl dt{ float:left;color:#999; padding-top:2px}
+.user_topd .usertopd dl .input{box-sizing: content-box;-webkit-box-sizing:content-box; font-size:16px;height:37px;width:100%;margin:0 auto;color:#999;line-height:37px;border:0px; background:#e5e5e5;padding-left:5px; display:block;border-radius: 3px;}
+.user_topd .usertopd dl .ver{
+	font-size: 16px;
+	height: 37px;
+	width: 50%;
+	margin: 0 auto;
+	color: #999;
+	line-height: 37px;
+	border: 0px;
+	background: #e5e5e5;
+	padding-left: 5px;
+	display: inline-block;
+	margin-top: 5px;
+	border-radius: 3px;
+	float: left;
+}
+.user_topd .usertopd dl font{ padding-left:3px}
+.user_topd .usertopd .qrzcbtn{display: block; width:85%; margin:0 auto;height:37px; background:#469ad5;color:#fff;font-family:"\5FAE\8F6F\96C5\9ED1";font-size:16px;border:0px;border-radius: 3px;margin-top:5px}

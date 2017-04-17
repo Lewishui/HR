@@ -1,0 +1,1 @@
+<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true" Inherits="Kesion.NET.WebSite.Admin_DefaultSkin_Label" Title="Untitled Page" Codebehind="KS.DefaultSkinLabel.aspx.cs" %>

@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="{$GetInstallDir}images/home.css" rel="stylesheet" />
+	<title>{$GetSiteTitle}-[KS:SearchTitle]</title>
+	<!--鼠标滑动特效start--> 
+	<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+	<script src="{$GetInstallDir}ks_inc/kesion.common.js" type="text/javascript"></script>
+	<!--鼠标滑动特效end--> 
+	<style>
+		.fr{margin-top:0px;}
+	</style>
+</head>
+
+<body>
+
+	{KS_T1_头部通用}
+	<div class="newsnav">
+		<ul>
+			{KS_T1_新闻栏目导航}
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="newsmain01 common_newsmain">
+       <h1 style="border-top:0px"><!--<span><a href="/special/index.aspx" style="color:#666;">论专题</a> | {KS_T1_最新专题新闻}</span>--> <div class="wzsx">
+          <style>
+				 .curr{color:red;}
+				</style>
+               
+                {KS:Filter("选择分类","ClassID")}
+		
+				  
+				  {KS:Select("选择文章添加年份","adddate","like","2005年|2006年|2007年|2013年|2014年","2005|2006|2007|2013|2014")}
+				
+				 <div class="r">{KS:Order("默认ID<img src="../../images/shop/bottom.png" />|i.infoid desc","点击数<img src="../../images/shop/top.png" />|hits asc","更新时间<img src="../../images/shop/bottom.png" />|adddate desc")}</div>
+				 
+				 
+				<!---筛选 beigin-->
+				 <div class="l">进一步筛选：</div><input type='text' name='keyword' value='[KS:SearchKey]' id='keyword' class="shoptext" /><input onclick="searchByClass()" type='button' value='搜索' class="shopbtn" />
+				 <script>
+				   function searchByClass(){
+				     var key=jQuery("#keyword").val();
+					 if (key==''){
+					 // alert('请输入搜索关键字！');
+					 // return;
+					 }
+					 var url=location.href;
+					 var newurl='';
+					
+					  if (url.indexOf('?')==-1){
+					   newurl=url+'?key-'+key;
+					  }else{
+					   var param=url.split('?')[1];
+					   var newparam=getNewSearchParam(param);
+					   newurl=url.split('?')[0]+'?'+newparam;
+					 }
+					 location.href=newurl;
+				   }
+				   function getNewSearchParam(param){ 
+					   var key=jQuery("#keyword").val();
+					   var parr=param.split(',');
+					   var newparam='';
+					   for (var i=0;i<parr.length;i++){
+						 var pparr=parr[i].split('-');
+						 if (pparr[0]=='key'){
+						  if (newparam==''){
+							newparam='key-'+(key);
+						  }else{
+							newparam+=',key-'+(key);
+						  }
+						 }else{
+						   if (newparam==''){
+							 newparam=parr[i];
+						   }else{
+							 newparam+=','+parr[i];
+						   }
+						 }
+					   }
+					  if (newparam.indexOf('key-')==-1 && key!=''){
+						if (newparam==''){
+						  newparam='key-'+key;
+						}else{
+						  newparam+=',key-'+(key);
+						}
+					   }
+
+					  return newparam;
+				   }
+				 </script>
+				<!---筛选 end-->
+       </div>{$GetClassName}</h1>
+       
+       <div class="clear"></div>
+       
+		<div class="left">
+            <div class="left01">
+				{KS_T1_新闻首页幻灯}
+			</div>
+			<div class="left02">
+				
+				<ul>
+				
+				
+				
+				[Loop Times="10"]
+				
+						<li class="li02">
+								<div class="title"><a target="_blank" href="{$Field(InfoID,url,1,3)}" title="{$Field(title,text,0,,2,)}">{$Field(title,text,24,,2,)}</a></div>
+						<div class="intro"><img src="{$Field(DefaultPic,text,0,...,2,/sysimg/nopic.gif)}" />{$Field(Intro,text,90,...,2,)}</div> 
+						<div class="biaoqian"><span>{$Field(commentnum,text,24,,2,)}</span></div>
+					</li>
+					<div class="clear"></div>
+				[/Loop]	
+				
+						<div class="mainbox"><div class="r">[KS:PageStr2]</div></div>
+
+				
+				</ul>
+			</div>
+		</div>
+		<div class="right">
+			<div class="ad325">{=GetAdvertise(12)}</div>
+			<div class="right02">
+				<h4><span><a href="{=GetClassUrl(1115)}">更多<em>&raquo;</em></a></span>图片新闻</h4>
+				<ul>
+					{KS_T1_图片新闻}
+				</ul>
+			</div>
+			<div class="clear"></div>
+			<div class="right03">
+				<h4>点击排行榜</h4>
+				<ul>
+					{KS_T1_文章点击榜}
+				</ul>
+			</div>			
+			<div class="clear"></div>
+			<div class="right03">
+				<h4>评论排行榜</h4>
+				<ul>
+					{KS_T1_评论排行榜}
+				</ul>
+			</div>			
+		</div>
+	</div>
+	{KS_T1_尾部通用}
+</body>
+</html>

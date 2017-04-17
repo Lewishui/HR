@@ -1,0 +1,1 @@
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="Kesion.NET.Mobile.Plus_Comment" Codebehind="Comment.aspx.cs" %>

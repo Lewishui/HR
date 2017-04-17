@@ -1,0 +1,1 @@
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="WeiPayWeb.Notify" Codebehind="Notify.aspx.cs" %>

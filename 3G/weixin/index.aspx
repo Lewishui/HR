@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="True" Inherits="Kesion.Weixin.WebSite.weixin_index" CodeBehind="index.aspx.cs" %>

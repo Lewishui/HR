@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" />
+	<link href="{$GetTemplateDir}/css/index.css" rel="stylesheet" type="text/css">
+	<title>{$GetSiteTitle}-新会员注册</title>
+	<script src="{$GetInstallDir}ks_Inc/CheckPassWord.js"></script>
+	<script src="{$GetInstallDir}ks_Inc/jQuery.js"></script>
+	<script src="{$GetInstallDir}ks_Inc/Kesion.Common.js"></script>
+	<script src="{$GetInstallDir}KS_Inc/DatePicker/WdatePicker.js"></script>
+	{#EchoEditorHead}
+	<script language="javascript">
+	var minlen={$Show_UserNameLimitChar};
+	var maxlen={$Show_UserNameMaxChar};
+	var MobileReg={$MobileReg};
+	var OutTimes ="{$SendSMSInterval}";
+	var VerifyCodeReg={$VerifyCodeReg};
+	var EnabledRegField="{$EnabledRegField}";
+	</script>
+	<script language="javascript" src="{$GetInstallDir}ks_inc/kesion.checkreg.js"></script>
+
+	<STYLE type=text/css>
+	/*密码强度*/
+	.rank { border:none; background:url(/sysimg/rank2.png) no-repeat left top; width:250px; height:14px; vertical-align:middle; cursor:default; overflow:hidden;}
+	.r0 { background-position:0 0; }
+	.r1 { background-position:0 -22px; }
+	.r2 { background-position:0 -44px; }
+	.r3 { background-position:0 -66px; }
+	.r4 { background-position:0 -66px; }
+	.r5 { background-position:0 -66px; }
+	.r6 { background-position:0 -66px; }
+	.r7 { background-position:0 -66px; }
+	
+
+	#loading{padding:2px;display:none;position:absolute;color:#ff6600;font-size:12px;right:0px;top:0px;background:#F8F2DA;border:1px solid #ffcc00;width:160px;height:23px;line-height:23px}
+	
+	</STYLE>
+
+</head>
+<body>
+   
+{KS_T1_企业头部通用}
+	<div class="reg_box">
+       <div class="w">
+		<h4>注册会员</h4>
+		<div class="reg_box_l">
+			 <ul>
+			 <iframe src="about:blank" name="hidframe" id="hidframe" style="display:none"></iframe>
+			 <form name="myform" id="myform" onSubmit="return CheckForm();" action="{=GetRewriteUrl(regok)}" method="post" target="hidframe">                
+						<li{$DisplayUserType}><span class="title">注册类型：</span>{$ShowUserType}
+							<div id="loading">加载中...请稍候!!!</div>
+						</li>
+						<li><span class="title"><font>*</font>会员名称：</span>
+							<input name="UserName" id="UserName" type="text" onBlur="out_username();" onKeyUp="out_username();" onFocus="on_input('usernamemsg');" class="text" >  <div class=d_default id=usernamemsg></div>
+						</li>	
+						<li{$DisplayAgent}><span class="title">推 荐 人：</span>
+							<input name="Agent" id="Agent" type="text"   value="{$Agent}" class="text" >  <div class=d_default>可以留空</div>
+						</li>		
+						<li><span class="title"><font>*</font>用户密码：</span>
+							<input id="PassWord" name="PassWord" type="PassWord" class="text" onBlur="out_password1();setPasswordLevel(this, document.getElementById('passwordLevel'));" onFocus="on_input('passwordmsg1');" onKeyUp="setPasswordLevel(this, document.getElementById('passwordLevel'));">
+							<div id="passwordmsg1" class="d_default" ></div>
+						</li>
+						
+						<li><span class="title">&nbsp;&nbsp;</span><input name="Input" disabled="disabled" class="rank r0" id="passwordLevel" /></li>
+						
+						<li{$DisplayRePassWord}><span class="title"><font>*</font>确认密码：</span>
+							<input name="RePassWord" id="RePassWord" onblur=out_password2(); onFocus="on_input('passwordmsg2');" type="PassWord" class="text" >
+							<div class=d_default id=passwordmsg2></div>
+						 </li>
+						 <li{$DisplayQuestion}><span class="title"><font>*</font>提示问题：</span>
+							<Select id="Question" onblur="out_question()" onchange="out_question()" name="Question" class="text" >
+								<Option value="" selected>--请您选择--</Option>
+								<Option value="我的宠物名字？">我的宠物名字？</Option>
+								<Option value="我最好的朋友是谁？">我最好的朋友是谁？</Option>
+								<Option value="我最喜爱的颜色？">我最喜爱的颜色？</Option>
+								<Option value="我最喜爱的电影？">我最喜爱的电影？</Option>
+								<Option value="我最喜爱的影星？">我最喜爱的影星？</Option>
+								<Option value="我最喜爱的歌曲？">我最喜爱的歌曲？</Option>
+								<Option value="我最喜爱的食物？">我最喜爱的食物？</Option>
+								<Option value="我最大的爱好？">我最大的爱好？</Option>
+								<Option value="我中学校名全称是什么？">我中学校名全称是什么？</Option>
+								<Option value="我的座右铭是？">我的座右铭是？</Option>
+								<Option value="我最喜欢的小说的名字？">我最喜欢的小说的名字？</Option>
+								<Option value="我最喜欢的卡通人物名字？">我最喜欢的卡通人物名字？</Option>
+								<Option value="我母亲/父亲的生日？">我母亲/父亲的生日？</Option>
+								<Option value="我最欣赏的一位名人的名字？">我最欣赏的一位名人的名字？</Option>
+								<Option value="我最喜欢的运动队全称？">我最喜欢的运动队全称？</Option>
+								<Option value="我最喜欢的一句影视台词？">我最喜欢的一句影视台词？</Option>
+							  </Select>             
+							<div class=d_default id=questionmsg></div>
+						  </li>
+						  <li{$DisplayQuestion}><span class="title"><font>*</font>提示答案：</span>
+							<input name="Answer" onblur="out_answer();" onFocus="on_input('answermsg');" type="text" id="Answer" class="text" >
+							<div class=d_default id=answermsg></div>
+						  </li>
+						  <li{$DisplayEmail}><span class="title"><font>*</font>邮箱地址：</span>
+							<input name="Email" id="Email" onFocus="on_input('emailmsg');" onkeyup='out_email();' type="text" class="text" > 
+							<div id='emailmsg' class='d_default'></div>
+						 </li>
+						  <li{$DisplayArea}><span class="title"><font>*</font>选择地区：</span>
+							<script src="{$GetInstallDir}plus/area.aspx?classname=text"></script>
+						 </li>
+						 
+						  <li{$DisplayMobile}><span class="title"><font>*</font>手机号码：</span>
+							<input name="Mobile" id="Mobile"  onFocus="on_input('mobilemsg');" onkeyup="out_mobile()" type="text" class="text" > 
+							<div id='mobilemsg' class='d_default'></div>
+						 </li>
+						  
+						  <li{$DisplayMobileReg}>
+							<table border="0" cellpadding="0" cellspacing="0">
+							 <tr><td><span class="title"><font>*</font>手机验证码：</span></td>
+							 <td><input maxlength="6" name="MobileCode" style="width:100px" type="text" id="MobileCode" class="text_yz text" ></td>
+							 <td>&nbsp;<input type="button" id="SendMobileBtn" onclick="getMobileCode()" value="免费获取手机验证码" class="btn_yz"/></td>
+							</tr>
+							</table>
+						 </li>
+						<li{$DisplayVerifyCode}><span class="title"><font>*</font>验 证 码：</span>
+							<input maxlength="6" onkeyup="out_chkcode();" style="width:100px" onFocus="on_input('chkcodemsg');" name="Verifycode" type="text" id="Verifycode" class="text text_yz" ><div class="l">{$Show_VerifyCode} </div>	<div class='d_default' id='chkcodemsg' style=""></div>
+						</li>					 
+						
+						<li class="det" id="detailForm"{$DisplayDetail}>
+							<!--<h4><img src="/user/images/two.png" /></h4>-->
+							<div id="userDetail"></div>
+						</li>
+						<li>
+                            <div class="agree" style="clear:both">
+                            <input name="viewlicense" id="viewlicense" type="checkbox" onClick="getlicense()" value="1"><label for="viewlicense">同意阅读服务条款</label>&nbsp;&nbsp;&nbsp;<input type="image" src="{$GetInstallDir}user/images/agree.gif" align="middle">
+                            </div>
+                        </li>
+			</form>
+						<div class="clear"></div>
+					<div id="license" style="display:none;">
+						<pre>{$GetUserRegLicense}</pre>
+					</div>
+			</ul>	
+		</div>
+		<div class="reg_box_r">
+			<h5>我已有帐号？</h5>
+			<a href="{=GetRewriteUrl(userlogin)}"><IMG src="/User/Images/login.gif" /></a><br /><div class="i_t">登录我的会员中心，发心事、刷微博、与知心好友畅谈心事。</div>
+			<br/><h5>第三方平台登录</h5>
+            <div class="clear"></div>
+            <span class="ApiLogin">
+			  <script>
+			  if ("{=GetAccountApiConfig(qq,enable)}"=="true"){
+			  document.write('<a href="{=GetRewriteUrl(qqlogin)}" class="qq"></a>');
+			  }
+			  if ("{=GetAccountApiConfig(weixin,enable)}"=="true"){
+			  document.write('<a href="{=GetRewriteUrl(weixinlogin)}" class="weixin"></a>');
+			  }
+			  if ("{=GetAccountApiConfig(sina,enable)}"=="true"){
+			  document.write('<a href="{=GetRewriteUrl(sinalogin)}" class="sina"></a>');
+			  }
+			  if ("{=GetAccountApiConfig(alipay,enable)}"=="true"){
+			  document.write('<a href="{=GetRewriteUrl(alipaylogin)}" class="alipay"></a>');
+			  }
+			  </script>
+            </span>
+		</div>
+        
+      </div>  
+	</div>
+	
+<!--底部通用 begin-->
+{KS_T1_企业底部通用}
+<!--底部通用 end-->
+{KS_T1_右侧客服}
+
+</body>
+</html>

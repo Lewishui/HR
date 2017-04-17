@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>会员资料</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+
+<script>
+$(function(){
+  $(".skinlist").find("li").click(function(){
+      $(".skinlist").find("li").removeClass("curr");
+	  $(this).addClass("curr");
+	  $("#skinid").val($(this).attr("id"));
+  });
+});
+</script>
+</head>
+
+<body>
+
+<div class="header u-header">
+	<a href="javascript:;" onClick="history.back()" class="back"><i class="fa fa-angle-left"></i></a>
+    <div class="m-title">修改安全问题</div>
+    <div class="head-in">
+    	
+    </div>	
+</div>  
+
+<script>
+ $(function(){
+   $("input[name='sex'][value='{KS:Field:Sex}']").attr("checked",true);
+ });
+ function checkForm(){
+     if ($("#txtpassword").val() == "") {
+         alert('请输入登录密码!');
+     $("#txtpassword").focus();
+
+	 return false;
+   }
+     if ($("#txtQuestion").val() == "") {
+     alert('请输入您的问题!');
+     $("#txtQuestion").focus();
+	 return false;
+     }
+     if ($("#txtAnswer").val() == "") {
+         alert('请再次输入您的答案!');
+         $("#txtAnswer").focus();
+         return false;
+     }
+     if ($("#vdcode").val() == "") {
+         alert('请输入您的验证码!');
+         $("#vdcode").focus();
+         return false;
+     }
+ }
+ //function clear()
+ //{
+ //    $("#txtpassword").val() = "";
+ //}
+</script>
+<div class="myform">
+      <form name="myform" action="index.aspx?action=Question" method="post">
+          <input type="hidden" name="action" value="Question"/>
+          <input type="hidden" name="flag" value="dosave"/>
+              <div class="form-group">
+                 <span class="bt">登录密码</span>
+				 <input type="text" name="txtpassword" id="txtpassword"  placeholder="请输入登录密码" class="intxt" value=""></div>       
+              <div class="form-group">
+                  <span class="bt">提示问题</span>
+                  <input type="text" name="txtQuestion" id="txtQuestion" placeholder="取回密码提示问题" class="intxt" value="{#Questionstr}"></div>   
+              <div class="form-group">
+                  <span class="bt">问题答案</span>
+                 <input type="text" name="txtAnswer" id="txtAnswer" placeholder="取回密码提示问题的答案" class="intxt" value="{#Answerstr}"></div>
+              <div class="form-group">
+                  <span class="bt">验 证 码</span>
+                 <input style="vertical-align:middle" type="text" name="vdcode" class="required" maxlength="20" id="vdcode"><img id="vdimgck" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="{$GetInstallDir}plus/ValidateCode.aspx" >
+              </div>   
+             
+ 
+		   <input type="submit" value="确认保存" onClick="return(checkForm());" class="btn btn-info"/>
+          <!--<div class="s_btn"><input type="button" value="重置" onClick="return (clear());"  class="reset"/></div>-->
+	  </form>
+   
+</div>
+</body>
+</html>

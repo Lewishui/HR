@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>会员资料</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{M:G3InstallDir}Template01/user/images/user.css" rel="stylesheet" type="text/css">
+<link href="{M:G3InstallDir}Template01/user/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{M:G3InstallDir}Template01/user/agent.js"></script>
+
+<style>
+.store_msg{ overflow:hidden; margin-top:10px; padding:10px;}
+.form-group,.bgstore {margin-bottom: 15px;}
+.form-group select{padding: 5px;margin-top: 5px;border-radius: 4px;}
+strong label{ margin-bottom:8px; display:block}
+.form-group .textbox{display: block;width: 100%;height: 34px;padding: 6px 12px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;
+border-radius: 4px;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);box-shadow: inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;box-sizing: border-box;color: #434a54;
+border-color: #aab2bd;}
+.tips{ padding:8px 0; font-size:10px;}
+.skinlist{ overflow:hidden}
+.skinlist li{ width:47%; margin-right:2%; float:left; height:120px;border:1px solid #ccc;}
+li.curr{border:2px solid red; }
+.skinlist li img{ height:100%}
+.s_btn .button{display: block; width:100%;font-weight: 400;text-align: center;vertical-align: middle;cursor: pointer;border: 1px solid transparent;padding: 6px 0px;font-size: 14px;line-height: 1.42857143;border-radius: 4px; color:#fff;background-color: #da4453;border-color: #da4453 }
+.s_btn .button:hover{background-color: #d9534f;border-color: #d43f3a;}
+</style>
+<script>
+$(function(){
+  $(".skinlist").find("li").click(function(){
+      $(".skinlist").find("li").removeClass("curr");
+	  $(this).addClass("curr");
+	  $("#skinid").val($(this).attr("id"));
+  });
+});
+</script>
+</head>
+
+<body class="wrap">
+<div class="headbar">
+   <div class="back"><a href="javascript:;" onClick="history.back()"><i class="fa fa-chevron-left"></i></a></div>
+   <h3>会员资料</h3>
+   <div class="right_head fr">
+      <a href="index.aspx" class="myuser"><i class="fa fa-user"></i></a>
+   </div>
+</div> 
+
+
+<!--店铺资料-->
+<script>
+ $(function(){
+   $("input[name='sex'][value='{KS:Field:Sex}']").attr("checked",true);
+ });
+ function checkForm(){
+   if ($("#realname").val()==""){
+     alert('请输入您的姓名!');
+	 $("#realname").focus();
+	 return false;
+   }
+   if ($("#email").val()==""){
+     alert('请输入您的电子邮箱!');
+	 $("#email").focus();
+	 return false;
+   }
+ }
+</script>
+<div class="store_msg well">
+      <form name="myform" action="zlsave.aspx" method="post">
+              <div class="form-group">
+                 <strong><label>会员名称：</label></strong>
+				 {KS:Field:UserName}
+              </div>       
+              <div class="form-group">
+                 <strong><label>真实姓名：</label></strong>
+                 <input type="text" name="realname" id="realname" maxlength="200" placeholder="如请填写您的真实姓名" class="textbox" value="{KS:Field:RealName}">
+              </div>   
+              <div class="form-group">
+                 <strong><label>性 别：</label></strong>
+                 <input type="radio" name="sex" value="男">男
+                 <input type="radio" name="sex" value="女">女
+				 
+              </div>   
+              <div class="form-group">
+                 <strong><label>电子邮箱：</label></strong>
+                 <input type="text" name="email" id="email" maxlength="200" placeholder="如请填写电子邮箱" class="textbox" value="{KS:Field:Email}">
+              </div>   
+              <div class="form-group">
+                 <strong><label>所在地区：</label></strong>
+                  <script src='/plus/area.aspx?pid={KS:Field:ProID}&cityid={KS:Field:CityID}&countyid={KS:Field:CountyID}'></script>
+              </div>   
+              
+			   {#ShowDiyUserInfo}
+ 
+		   <div class="s_btn"><input type="submit" value="确认保存" onClick="return(checkForm());" class="button"/></div>
+	  </form>
+   
+</div>
+
+<!--支持的项目-->
+
+{KS_T1_手机_会员底部通用}
+</body>
+</html>

@@ -1,0 +1,1 @@
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="Kesion.NET.Mobile.Shop_ShoppingBill" Codebehind="ShoppingBill.aspx.cs" %>

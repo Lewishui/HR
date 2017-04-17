@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{$GetSiteTitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	{$GetMetaKeyWords}
+	{$GetMetaDescript}
+    <link href="{$GetInstallDir}images/home.css" rel="stylesheet" />
+	<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>	
+	<script src="{$GetInstallDir}ks_inc/kesion.common.js" type="text/javascript"></script>
+	<SCRIPT type=text/javascript>
+	jQuery(document).ready(function(){
+	    $(".navmain").find("li:first").addClass("curr");
+		var SDmodel = new scrollDoor();
+        SDmodel.sd(["m21","m22","m23"],["c21","c22","c23"],"sd01","sd02");
+	})
+	</SCRIPT>
+</head>
+<body>
+	{KS_T1_头部通用}
+	
+	<div class="indexmain imgloading">
+	  	<div style="margin-top:20px;margin-bottom:20px"><img src="{$GetInstallDir}images/banner04.jpg" width="100%" height="100" /></div>
+
+		<div class="main">
+           <div class="main_left">
+           <!--main_left_nr start-->
+              <div class="main_left_nr">
+              
+                <!--main_left_nr01 start-->
+				<div class="main_left_nr01">
+					<div class="main_left_nr01_hd">{KS_T1_首页_顶部幻灯}</div>
+                    
+                    <div class="main_left_nr01_right">
+                       {KS_T1_首页_新闻头条}
+                    </div>
+                    
+				</div>	
+                <!--main_left_nr01 end-->
+                
+                <!--main_left_nr02 start-->
+                <div class="main_left_nr02">
+                   <div class="main_left_nr02_left">
+                      <div class="main_left_nr02_left_l">
+                         {KS_T1_首页_左侧新闻列表_图}
+                         
+                         
+                      </div>
+                      <ul>
+                          {KS_T1_首页_左侧新闻列表_文字}
+                      </ul>
+                   </div>
+                   <div class="main_left_nr02_right">
+                       <div class="main_left_nr02_right_top">
+                          <ul>
+                             {KS_T1_首页_中间新闻列表_图}
+                          </ul>
+                       </div>
+                       <div class="main_left_nr02_right_bottom">
+                          <ul>
+                            {KS_T1_首页_中间新闻列表_文字}
+                          </ul>
+                       </div>
+                   </div>
+                </div>
+                <!--main_left_nr02 end-->
+                
+              </div>  
+              <!--main_left_nr end-->
+			</div>	 
+            <div class="main_right">
+               <div class="main_right_top">
+                  <ul>
+                     {KS_T1_首页_右侧新闻列表_图}
+                  </ul>
+               </div>
+               <div class="main_right_bottom">
+                  <ul>
+                     {KS_T1_首页_右侧新闻列表_文字}
+                  </ul>
+               </div>
+            </div>         
+  				<div style="margin-top:20px"><img src="{$GetInstallDir}images/banner01.jpg" width="100%" height="100" /></div>
+                <div class="clear"></div>
+
+		  <div class="left02">
+					<h4><em>{=GetClassName(1104)}</em>
+                    <span>
+                     {KS_T1_首页_文章导航}
+                   <a href="{=GetClassUrl(1104)}">更多</a></span></h4>
+						<div class="clear"></div>
+						
+						<div id="tab_2">
+							<del>
+							<!--BOX-->
+								<div class="flbox">
+									<dl> 
+								     {KS_T1_首页_新闻左侧}  
+									</dl>
+								</div>
+                                <div class="frbox">
+									<dl> 
+							        	{KS_T1_首页_新闻右侧} 
+									</dl>
+								</div>
+								<div class="cbox">
+									<ul> 
+								     {KS_T1_首页_新闻中间} 
+									</ul>
+								</div>
+						
+							<!--BOX END-->
+
+							</del>
+						</div>
+				</div>
+				<div class="clear"></div>
+				<div style="margin-top:20px"><img src="{$GetInstallDir}images/banner02.jpg" width="100%" height="100" /></div>
+                
+				<div class="left03">
+					<h4><em>{=GetClassName(1117)}</em><span>
+                        {KS_T1_首页_下载导航}
+                        <a href="{=GetClassUrl(1117)}">更多</a>
+                    
+                    </span></h4>
+					<div class="clear"></div>
+					<div id="tab_4">
+						<del>
+						<!--应用BOX-->
+							<ul>
+								
+                               {KS_T1_首页_下载}
+							
+							</ul>
+						<!--BOX END-->
+
+						</del>
+					
+					</div> 
+				</div>
+                
+				<img src="{$GetInstallDir}images/banner03.jpg" width="100%" height="100" />
+                
+                <div class="asktart">
+                   
+                   <div class="left">
+                      <h4><em>{=GetClassName(1016)}</em>
+                   <span>
+                   {KS_T1_首页_问答导航}
+                   <a href="{=GetClassUrl(1016)}">更多</a> 
+                   </span></h4>
+                      <div class="ask_side">
+                         
+                         <ul>
+                            {KS_T1_首页_问答左侧}
+                          
+                         </ul>
+                       
+                      </div>
+                       
+                      <div class="ask_main">
+                         <ul>
+                            {KS_T1_首页_中间问答}
+                         </ul>
+
+                      </div>
+                   </div>
+                   <div class="right">
+                      <h4><em>微社区</em>
+                   <span>
+                   <a href="/bbs/">更多</a>
+                   </span></h4>
+                      <div>
+                        <div class="mintitle"><h3>热门帖子</h3></div>
+                         <ul> 
+                            {SQL_首页热门帖子()}
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+                
+                <div class="clear blank10"></div>  
+				<div class="left04">
+					<h4><em>{=GetClassName(829)}</em><span>
+                    {KS_T1_首页_图片导航}
+                    <a href="{=GetClassUrl(829)}">更多</a>
+                    
+                    </span></h4>
+					<!--<ul>
+						{KS_T1_赏图片}
+					</ul>-->
+				</div>
+             <!--pic start--> 
+        <div class="pic_start">
+           <div class="picbox">
+              <ul>
+                 {KS_T1_首页_图片}
+              </ul>
+           </div>
+        </div>
+		</div>
+		<div class="right" style="display:none">
+			<div class="rightrd">
+				<h4><span><a href="javascript:;" onclick="loadAjaxList($('[labelid=随机播报]'))">刷新</a></span><img src="{$GetInstallDir}images/home/ssrd.png" /></h4>
+				<ul>
+					{KS_T1_随机播报图片}				
+					<div style="_margin-top:-20px;">{KS_T1_随机播报}</div>
+				</ul>
+			</div>
+			<div class="right01">
+				<h4><img src="{$GetInstallDir}images/home/ktw.png" /></h4>
+				<ul>
+					{KS_T1_首页_看图文}
+				</ul>
+			</div>
+			<div class="right02">
+				<h4><div class="r"><a href="{=GetRewriteUrl(specialindex)}">更多</a></div><img src="{$GetInstallDir}images/home/lzt.png" /></h4>
+				<ul>
+					{KS_T1_最新专题}
+				</ul>				
+			</div>
+			<div class="right03">
+				<h4><img src="{$GetInstallDir}images/home/djb.png" /></h4>
+				<dl>
+					<dt class="sd01" id=m21>文章</dt>
+					<dt class="sd02" id=m22>图片</dt>
+					<dt class="sd02" id=m23>下载</dt>
+				</dl>
+				<div class="clear"></div>
+				<div class="display productline" id=c21>
+				
+					<!--文章 点击榜-->
+					<ul>
+						{KS_T1_首页_点击榜(文章)}
+					</ul>
+					<!--END-->
+					
+				</div>	 
+				<div class="display productline" id=c22 style="display:none">
+					<!--图片 点击榜-->
+					<ul>
+						{KS_T1_首页_点击榜(图片)}
+					</ul>
+					<!--END-->	
+				</div>
+				<div class="display productline" id=c23 style="display:none">
+					<!--下载 点击榜-->
+					<ul>
+						{KS_T1_首页_点击榜(下载)}
+					</ul>
+					<!--END-->
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	{KS_T1_尾部通用}
+</body>
+</html>

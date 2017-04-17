@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>插入时间标签</title>
+<script src="../../../ks_inc/jquery.js"></script>
+<script src="../../../ks_inc/kesion.common.js"></script>
+<script type="text/javascript">
+function OK() {
+    var Val;
+    Val = '{=AddDate(' + document.myform.Format.value + ')}';
+    parent.frames['main'].InsertLabel(Val);
+}
+</script>
+<link href="../../../admin/images/style.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body scroll="auto">
+<form name="myform">
+  <table  width='96%' border='0'  align='center' cellpadding='2' cellspacing='1'>
+<tr>
+<td>
+ <table  width='100%' border='0'  align='center' cellpadding='2' cellspacing='1'>
+  <tr >
+    <td width="30%" align="right"><div align="center">输出格式</div></td>
+    <td><input name="Format" class="textbox" style="width:160px;" type="text"  value="YY-MM-DD"></td>
+  </tr>
+  <tr>
+    <td align="right"><div align="center">说明</div></td>
+    <td >Y4或YY表示四位的年份，Y2两位年份， 　MM:月 　DD:日
+hh:时　 mm:分　 ss:秒 </td>
+  </tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<div align="center">
+<br>
+<input TYPE='button' value=' 确 定(O) ' class="button"  accesskey="O" onCLICK='OK()'>
+<input type="button" value=" 取 消(C) " class="button"  accesskey="C" onClick="parent.box.close();">
+</div></td></tr>
+</table>
+</form>
+</body>
+</html>
+ 

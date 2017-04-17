@@ -1,0 +1,62 @@
+.dynamic-tab-pane-control.tab-pane {
+	position:	relative;
+	/*width:		100%;		 width needed weird IE bug */
+	/*margin-right:	-2px;	 to make room for the shadow */
+}
+.dynamic-tab-pane-control .tab-row{ border-bottom:#E9EDED solid 1px; margin-bottom:15px; height:34px;}
+.dynamic-tab-pane-control .tab-row:after{content:"";display:block;height:0;clear:both;visibility:hidden}
+.dynamic-tab-pane-control .tab-row .tab {
+  float:left;
+  margin-right:10px;
+  height: 34px;
+  line-height: 34px;
+  color: gray;
+  display: block;
+  padding: 0 15px;
+  text-align:center;
+  min-width:90px;
+  text-align: center;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  background:#F3F5F7;
+  cursor:pointer;
+
+}
+
+.dynamic-tab-pane-control .tab-row .tab.selected {
+	background:#FFF;
+	height:34px;
+ 	 border: #E9EDED solid 1px;
+	margin-bottom:-10px;
+	border-bottom:0;
+  	*background:#fff;
+}
+.dynamic-tab-pane-control .tab-row .tab.selected a{
+ color:#62686A;
+}
+.dynamic-tab-pane-control .tab-row .tab a {
+	font-size:14px;
+	font-weight:normal;
+	color: #62686A;
+	text-decoration: none;
+	cursor:pointer;
+	line-height:34px;
+}
+.dynamic-tab-pane-control .tab-row .tab.hover {
+	background:#EFF1F3;
+}
+.dynamic-tab-pane-control .tab-row .tab.selected.hover{
+	background:#fff;
+}
+.dynamic-tab-pane-control .tab-page {
+
+	border: 0px solid #DDD;
+	background: #fff;
+	color: #333;
+	clear:both;
+	
+	/*244, 243, 238*/
+	/* 145, 155, 156*/
+	
+
+}

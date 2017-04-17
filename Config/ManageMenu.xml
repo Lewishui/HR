@@ -1,0 +1,786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<managemenu mainurl="FrameWork/Main.aspx">
+  <topitem role="content" icoclass="cont-icon" name="内容" type="content">
+    <leftitem role="content01" icoclass="" name="功能选项" id="content_0" enable="true">
+      <itemlist>
+        <item id="content_1_0" enable="true">
+          <name>栏目管理</name>
+          <role>添加|编辑|删除|批量设置</role>
+          <url>Content/KS.Class.aspx</url>
+        </item>
+        <item id="content_1_1" enable="true">
+          <name>专题管理</name>
+          <role>添加|编辑|删除|分类管理</role>
+          <url>Content/KS.Special.aspx</url>
+        </item>
+        <item id="content_1_2" enable="true">
+          <name>回收站管理</name>
+          <role>还原|彻删|一键清空</role>
+          <url>Content/KS.RecycleBin.aspx</url>
+        </item>
+        <item id="content_1_3" enable="true">
+          <name>评论/DIGG/表情</name>
+          <role>删除|审核</role>
+          <url>Content/KS.Comment.aspx</url>
+        </item>
+        <item id="content_1_4" enable="true">
+          <name>作者/来源/Tags</name>
+          <role>添加|编辑|删除</role>
+          <url>Content/KS.Author.aspx</url>
+        </item>
+        <item id="content_1_5" enable="true">
+          <name>批量设置</name>
+          <url>Content/KS.ContentBatch.Aspx</url>
+        </item>
+        <item id="content_1_6" enable="true">
+          <name>下载服务器</name>
+          <role>添加|编辑|删除</role>
+          <url>Content/KS.DownServer.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+  </topitem>
+  <topitem role="mall" icoclass="shop-icon" name="商城" type="shop">
+    <leftitem role="mall00" icoclass="" name="商品管理" id="mall_0" enable="true">
+      <itemlist>
+        <item id="mall_1_0" enable="true">
+          <name>团购商品</name>
+          <role>添加|编辑|删除|团购分类</role>
+          <url>Shop/KS.ShopGroupBuy.aspx</url>
+        </item>
+        <item id="mall_1_1" enable="true">
+          <name>拼团商品</name>
+          <role>添加|编辑|删除|拼团分类</role>
+          <url>Shop/KS.ShopFightGroup.aspx</url>
+        </item>
+        <item id="mall_1_2" enable="true">
+          <name>一元云购</name>
+          <role>添加|编辑|删除|一元购分类</role>
+          <url>Shop/KS.ShopGroupOne.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="mall02" icoclass="" name="营销&amp;促销" id="mall_1" enable="true">
+      <itemlist>
+        <item id="mall_2_0" enable="true">
+          <name><![CDATA[  限时/限量抢购 ]]></name>
+          <role>添加|编辑|删除|管理抢购商品</role>
+          <url>Shop/KS.ShopLimitBuy.aspx</url>
+        </item>
+        <item id="mall_2_1" enable="true">
+          <name>竞价商品管理</name>
+          <url>Shop/KS.ShopJingJiaPro.aspx</url>
+        </item>
+        <item id="mall_2_2" enable="true">
+          <name>全场促销</name>
+          <url>Shop/KS.ShopPromotions.aspx</url>
+        </item>
+        <item id="mall_2_3" enable="true">
+          <name>优惠券&amp;红包</name>
+          <role>添加|编辑|删除|发放</role>
+          <url>Shop/KS.ShopCoupon.aspx</url>
+        </item>
+        <item id="mall_2_4" enable="true">
+          <name>预约码管理</name>
+          <role>生成|编辑|删除|分类管理</role>
+          <url>Shop/KS.ShopBookCodeType.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="mall03" icoclass="" name="相关工具" id="mall_2" enable="true">
+      <itemlist>
+        <item id="mall_3_0" enable="true">
+          <name>商品批量设置</name>
+          <url>Shop/KS.ShopBatch.Aspx</url>
+        </item>
+        <item id="mall_3_1" enable="true">
+          <name>库存预警管理</name>
+          <role>设置库存</role>
+          <url>Shop/KS.StockAlarm.aspx</url>
+        </item>
+        <item id="mall_3_2" enable="true">
+          <name>商品批量编辑</name>
+          <url>Shop/KS.BatchEdit.aspx</url>
+        </item>
+        <item id="mall_3_3" enable="true">
+          <name>商品批量调价</name>
+          <url>Shop/KS.ShopPriceChange.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="mall04" icoclass="" name="功能配置" id="mall_3" enable="true">
+      <itemlist>
+        <item id="mall_4_0" enable="true">
+          <name>商城系统配置</name>
+          <url>Shop/KS.ShopConfig.Aspx</url>
+        </item>
+        <item id="mall_4_1" enable="true">
+          <name>消息模板配置</name>
+          <url>Shop/KS.ShopMessage.aspx</url>
+        </item>
+        <item id="mall_4_2" enable="true">
+          <name>商品栏目管理</name>
+          <role>添加|编辑|删除|批量设置</role>
+          <url>Content/KS.Class.aspx?from=shop</url>
+        </item>
+        <item id="mall_4_3" enable="true">
+          <name>商品规格管理</name>
+          <role>添加|编辑|删除</role>
+          <url>Shop/KS.ShopSpecial.aspx</url>
+        </item>
+        <item id="mall_4_4" enable="true">
+          <name>商品品牌管理</name>
+          <role>添加|编辑|删除|商品管理</role>
+          <url>Shop/KS.ShopBrand.aspx</url>
+        </item>
+        <item id="mall_4_5" enable="true">
+          <name>配送管理</name>
+          <role>添加|编辑|删除</role>
+          <url>Shop/KS.ShopDelivery.aspx</url>
+        </item>
+        <item id="mall_4_6" enable="true">
+          <name>支付方式管理</name>
+          <role>添加|编辑|删除</role>
+          <url>Shop/KS.ShopPaymentType.aspx</url>
+        </item>
+        <item id="mall_4_7" enable="true">
+          <name>回收站管理</name>
+          <role>还原|彻删|一键清空</role>
+          <url>Shop/KS.ShopRecycleBin.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+  </topitem>
+  <topitem role="order" icoclass="order-icon" name="订单" type="enterprise">
+    <leftitem role="order01" icoclass="" name="订单管理" id="order_0" enable="true">
+      <itemlist>
+        <item id="order_1_0" enable="true">
+          <name>普通订单</name>
+          <role>删|改|支付|发退货|结清|作废|导出|开发票|打印快递单|短信催款</role>
+          <url>Shop/KS.ShopOrder.aspx</url>
+        </item>
+        <item id="order_1_1" enable="true">
+          <name>团购订单</name>
+          <role>删|改|支付|发退货|结清|作废|导出|开发票|打印快递单|短信催款</role>
+          <url>Shop/KS.ShopOrder.aspx?showType=6</url>
+        </item>
+        <item id="order_1_2" enable="true">
+          <name>拼团订单</name>
+          <role>发货|结清|导出|打印快递</role>
+          <url>Shop/KS.ShopFightOrder.aspx</url>
+        </item>
+        <item id="order_1_3" enable="true">
+          <name>云购订单</name>
+          <role>发退货|结清|导出|打印快递单</role>
+          <url>Shop/KS.ShopBill.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="order02" icoclass="" name="查询管理" id="order_1" enable="true">
+      <itemlist>
+        <item id="order_2_0" enable="true">
+          <name>发退货处理</name>
+          <url>Shop/KS.ShopLogDelivery.aspx</url>
+        </item>
+        <item id="order_2_1" enable="true">
+          <name>发票查询</name>
+          <url>Shop/KS.ShopLogInvoice.aspx</url>
+        </item>
+        <item id="order_2_2" enable="true">
+          <name>评价管理</name>
+          <role>删除|审核</role>
+          <url>Shop/KS.ShopComment.aspx</url>
+        </item>
+        <item id="order_2_3" enable="true">
+          <name>咨询管理</name>
+          <role>删除|审核|回复</role>
+          <url>Shop/KS.ShopAsk.aspx</url>
+        </item>
+        <item id="order_2_4" enable="true">
+          <name>购物车商品</name>
+          <url>Shop/KS.ShopCartGoods.aspx</url>
+        </item>
+        <item id="order_2_5" enable="true">
+          <name>送货地址管理</name>
+          <url>Shop/KS.ShopDeliveryAddress.aspx</url>
+        </item>
+        <item id="order_2_6" enable="true">
+          <name>发票信息管理</name>
+          <url>Shop/KS.ShopInvoiceInfo.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="order03" icoclass="" name="数据分析" id="order_2" enable="true">
+      <itemlist>
+        <item id="order_3_0" enable="true">
+          <name>销售数据统计</name>
+          <url>Shop/KS.ShopStats.aspx</url>
+        </item>
+        <item id="order_3_1" enable="true">
+          <name>商品收藏统计</name>
+          <url>Shop/KS.ShopFavoriteCount.aspx</url>
+        </item>
+        <item id="order_3_2" enable="true">
+          <name>商品足迹统计</name>
+          <url>Shop/KS.ShopViewCount.aspx</url>
+        </item>
+        <item id="order_3_3" enable="true">
+          <name>购物车数据统计</name>
+          <url>Shop/KS.ShoppingCartCount.aspx</url>
+        </item>
+        <item id="order_3_4" enable="true">
+          <name>分类数据统计</name>
+          <url>Shop/KS.ShopClassCount.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+  </topitem>
+  <topitem role="weixin" icoclass="wechat-icon" name="微信">
+    <leftitem role="weixin02" icoclass="" name="手机版配置" id="weixin_0" enable="true">
+      <itemlist>
+        <item id="weixin_1_0" enable="true">
+          <name>手机版基本设置</name>
+          <url>weixin/KS.WeixinConfig.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="weixin01" icoclass="" name="微信管理" id="weixin_1" enable="true">
+      <itemlist>
+        <item id="weixin_2_0" enable="true">
+          <name>微信接口设置</name>
+          <url>weixin/KS.Set.aspx</url>
+        </item>
+        <item id="weixin_2_1" enable="true">
+          <name>微信关注回复</name>
+          <url>weixin/KS.ReplyMsg.aspx</url>
+        </item>
+        <item id="weixin_2_2" enable="true">
+          <name>微信自定义菜单</name>
+          <role>添加|编辑|删除|同步到微信平台|删除微信平台菜单</role>
+          <url>weixin/KS.menu.aspx</url>
+        </item>
+        <item id="weixin_2_3" enable="true">
+          <name>微信粉丝列表</name>
+          <url>weixin/KS.Userlist.aspx</url>
+        </item>
+        <item id="weixin_2_4" enable="true">
+          <name>微信消息管理</name>
+          <role>回复|删除</role>
+          <url>weixin/KS.Sendmsg.aspx</url>
+        </item>
+        <item id="weixin_2_5" enable="true">
+          <name>微信素材管理</name>
+          <role>添加|修改|删除</role>
+          <url>weixin/KS.Picmsg.aspx</url>
+        </item>
+        <item id="weixin_2_6" enable="true">
+          <name>微信关键字管理</name>
+          <role>添加|修改|删除</role>
+          <url>weixin/KS.Keyword.aspx</url>
+        </item>
+        <item id="weixin_2_7" enable="true">
+          <name>微信群发功能</name>
+          <url>weixin/KS.Sendgroup.aspx</url>
+        </item>
+        <item id="weixin_2_8" enable="true">
+          <name>微信模板消息配置</name>
+          <url>weixin/KS.TemplateMsg.aspx</url>
+        </item>
+        <item id="weixin_2_9" enable="true">
+          <name>微信多客服配置</name>
+          <url>weixin/KS.KFSetting.aspx</url>
+        </item>
+        <item id="weixin_2_10" enable="true">
+          <name>微信二维码生成</name>
+          <url>weixin/KS.Secoird.aspx</url>
+        </item>
+        <item id="weixin_2_11" enable="true">
+          <name>微信公众号统计</name>
+          <url>weixin/KS.WeiXinCount.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+  </topitem>
+  <topitem role="sub" icoclass="app-icon" name="应用">
+    <leftitem role="ask01" icoclass="" name="问答系统" id="sub_0" enable="true">
+      <itemlist>
+        <item id="sub_1_0" enable="true">
+          <name>问答参数配置</name>
+          <url>Ask/KS.AskConfig.aspx</url>
+        </item>
+        <item id="sub_1_1" enable="true">
+          <name>问答分类管理</name>
+          <role>添加|编辑|删除|排序</role>
+          <url>Ask/KS.AskCategory.aspx</url>
+        </item>
+        <item id="sub_1_2" enable="true">
+          <name>问答问题管理</name>
+          <role>编辑|删除|设置属性</role>
+          <url>Ask/KS.AskTopic.aspx</url>
+        </item>
+        <item id="sub_1_3" enable="true">
+          <name>审核回答</name>
+          <url>Ask/KS.AskAnswer.Aspx?showType=1</url>
+        </item>
+        <item id="sub_1_4" enable="true">
+          <name>问答等级管理</name>
+          <url>Ask/KS.AskRank.aspx</url>
+        </item>
+        <item id="sub_1_5" enable="true">
+          <name>问答数据表管理</name>
+          <url>Ask/KS.AskTable.aspx</url>
+        </item>
+        <item id="sub_1_6" enable="true">
+          <name>问答专家管理</name>
+          <url>Ask/KS.AskZJ.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="ask02" icoclass="" name="微社区系统" id="sub_1" enable="true">
+      <itemlist>
+        <item id="sub_2_0" enable="true">
+          <name>微社区参数配置</name>
+          <url>BBS/KS.BBSConfig.aspx</url>
+        </item>
+        <item id="sub_2_1" enable="true">
+          <name>微社区版面管理</name>
+          <role>添加|编辑|删除|排序</role>
+          <url>BBS/KS.BBSCategory.aspx</url>
+        </item>
+        <item id="sub_2_2" enable="true">
+          <name>微社区话题管理</name>
+          <role>编辑|删除|设置属性</role>
+          <url>BBS/KS.BBSTopic.aspx</url>
+        </item>
+        <item id="sub_2_3" enable="true">
+          <name>审核话题回复</name>
+          <url>BBS/KS.BBSReply.aspx?showType=1</url>
+        </item>
+        <item id="sub_2_4" enable="true">
+          <name>微社区等级管理</name>
+          <url>BBS/KS.BBSRank.aspx</url>
+        </item>
+        <item id="sub_2_5" enable="true">
+          <name>微社区数据表管理</name>
+          <url>BBS/KS.BBSTable.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="ask03" icoclass="" name="空间系统" id="sub_2" enable="true">
+      <itemlist>
+        <item id="sub_3_0" enable="true">
+          <name>个人空间管理</name>
+          <role>编辑|删除|设置|分类|模板</role>
+          <url>Space/KS.Blog.aspx</url>
+        </item>
+        <item id="sub_3_1" enable="true">
+          <name>空间博文管理</name>
+          <role>编辑|删除|设置|分类|评论</role>
+          <url>Space/KS.UserBlog.aspx</url>
+        </item>
+        <item id="sub_3_2" enable="true">
+          <name>空间相册管理</name>
+          <role>编辑|删除|设置|分类|评论</role>
+          <url>Space/KS.UserPhoto.aspx</url>
+        </item>
+        <item id="sub_3_3" enable="true">
+          <name>空间留言管理</name>
+          <url>Space/KS.BlogMessage.aspx</url>
+        </item>
+        <item id="sub_3_4" enable="true">
+          <name>系统参数设置</name>
+          <url>Space/KS.BlogConfig.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sub01" icoclass="" name="留言系统" id="sub_3" enable="true">
+      <itemlist>
+        <item id="sub_4_0" enable="true">
+          <name>留言管理</name>
+          <role>删除|审核|回复</role>
+          <url>Common/KS.OnlineMessage.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sub01" icoclass="" name="友情链接" id="sub_4" enable="true">
+      <itemlist>
+        <item id="sub_5_0" enable="true">
+          <name>友情链接管理</name>
+          <role>添加|编辑|删除|设置</role>
+          <url>Common/KS.Link.aspx</url>
+        </item>
+        <item id="sub_5_1" enable="true">
+          <name>分类管理</name>
+          <role>添加|编辑|删除</role>
+          <url>Common/KS.LinkClass.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sub02" icoclass="" name="公告系统" id="sub_5" enable="true">
+      <itemlist>
+        <item id="sub_6_0" enable="true">
+          <name>公告管理</name>
+          <role>编辑|删除</role>
+          <url>Common/KS.Announce.aspx</url>
+        </item>
+        <item id="sub_6_1" enable="true">
+          <name>添加新公告</name>
+          <url>Common/KS.Announce.aspx?action=Add</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sub03" icoclass="" name="投票调查" id="sub_6" enable="true">
+      <itemlist>
+        <item id="sub_7_0" enable="true">
+          <name>投票主题管理</name>
+          <role>编辑|删除</role>
+          <url>Common/KS.Vote.aspx</url>
+        </item>
+        <item id="sub_7_1" enable="true">
+          <name>投票记录管理</name>
+          <url>Common/KS.VoteLog.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sub04" icoclass="" name="PK管理" id="sub_7" enable="true">
+      <itemlist>
+        <item id="sub_8_0" enable="true">
+          <name>PK主题管理</name>
+          <role>编辑|删除</role>
+          <url>Common/KS.PKZT.aspx</url>
+        </item>
+        <item id="sub_8_1" enable="true">
+          <name>PK网友意见管理</name>
+          <url>Common/KS.PKZTYJ.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sub05" icoclass="" name="自定义表单" id="sub_8" enable="true">
+      <itemlist>
+        <item id="sub_9_0" enable="true">
+          <name>表单项目管理</name>
+          <role>编辑|删除|创建模板</role>
+          <url>Common/KS.Form.aspx</url>
+        </item>
+        <item id="sub_9_1" enable="true">
+          <name>提交记录查看</name>
+          <url>Common/KS.FormRecord.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sub06" icoclass="" name="广告管理" id="sub_9" enable="true">
+      <itemlist>
+        <item id="sub_10_0" enable="true">
+          <name>广告位分类</name>
+          <url>Common/KS.AdClass.aspx</url>
+        </item>
+        <item id="sub_10_1" enable="true">
+          <name>广告位管理</name>
+          <url>Common/KS.Adboard.aspx</url>
+        </item>
+        <item id="sub_10_2" enable="true">
+          <name>管理所有广告</name>
+          <url>Common/KS.Advertise.aspx</url>
+        </item>
+        <item id="sub_10_3" enable="true">
+          <name>生成所有广告位</name>
+          <url>Common/KS.AdCreateJS.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sub07" icoclass="" name="采集管理" id="sub_10" enable="true">
+      <itemlist>
+        <item id="sub_11_0" enable="true">
+          <name>采集项目管理</name>
+          <role>采集|编辑|删除</role>
+          <url>Collect/KS.CollectItem.aspx</url>
+        </item>
+        <item id="sub_11_1" enable="true">
+          <name>过滤规则管理</name>
+          <role>添加|编辑|删除</role>
+          <url>Collect/KS.CollectFilter.aspx</url>
+        </item>
+        <item id="sub_11_2" enable="true">
+          <name>采集历史记录</name>
+          <url>Collect/KS.CollectHistory.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+  </topitem>
+  <topitem role="user" icoclass="user-icon" name="会员">
+    <leftitem role="user01" icoclass="" name="会员管理" id="user_0" enable="true">
+      <itemlist>
+        <item id="user_1_0" enable="true">
+          <name>用户管理</name>
+          <role>编辑|删除|设置状态|充值</role>
+          <url>User/KS.User.aspx</url>
+        </item>
+        <item id="user_1_1" enable="true">
+          <name>添加新用户</name>
+          <url>User/KS.UserAdd.aspx</url>
+        </item>
+        <item id="user_1_2" enable="true">
+          <name>用户组/部门</name>
+          <role>添加|编辑|删除|部门排序</role>
+          <url>User/KS.UserGroup.aspx</url>
+        </item>
+        <item id="user_1_3" enable="true">
+          <name>用户表单/字段</name>
+          <role>添加|编辑|删除</role>
+          <url>User/KS.UserForm.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="user02" icoclass="" name="管理员" id="user_1" enable="true">
+      <itemlist>
+        <item id="user_2_0" enable="true">
+          <name>管理员管理</name>
+          <role>添加|编辑|删除</role>
+          <url>User/KS.Admin.aspx</url>
+        </item>
+        <item id="user_2_1" enable="true">
+          <name>管理员工作计划</name>
+          <role>添加|编辑|删除</role>
+          <url>User/KS.AdminPlan.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="user03" icoclass="" name="财务管理" id="user_2" enable="true">
+      <itemlist>
+        <item id="user_3_0" enable="true">
+          <name>充值卡管理</name>
+          <role>添加|编辑|删除</role>
+          <url>User/KS.CsEpCardItem.aspx</url>
+        </item>
+        <item id="user_3_1" enable="true">
+          <name>收费套餐包管理</name>
+          <role>添加|编辑|删除</role>
+          <url>User/KS.FeePackages.aspx</url>
+        </item>
+        <item id="user_3_2" enable="true">
+          <name>VIP购买配置</name>
+          <url>User/KS.UserVIP.aspx</url>
+        </item>
+        <item id="user_3_3" enable="true">
+          <name>在线充值记录管理</name>
+          <url>User/KS.LogRecharge.aspx</url>
+        </item>
+        <item id="user_3_4" enable="true">
+          <name>消费明细管理</name>
+          <url>User/KS.LogMoney.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="user04" icoclass="" name="消息管理" id="user_3" enable="true">
+      <itemlist>
+        <item id="user_4_0" enable="true">
+          <name>手机短信发送管理</name>
+          <url>User/KS.LogSms.aspx</url>
+        </item>
+        <item id="user_4_1" enable="true">
+          <name>站内短消息管理</name>
+          <url>User/KS.UserMessage.aspx</url>
+        </item>
+        <item id="user_4_2" enable="true">
+          <name>发送邮件管理</name>
+          <url>User/KS.UserMail.aspx</url>
+        </item>
+        <item id="user_4_3" enable="true">
+          <name>登录及绑定记录</name>
+          <url>User/KS.UserLoginLog.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="user04" icoclass="" name="签到管理" id="user_4" enable="true">
+      <itemlist>
+        <item id="user_5_0" enable="true">
+          <name>参数设置管理</name>
+          <url>User/KS.SignInConfig.aspx</url>
+        </item>
+        <item id="user_5_1" enable="true">
+          <name>签到记录管理</name>
+          <url>User/KS.SignInList.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+  </topitem>
+  <topitem role="page" icoclass="page-icon" name="页面">
+    <leftitem role="page02" icoclass="" name="风格标签" id="page_0" enable="true">
+      <itemlist>
+        <item id="page_1_0" enable="true">
+          <name>模板风格管理</name>
+          <url>Label/KS.TemplateSkin.aspx</url>
+        </item>
+        <item id="page_1_1" enable="true">
+          <name>入门标签（函数）</name>
+          <url>Label/KS.DefaultSkinLabel.aspx?labelType=1</url>
+        </item>
+        <item id="page_1_2" enable="true">
+          <name>中级标签（样式）</name>
+          <url>Label/KS.DefaultSkinLabel.aspx?labelType=2</url>
+        </item>
+        <item id="page_1_3" enable="true">
+          <name>高级标签（SQL)</name>
+          <url>Label/KS.DefaultSkinLabel.aspx?labelType=3</url>
+        </item>
+        <item id="page_1_4" enable="true">
+          <name>自定义静态标签</name>
+          <url>Label/KS.DefaultSkinLabel.aspx?labelType=4</url>
+        </item>
+        <item id="page_1_5" enable="true">
+          <name>自建JSON管理</name>
+          <url>Label/KS.Json.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="page01" icoclass="" name="生成HTML操作" id="page_1" enable="true">
+      <itemlist>
+        <item id="page_2_0" enable="true">
+          <name>生成首页</name>
+          <url>Refresh/KS.RefreshIndex.aspx</url>
+        </item>
+        <item id="page_2_1" enable="true">
+          <name>生成栏目/内容页</name>
+          <url>Refresh/KS.RefreshHtml.aspx</url>
+        </item>
+        <item id="page_2_2" enable="true">
+          <name>生成专题操作</name>
+          <url>Refresh/KS.RefreshSpecial.aspx</url>
+        </item>
+        <item id="page_2_3" enable="true">
+          <name>Sitemap生成</name>
+          <url>Refresh/KS.RefreshSiteMap.aspx</url>
+        </item>
+        <item id="page_2_4" enable="true">
+          <name>一键快速发布</name>
+          <url>Refresh/KS.RefreshQuick.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+  </topitem>
+  <topitem role="sys" icoclass="setup-icon" name="配置">
+    <leftitem role="sys01" icoclass="" name="基本设置" id="sys_0" enable="true">
+      <itemlist>
+        <item id="sys_1_0" enable="true">
+          <name>网站参数设置</name>
+          <url>System/KS.Config.aspx</url>
+        </item>
+        <item id="sys_1_1" enable="true">
+          <name>模型&amp;应用管理</name>
+          <role>添加|修改|删除|克隆|导入&amp;导出</role>
+          <url>Model/ks.model.aspx</url>
+        </item>
+        <item id="sys_1_2" enable="true">
+          <name>系统安全设置</name>
+          <url>System/KS.Safe.aspx</url>
+        </item>
+        <item id="sys_1_3" enable="true">
+          <name>地区设置管理</name>
+          <role>增加|删除|批量设置|更新字母</role>
+          <url>System/KS.Area.aspx</url>
+        </item>
+        <item id="sys_1_4" enable="true">
+          <name>在线支付设置</name>
+          <url>System/KS.PaymentPlat.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sys02" icoclass="" name="其它配置" id="sys_1" enable="true">
+      <itemlist>
+        <item id="sys_2_0" enable="true">
+          <name>伪静态规则管理</name>
+          <url>System/KS.ReWriteRule.aspx</url>
+        </item>
+        <item id="sys_2_1" enable="true">
+          <name><![CDATA[账号通API&社交]]></name>
+          <url>System/KS.AccountAPI.aspx</url>
+        </item>
+        <item id="sys_2_2" enable="true">
+          <name>短信接口API配置</name>
+          <url>System/KS.SMSAPI.aspx</url>
+        </item>
+        <item id="sys_2_3" enable="true">
+          <name>UCenter整合配置</name>
+          <url>System/Ks.UCenterConfig.aspx</url>
+        </item>
+        <item id="sys_2_4" enable="true">
+          <name>数据字典</name>
+          <url>System/KS.dictionary.aspx</url>
+        </item>
+        <item id="sys_2_5" enable="true">
+          <name>内部链接管理</name>
+          <role>添加|编辑|删除</role>
+          <url>System/KS.InnerLink.aspx</url>
+        </item>
+        <item id="sys_2_6" enable="true">
+          <name>我的工作台管理</name>
+          <role>添加|编辑|删除</role>
+          <url>System/KS.WorkTableManage.aspx</url>
+        </item>
+        <item id="sys_2_7" enable="true">
+          <name>管理显示条数管理</name>
+          <role>添加|编辑|删除</role>
+          <url>System/KS.PerPageManage.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sys03" icoclass="" name="数据库操作" id="sys_2" enable="true">
+      <itemlist>
+        <item id="sys_3_0" enable="true">
+          <name>数据库字段替换</name>
+          <url>System/KS.DataReplace.aspx</url>
+        </item>
+        <item id="sys_3_1" enable="true">
+          <name>数据库在线备份</name>
+          <url>System/KS.DataBack.aspx</url>
+        </item>
+        <item id="sys_3_2" enable="true">
+          <name>在线执行SQL语句</name>
+          <url>System/KS.ExeSQL.aspx</url>
+        </item>
+        <item id="sys_3_3" enable="true">
+          <name>查看所有数据表</name>
+          <url>System/KS.Data.Table.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+    <leftitem role="sys04" icoclass="" name="其它操作" id="sys_3" enable="true">
+      <itemlist>
+        <item id="sys_4_0" enable="true">
+          <name>上传文件管理</name>
+          <url>System/KS.UploadFiles.aspx</url>
+        </item>
+        <item id="sys_4_1" enable="true">
+          <name>操作日志管理</name>
+          <url>System/KS.Log.aspx</url>
+        </item>
+        <item id="sys_4_2" enable="true">
+          <name>更新缓存操作</name>
+          <url>System/KS.CleanCache.aspx</url>
+        </item>
+        <item id="sys_4_3" enable="true">
+          <name>查看服务器信息</name>
+          <url>System/KS.SystemInfo.aspx</url>
+        </item>
+      </itemlist>
+    </leftitem>
+  </topitem>
+  <topitem role="sys" icoclass="yun-icon" name="云服务">
+    <leftitem role="sys01" icoclass="" name="云服务" id="sys_0" enable="true">
+      <itemlist>
+        <item id="sys_1_0" enable="true">
+          <name>我的云服务</name>
+          <url>Yun/KS.YunOpenManage.aspx</url>
+        </item>
+        <item id="sys_1_1" enable="true">
+          <name>云市场</name>
+          <url>Yun/KS.YunManage.aspx</url>
+        </item>
+        <item id="sys_1_2" enable="true">
+          <name>云升级</name>
+          <url>Yun/KS.YunSystemInfo.aspx?action=showupdateinfo</url>
+        </item>
+      </itemlist>
+    </leftitem>
+  </topitem>
+</managemenu>

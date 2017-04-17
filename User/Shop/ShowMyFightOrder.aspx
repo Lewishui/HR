@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="shop_ShowMyFightOrder" Codebehind="ShowMyFightOrder.aspx.cs" %>

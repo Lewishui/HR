@@ -1,0 +1,190 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,p,blockquote,th,td,figure{margin:0;padding:0;}
+li{list-style-type:none}
+ul{margin:0px;padding:0px}
+img{border:0px;}
+a{text-decoration:none;color:#333;-webkit-transition: .3s; transition: .3s;}
+a:hover{text-decoration:none;color:#e10000}
+body{background:#fff;margin:0 auto;color:#333;FONT-FAMILY:"\5FAE\8F6F\96C5\9ED1"; height:100%; max-width:640px;} 
+::selection{background: #ed3232; color: white; }
+::-moz-selection{background: #ed3232; color: white;}
+
+
+/**@media screen and ( max-width:719px){ html{ font-size:88.88px;}} /**for:640px;**/
+/**@media screen and ( max-width:639px){ html{ font-size:66.66px;}} /**for:480px;**/
+/**@media screen and ( max-width:479px){ html{ font-size:44.44px;}} **/
+
+
+.clear{ clear:both;height:0px; overflow:hidden}
+.blank10{height:10px; overflow:hidden}
+.blank15{height:15px; overflow:hidden}
+.blank30{height:30px; overflow:hidden}
+.blank20{ height:20px; overflow:hidden}
+
+
+
+/**3g手机首页**/
+/**3g头部**/
+.topitem{ width:100%; height:48px;}
+.topitem .top_logo{ text-align:center;height:48px;}
+.topitem .top_logo img{ height:34px; padding-top:6px;}
+.telnav{ width:100%; background:#222;/**url(/companyimages/45636.png) no-repeat center 67%; **/background-size:100%; padding:4px 0}
+.telnav ul li{ width:25%; float:left; padding:.4rem 0; text-align:center }
+.telnav ul li a{ font-size:16px; color:#fff; display:block}
+.telnav ul li.curr{ background:#437EE4; border-radius:4px}
+
+
+/**banner**/
+.main_visual{height:203px;border-top:1px solid #d7d7d7;overflow:hidden;position:relative;}
+.main_image{height:203px;overflow:hidden;position:relative;}
+.main_image ul{overflow:hidden;position:absolute;top:0;left:0}
+.main_image li{float:left;width:100%;}
+.main_image li span{display:block;width:100%;height:480px; }
+.main_image li a{display:block;width:100%;height:480px}
+.main_image li .img_3{background-size:100%;}
+div.flicking_con{position:absolute;top:175px;left:56%;z-index:999;width:300px;height:21px;margin:0 0 0 -50px;}
+div.flicking_con a{float:left;width:18px;height:15px;margin:0;padding:0;background:url(/companyimages/btn_main_img.png) 0 0 no-repeat;display:block;text-indent:-1000px; background-size:85%;}
+div.flicking_con a.on{background-position:0 -15px}
+#btn_prev,#btn_next{z-index:11111;position:absolute;display:block;width:73px!important;height:74px!important;top:50%;margin-top:-37px;display:none;}
+#btn_prev{background:url(../images/hover_left.png) no-repeat left top;left:100px;}
+#btn_next{background:url(../images/hover_right.png) no-repeat right top;right:100px;}
+
+
+/**产品展示**/
+.product{ margin-top:15px;}
+.caption h2{font-size:18px; text-align:center; position:relative}
+.caption h2::before{ position:absolute; background:url(/companyimages/line.png) no-repeat left center; height:8px; width:30%; content:'';top: 10px;left: 20px; background-size:125%; }
+.caption h2::after{ position:absolute; background:url(/companyimages/line.png) no-repeat right center; height:8px; width:30%; content:'';top: 10px;right: 20px; background-size:125%;}
+.showlist{ margin:10px 0px;}
+.empty{ background:url(/companyimages/no.png) no-repeat center center;    height:140px; font-size:14px; text-align:center}
+.showlist ul li{ width:46%;float:left; background:#fff; border-radius:6px; margin:2%;-webkit-box-shadow:0 2px 3px rgba(0,0,0,.25); box-shadow:0 2px 3px rgba(0,0,0,.25);}
+.showlist ul li p{ text-align:center; padding: 4px 0px; height:22px; overflow:hidden}
+.showlist ul li p a{ display:block; font-size:14px;}
+.showlist .showimg{ width:100%;}
+.showlist .showimg img{ width:100%; height:85px; border-radius:6px 6px 0 0;}
+.imglist img{ width:95%; margin:0px 10px;}
+.imglist div{ padding-left:10px;font-size:14px;}
+.pd-10{ margin-top:10px;}
+.pd-10 .prev_art,.pd-10 .next_art{ width:90%; border:1px solid #ccc; border-radius:5px; margin: 8px 5px; font-size:16px; padding:9px;}
+.pd-10 .prev_art a,.pd-10 .next_art a{ font-size:16px;}
+.piclist{}
+.piclist ul li{ width:46%; text-align:center; float:left; background:#6C8FFF; padding:3% 0; margin:2%; border-radius:10px;}
+.piclist ul li a{ color:#fff; font-size:12px; display:block}
+.piclist .curr{ background:#F7A157}
+
+
+
+
+
+/**关于我们**/
+.mainabout{ background:#437FE4; background-size:100%; height:210px;}
+.mainabout h2{ color:#fff;}
+.mainabout .about{ width:96%; margin:12px auto;  height:132px; overflow:hidden}
+.mainabout .about p{ font-size:14px; color:#fff; text-indent:2em; line-height:22px;overflow:hidden;}
+.comtitle img{ width:95%;}
+
+
+
+
+/**相关常识**/
+.sense{ margin-top:10px;}
+.common{ margin-top:20px;}
+.common h2{ font-size:18px; padding-left:20px;}
+.common p img{ width:98%;}
+.common .info span{ font-size:12px; text-align:center; display:block; float:left; margin-left:20px;}
+.common ul li{ height:90px;overflow: hidden; margin-bottom:10px;}
+.common ul li a{ display:block}
+.common .senseimg{ width:35%; float:left; margin-left:10px; height:90px;}
+.common .senseimg img{ width:98%; text-align:center; border-radius:10px; height:100%; border:1px solid #ccc;}
+.common .sensetext{ width:59%; float:right; margin-right:8px; height:90px;}
+.common .sensetext h4{ font-size:14px; line-height: 25px;}
+.common .sensetext p{ font-size:12px; color:#888; line-height:20px}
+.art-other{ width:88%; margin:15px auto; border:2px dashed #ccc; border-radius:10px; padding:8px;}
+.art-other>div{ font-size:16px; font-weight:bold}
+.art-prev,.art-next{ line-height:24px; display:block; font-size:15px; font-weight:normal; color:#ff9900}
+.art-prev a,.art-next a{ font-size:15px;font-weight:normal}
+.chargetips{ text-align:center; margin-top:10px;}
+.chargetips a{ color:#f00}
+
+/**版权**/
+.copyright{ background:url(/companyimages/copyright.jpg) no-repeat; background-size:100%; color:#fff; font-size:12px; text-align:center; line-height:16px; height:75px}
+.copy{ padding-top:34px; padding-bottom:7px;}
+.copy p{ color:#fff; font-size:12px; text-align:center; line-height:16px;}
+
+
+/**底部**/
+.foot{ background:#437FE4; height:50px; position:fixed; left:0; bottom:0; width:100%; border-top:2px solid #fff; }
+.footer{ margin-top:6px;}
+.footer ul li{ width:25%; float:left; text-align:center}
+.footer ul li a{ color:#fff; font-size:12px; display: block}
+.footer .footimg1 img{ height:24px; width:24px; text-align:center}
+
+
+
+/**关于我们首页**/
+/*.content h3{ background:url(/companyimages/maintitle.png) no-repeat top center; background-size:100%; color:#fff; font-size:0.75rem; height:3rem; text-align:center; padding-top:2.2rem}*/
+.content h3{font-size:19px;height:44px; text-align: center;padding-top:14px;background: url(/companyimages/maintitle.png) no-repeat center 70%;}
+.respect .repectcont{ width:92%; margin:5px auto; height:100%;}
+.respect .repectcont p{ text-indent:2em; font-size:14px; line-height:24px; display:block}
+
+
+
+/**经营范围**/
+.manage{}
+.fabric p{ width:92%; margin:0 auto; font-size:14px; height:100%; line-height:24px;}
+.fabric .company{ padding:12px 0; font-size:16px; font-weight:700;}
+
+/**在线留言**/
+.tabBar{ height:32px; padding-top:8px; border-bottom:2px solid #ccc;}
+.tabBar span{ font-size:14px; width:50%; display:block; float:left; text-align:center; padding:7px 0}
+.tabBar .current{ background:#437FE4; color:#fff;border-radius: 20px 20px 0 0;}
+.message{ margin-top:10px; margin-bottom: 24px; margin: 10px auto}
+.message table tr:last-child span{ display:block}
+.include{ width:100%; border:1px solid #9a9a9a}
+.include::after{ clear:both; content:'';}
+.comment_write_table{ text-align:center}
+.comment_write_title{ font-size:16px;}
+.comment_write_title .span{ width:26%; float:left; line-height:36px;}
+.comment_write_title .username{ height:38px; width:83%; font-size:14px; border:1px solid #999; color:#999; padding-left:14%; border-radius:8px 8px 0 0; background:url(/companyimages/ren.png) no-repeat 5px center; margin:5px 0}
+.comment_write_title .title{ height:38px; width:83%; font-size:14px; border:1px solid #999; color:#999; padding-left:14%;background:url(/companyimages/call.png) no-repeat 5px center; margin:5px 0}
+.comment_write_title .password{ padding-left:1.5%; margin-left:1%;width:76%; height:35px; font-size:14px; color:#999; border:1px solid #999; float:left}
+.msgtextarea{ font-size:14px; color:#999; height:96px; border:1px solid #999; padding-left:14%; padding-top:10px; border-radius:0 0 8px 8px;background:url(/companyimages/liuyanicon.png) no-repeat 5px 5px;width:83%;margin: 5px 0;}
+.button{ width:98%;padding-left:15px; height:34px; margin-top:10px; border-radius:43px; border:1px solid #437FE4; background:#437FE4; color:#fff; box-shadow:0 5px 0px #1C5CC7; font-size:16px; }
+.leave_msg{ margin-top:10px;}
+.leave_msg ul li{ width:90%; margin:0 auto; border:1px solid #ccc; border-radius:10px; padding:10px;margin-bottom: 6px;}
+
+.leave_msg .leavetop{}
+.leave_msg .leavetop h3{ background:url(/companyimages/ren.png) no-repeat left center;line-height: 32px;height: 32px;padding-left: 40px;}
+.leave_msg .leaveright{ width:75%; float:right}
+.leave_msg ul li p{ font-size:12px; padding:6px 0}
+.leave_msg ul li p a{ display:block; padding-top:16px; font-size:12px;}
+.text-r{ padding-left:20px; border-bottom: 1px dashed #ccc; padding-bottom:3px; text-align:right}
+.reply{ font-size:14px; font-weight:bold; background:url(/companyimages/kefu.png) no-repeat left top; display:block; padding-left:40px;line-height:32px;}
+
+
+/**分页样式**/
+.fenye{ display:block; text-align:center; margin-top:10px;}
+.fenye a{ font-size:12px; border:1px solid #ccc; padding:3px 10px; border-radius:6px;}
+#pagelist a{ padding:6px 9px; border:1px solid #ccc; background:#Fff; border-radius:4px; font-size:11px; margin:0 4px; color:#ABABAB}
+#pagelist .curr{ color:#F00;}
+#pagelist a img{ width:8px; height:8px;}
+
+.fengye{ clear:both; display:block; text-align:center; font-size:16px; padding:2px 0}
+.fengye a{ font-size:12px; border:1px solid #ccc; padding:8px 10px; border-radius:6px;}
+.ditu{ width:100%;margin-top: 15px;}
+.ditu p img{ max-width:100%;}
+#pageNext{ margin-top:15px;}
+#pageNext tr td a{ background:#fff; border:1px solid #ccc; padding:4px 6px; border-radius:5px;}
+
+
+
+
+
+
+
+
+
+
+
+

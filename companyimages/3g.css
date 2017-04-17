@@ -1,0 +1,178 @@
+@charset "utf-8";
+/* CSS Document */
+html{font-family: sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; background-color:#fff; font-size:20px}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,p,blockquote,th,td,figure{margin:0;padding:0;}
+li{list-style-type:none}
+ul{margin:0px;padding:0px}
+img{border:0px;}
+a{text-decoration:none;color:#333;-webkit-transition: .3s; transition: .3s;}
+a:hover{text-decoration:none;color:#e10000}
+body{background:#fff;margin:0 auto;color:#333;FONT-FAMILY:"\5FAE\8F6F\96C5\9ED1"; height:100%; max-width:900px; font-size:14px; font-size:0.7rem} 
+::selection{background: #ed3232; color: white; }
+::-moz-selection{background: #ed3232; color: white;}
+@media screen and (min-width:320px){ 
+html{font-size:20px}
+}
+@media screen and (min-width:380px){ 
+html{ font-size:23px;}  
+}
+
+@media screen and (min-width:640px){ 
+html{ font-size:30px;}  
+}
+
+.clear{ clear:both;height:0px; overflow:hidden}
+.blank10{height:0.5rem; overflow:hidden}
+.blank15{height:0.75rem; overflow:hidden}
+.blank30{height:1.5rem; overflow:hidden}
+.blank20{ height:1.0rem; overflow:hidden}
+
+
+
+/**3g手机首页**/
+/**3g头部**/
+.topitem{ width:100%; height:2.4rem;}
+.topitem .top_logo{ text-align:center;height:2.4rem;}
+.topitem .top_logo img{ height:1.7rem; padding-top:0.3rem;}
+.telnav{ width:100%; background:#222;/**url(/companyimages/45636.png) no-repeat center 67%; **/background-size:100%; padding:0.2rem 0}
+.telnav ul li{ width:25%; float:left; padding:.4rem 0; text-align:center }
+.telnav ul li a{ font-size:0.8rem; color:#fff; display:block}
+.telnav ul li.curr{ background:#437EE4; border-radius:0.2rem}
+
+
+/**banner**/
+.main_visual{height:10.15rem;border-top:1px solid #d7d7d7;overflow:hidden;position:relative;}
+.main_image{height:10.15rem;overflow:hidden;position:relative;}
+.main_image ul{overflow:hidden;position:absolute;top:0;left:0}
+.main_image li{float:left;width:100%;}
+.main_image li span{display:block;width:100%;height:24rem; }
+.main_image li a{display:block;width:100%;height:24rem}
+.main_image li .img_3{background-size:100%;}
+div.flicking_con{position:absolute;top:8.75rem;left:56%;z-index:999;width:15rem;height:1.05rem;margin:0 0 0 -2.5rem;}
+div.flicking_con a{float:left;width:0.9rem;height:0.75rem;margin:0;padding:0;background:url(/companyimages/btn_main_img.png) 0 0 no-repeat;display:block;text-indent:-1000px; background-size:85%;}
+div.flicking_con a.on{background-position:0 -0.75rem}
+#btn_prev,#btn_next{z-index:11111;position:absolute;display:block;width:3.65rem!important;height:3.7rem!important;top:50%;margin-top:-1.85rem;display:none;}
+#btn_prev{background:url(../images/hover_left.png) no-repeat left top;left:5.0rem;}
+#btn_next{background:url(../images/hover_right.png) no-repeat right top;right:5.0rem;}
+
+
+/**产品展示**/
+.product{ margin-top:0.75rem;}
+.caption h2{font-size:0.9rem; text-align:center; position:relative}
+.caption h2::before{ position:absolute; background:url(/companyimages/line.png) no-repeat left center; height:0.4rem; width:30%; content:'';top: 0.5rem;left: 1.0rem; background-size:125%; }
+.caption h2::after{ position:absolute; background:url(/companyimages/line.png) no-repeat right center; height:0.4rem; width:30%; content:'';top: 0.5rem;right: 1.0rem; background-size:125%;}
+.showlist{ margin:0.5rem 0px;}
+.empty{ background:url(/companyimages/no.png) no-repeat center center;    height:7.0rem; font-size:0.7rem; text-align:center}
+.showlist ul li{ width:46%;float:left; background:#fff; border-radius:0.3rem; margin:2%;-webkit-box-shadow:0 0.1rem 3px rgba(0,0,0,.25); box-shadow:0 0.1rem 3px rgba(0,0,0,.25);}
+.showlist ul li p{ text-align:center; padding: 0.2rem 0px; height:1.1rem; overflow:hidden}
+.showlist ul li p a{ display:block; font-size:0.7rem;}
+.showlist .showimg{ width:100%;}
+.showlist .showimg img{ width:100%; height:4.25rem; border-radius:0.3rem 0.3rem 0 0;}
+.imglist img{ width:95%; margin:0px 0.5rem;}
+.imglist div{ padding-left:0.5rem;font-size:0.7rem;}
+.pd-10{ margin-top:0.5rem;}
+.pd-10 .prev_art,.pd-10 .next_art{ width:90%; border:1px solid #ccc; border-radius:0.25rem; margin: 0.4rem 0.25rem; font-size:0.8rem; padding:0.45rem;}
+.pd-10 .prev_art a,.pd-10 .next_art a{ font-size:0.8rem;}
+.piclist{}
+.piclist ul li{ width:46%; text-align:center; float:left; background:#6C8FFF; padding:3% 0; margin:2%; border-radius:0.5rem;}
+.piclist ul li a{ color:#fff; font-size:0.6rem; display:block}
+.piclist .curr{ background:#F7A157}
+/**关于我们**/
+.mainabout{ background:#437FE4; background-size:100%; height:10.5rem;}
+.mainabout h2{ color:#fff;}
+.mainabout .about{ width:96%; margin:0.6rem auto;  height:6.6rem; overflow:hidden}
+.mainabout .about p{ font-size:0.7rem; color:#fff; text-indent:2em; line-height:1.1rem;overflow:hidden;}
+.comtitle img{ width:95%;}
+
+
+
+
+/**相关常识**/
+.sense{ margin-top:0.5rem;}
+.common{ margin-top:1.0rem;}
+.common h2{ font-size:0.9rem; padding-left:1.0rem;}
+.common p img{ width:98%;}
+.common .info span{ font-size:0.6rem; text-align:center; display:block; float:left; margin-left:1.0rem;}
+.common ul li{ height:4.5rem;overflow: hidden; margin-bottom:0.5rem;}
+.common ul li a{ display:block}
+.common .senseimg{ width:35%; float:left; margin-left:0.5rem; height:4.5rem;}
+.common .senseimg img{ width:98%; text-align:center; border-radius:0.5rem; height:100%; border:1px solid #ccc;}
+.common .sensetext{ width:59%; float:right; margin-right:0.4rem; height:4.5rem;}
+.common .sensetext h4{ font-size:0.7rem; line-height: 1.25rem;}
+.common .sensetext p{ font-size:0.6rem; color:#888; line-height:1.0rem}
+.art-other{ width:88%; margin:0.75rem auto; border:2px dashed #ccc; border-radius:0.5rem; padding:0.4rem;}
+.art-other>div{ font-size:0.8rem; font-weight:bold}
+.art-prev,.art-next{ line-height:1.2rem; display:block; font-size:0.75rem; font-weight:normal; color:#ff9900}
+.art-prev a,.art-next a{ font-size:0.75rem;font-weight:normal}
+.chargetips{ text-align:center; margin-top:0.5rem;}
+.chargetips a{ color:#f00}
+
+/**版权**/
+.copyright{ background:url(/companyimages/copyright.jpg) no-repeat; background-size:100%; color:#fff; font-size:0.6rem; text-align:center; line-height:0.8rem; height:3.75rem} 
+.copy{ padding-top:1.7rem; padding-bottom:0.35rem;}
+.copy p{ color:#fff; font-size:0.6rem; text-align:center; line-height:0.8rem;}
+
+
+/**底部**/
+.foot{ background:#437FE4; height:2.5rem; position:fixed; left:0; bottom:0; width:100%; border-top:2px solid #fff; }
+.footer{ margin-top:0.3rem;}
+.footer ul li{ width:25%; float:left; text-align:center}
+.footer ul li a{ color:#fff; font-size:0.6rem; display: block}
+.footer .footimg1 img{ height:1.2rem; width:1.2rem; text-align:center}
+
+
+
+/**关于我们首页**/
+.content h3{font-size:0.95rem;height:2.2rem; text-align: center;padding-top:0.7rem;background: url(/companyimages/maintitle.png) no-repeat center 70%;background-size: auto 1.6rem;}
+.respect .repectcont{ width:92%; margin:0.25rem auto; height:100%;}
+.respect .repectcont p{ text-indent:2em; font-size:0.7rem; line-height:1.2rem; display:block}
+
+
+
+/**经营范围**/
+.manage{}
+.fabric p{ width:92%; margin:0 auto; font-size:0.7rem; height:100%; line-height:1.2rem;}
+.fabric .company{ padding:0.6rem 0; font-size:0.8rem; font-weight:700;}
+
+/**在线留言**/
+.tabBar{ height:1.6rem; padding-top:0.4rem; border-bottom:2px solid #ccc;}
+.tabBar span{ font-size:0.7rem; width:50%; display:block; float:left; text-align:center; padding:0.35rem 0}
+.tabBar .current{ background:#437FE4; color:#fff;border-radius: 1.0rem 1.0rem 0 0;}
+.message{ margin-top:0.5rem; margin-bottom: 1.2rem; margin: 0.5rem auto}
+.message table tr:last-child span{ display:block}
+.include{ width:100%; border:1px solid #9a9a9a}
+.include::after{ clear:both; content:'';}
+.comment_write_table{ text-align:center}
+.comment_write_title{ font-size:0.8rem;}
+.comment_write_title .span{ width:26%; float:left; line-height:1.8rem;}
+.comment_write_title .username{ height:1.9rem; width:83%; font-size:0.7rem; border:1px solid #999; color:#999; padding-left:14%; border-radius:0.4rem 0.4rem 0 0; background:url(/companyimages/ren.png) no-repeat 0.25rem center; margin:0.25rem 0}
+.comment_write_title .title{ height:1.9rem; width:83%; font-size:0.7rem; border:1px solid #999; color:#999; padding-left:14%;background:url(/companyimages/call.png) no-repeat 0.25rem center; margin:0.25rem 0}
+.comment_write_title .password{ padding-left:1.5%; margin-left:1%;width:76%; height:1.75rem; font-size:0.7rem; color:#999; border:1px solid #999; float:left}
+.msgtextarea{ font-size:0.7rem; color:#999; height:4.8rem; border:1px solid #999; padding-left:14%; padding-top:0.5rem; border-radius:0 0 0.4rem 0.4rem;background:url(/companyimages/liuyanicon.png) no-repeat 0.25rem 0.25rem;width:83%;margin: 0.25rem 0;}
+.button{ width:98%;padding-left:0.75rem; height:1.7rem; margin-top:0.5rem; border-radius:43px; border:1px solid #437FE4; background:#437FE4; color:#fff; box-shadow:0 0.25rem 0px #1C5CC7; font-size:0.8rem; }
+.leave_msg{ margin-top:0.5rem;}
+.leave_msg ul li{ width:90%; margin:0 auto; border:1px solid #ccc; border-radius:0.5rem; padding:0.5rem;margin-bottom: 0.3rem;}
+
+.leave_msg .leavetop{}
+.leave_msg .leavetop h3{ background:url(/companyimages/ren.png) no-repeat left center;line-height: 1.6rem;height: 1.6rem;padding-left: 2.0rem;}
+.leave_msg .leaveright{ width:75%; float:right}
+.leave_msg ul li p{ font-size:0.6rem; padding:0.3rem 0}
+.leave_msg ul li p a{ display:block; padding-top:0.8rem; font-size:0.6rem;}
+.text-r{ padding-left:1.0rem; border-bottom: 1px dashed #ccc; padding-bottom:3px; text-align:right}
+.reply{ font-size:0.7rem; font-weight:bold; background:url(/companyimages/kefu.png) no-repeat left top; display:block; padding-left:2.0rem;line-height:1.6rem;}
+
+
+/**分页样式**/
+.fenye{ display:block; text-align:center; margin-top:0.5rem;}
+.fenye table{ width:100%}
+.fenye a{ font-size:0.6rem; border:1px solid #ccc; padding:0.15rem 0.5rem; border-radius:0.3rem;}
+#pagelist a{ padding:0.3rem 0.45rem; border:1px solid #ccc; background:#Fff; border-radius:0.2rem; font-size:0.55rem; margin:0 0.2rem; color:#ABABAB}
+#pagelist .curr{ color:#F00;}
+#pagelist a img{ width:0.4rem; height:0.4rem;}
+
+.fengye{ clear:both; display:block; text-align:center; font-size:0.8rem; padding:0.1rem 0}
+.fengye a{ font-size:0.6rem; border:1px solid #ccc; padding:0.4rem 0.5rem; border-radius:0.3rem;}
+.ditu{ width:100%;margin-top: 0.75rem;}
+.ditu p img{ max-width:100%;}
+#pageNext{ margin-top:0.75rem;}
+#pageNext tr td a{ background:#fff; border:1px solid #ccc; padding:0.2rem 0.3rem; border-radius:0.25rem;}

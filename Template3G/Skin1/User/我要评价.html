@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>我要评价—{#productName}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+<script>
+    $(function () {
+        $(".skinlist").find("li").click(function () {
+            $(".skinlist").find("li").removeClass("curr");
+            $(this).addClass("curr");
+            $("#skinid").val($(this).attr("id"));
+        });
+    });
+</script>
+</head>
+
+<body>
+<div class="header u-header">
+	<a href="javascript:;" onClick="history.back()" class="back"><i class="fa fa-angle-left"></i></a>
+    <div class="m-title">评价我购买的商品</div>
+    <div class="head-in">
+    	
+    </div>	
+</div>  
+  <script>
+      function checkComment() {
+          //alert("df");
+          if ($("#star").val() == 0) {
+             alert("请选择评定的星星数!");
+             return false;
+          }
+          if ($("#CmtContent").val()==""){
+		     alert("请输入评价内容!");
+			 $("#CmtContent").focus();
+             return false;
+		  }
+          return true;
+      }
+      </script>
+
+<div class="myform">
+      <form name="myform" action="ShopComment.aspx?action=CommentSave" method="post">
+              <div class="form-group">
+                 <span class="bt">商品名称</span>
+                 <div class="pos-txt tal">
+                    <p class="line"><input type="hidden" name="orderId" id="orderId" value="{KS:Field:orderid}" />
+                    <input type="hidden" name="proId" id="proId"  value="{#ProID}" />
+				 {#productName}
+                    </p>
+                 </div>
+              </div>       
+              <div class="form-group">
+                  <span class="bt">购买时间</span>
+                  <div class="pos-txt tal">
+                  <input type="hidden" name="GMadddate" id="GMadddate" value="{#buyDate}" />
+                 {#buyDate}
+                 </div>
+              </div>   
+              <div class="form-group">
+                  <span class="bt">评价等级</span>
+                  <div class="pos-txt tal">
+                      <input type="radio" name="CmtType" id="CmtType" value="0" checked="checked">好评
+                      <input type="radio" name="CmtType" value="1" id="CmtType">中评
+                      <input type="radio" name="CmtType" value="2" id="CmtType">差评
+              	  </div>
+              </div>   
+              <div class="form-group">
+                  <span class="bt">得星星数</span>
+                  <div class="pos-txt cmt-star tal">
+                  <SCRIPT>
+                      var startnum = 5; //星的个数
+                      var selectedcolor = "red"; //选上的颜色
+                      var uselectedcolor = "gray"; //未选的颜色
+                      function _$(id) {
+                          return document.getElementById(id);
+                      }
+                      function setstarover(k, index) {
+
+                          for (var i = 1; i <= index; i++) {
+                              _$("s" + k + i).style.color = selectedcolor;
+                              _$("s" + k + i).style.cursor = "hand";
+                          }
+                      }
+                      function setstar(k, index) {
+
+                          for (var i = 1; i <= startnum; i++) {
+                              _$("s" + k + i).style.color = uselectedcolor;
+                              _$("s" + k + i).style.cursor = "hand";
+                          }
+                          for (var i = 1; i <= starNum; i++) {
+                              _$("s" + k + i).style.color = selectedcolor;
+                              _$("s" + k + i).style.cursor = "hand";
+                          }
+                      }
+                      var starNum = 0;
+                      function clickstar(presetpoint, k, index) {
+                          starNum = index;
+                          _$("star").value = '' + index + '';
+                      }
+
+                      var str = '';
+                      var PresetPoint = Array('');
+                      for (var k = 0; k < PresetPoint.length; k++) {
+                          str += '<input type="hidden" name="star" value="0" id="star">';
+                          for (var i = 1; i <= startnum; i++) {
+                              str += ('<span id="s' + k + i + '" onclick="clickstar(\'' + PresetPoint[k] + '\',' + k + ',' + i + ')" title="' + i + '星" onmouseout="setstar(' + k + ',' + starNum + ')" onmouseover="setstarover(' + k + ',' + i + ')">★</span>');
+                          }
+                          str += "&nbsp;"
+                      }
+                      document.write(str);
+                      </SCRIPT>
+                 	</div>
+                 </div>   
+
+                  <div class="form-group">
+					 <p class="bt">评价内容</p>
+					  <div class="pos-inp">
+                      <textarea  name="CmtContent"  id="CmtContent"  placeholder="如请填写评价内容" class="textbox"  style="height:200px" ></textarea></div>
+				  </div>
+				  
+				   <div class="form-group"{$DisplayCmtPic}>
+					 <p class="bt">评价晒图</p>
+					 
+					 <style>
+					 /*晒图*/
+					.imagebox .upshow{ width:100%;}
+					.imagebox .upshow li{float:left;width:55px;}
+					.imagebox .upshow li img{width:49px;height:49px;border:1px solid #ccc;}
+					 </style>
+					<input type="hidden" name="files" id='files'/>
+                     <!--上传图片开始-->
+                   <div class="imagebox" style="position:relative; padding:0 0.5rem">
+		             <script type="text/javascript">
+		                 function doSubmit(obj) { box = $.dialog({ title: false, content: '请稍等，正在上传文件...' }); }
+		                 function uploadOk(v,s) {
+		                     box.close();
+							 if (s==undefined) s=v;
+		                     if ($("#files").val() == '') {
+		                         $("#files").val(s+"|"+v);
+		                     } else {
+		                         $("#files").val($("#files").val() + "§" + s+"|"+v);
+		                     }
+                             $(".upshow").append("<li><img src='" + s + "'/></li>");
+		                 }
+                     </script>
+                      
+                         <iframe  src="../../user/include/autoupload.aspx?channelid=4&fun=top.uploadOk" width="60" height="60" scrolling="no" frameborder="0"></iframe> 
+                         <div class="upshow"></div>
+                         <span class="tips" style="display:none"></span>
+		             </div> 
+	                <!--上传图片结束-->
+				
+				  </div>
+				  
+                  
+                   <input type="submit" value="确认保存" onClick="return(checkComment());" class="btn btn-info" {#disabled}/>
+              </div>   
+		    
+	  </form>
+
+
+</body>
+</html>

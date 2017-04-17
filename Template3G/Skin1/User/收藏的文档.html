@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<title>收藏的文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-control" content="max-age=1700">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+<meta name="MobileOptimized" content="320">
+<meta name="author" content="kesion.com">
+<meta name="format-detection" content="telephone=no">
+<link href="{$GetTemplateDir}/fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{$GetTemplateDir}/css/user.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.common.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.search_img').toggle(function () {
+            $(this).addClass('open');
+
+        }, function () {
+            $(this).removeClass('open');
+        });
+    });
+
+    function UpdateCookieProductId() {
+        var valstr = JSON.stringify(selectProdcut);
+        $.cookie("SelectProcutId", valstr);
+    }
+
+    function turnTo(classid) {
+        location.href = "?action=article&classid=" + classid;
+    }
+    function delMyArticle() {
+        
+        var id = '';
+        $("input[name='CheckGroup']").each(function () {            
+            if ($(this).prop('checked') == true) {
+                
+                if (id == '') {
+                    id = $(this).val();
+                    
+                } else {
+                    id += "," + $(this).val();
+                }
+            }
+        });
+       
+        if (id == '') {
+            alert('请选择择要删除的文档!');
+        }else{
+            jQuery.ajax({
+                type: "get",
+                url: "favorite.aspx",
+                data: "action=delarticle&id=" +id,
+                success: function (data) {
+                    if (data == "success") {
+                        alert('恭喜，删除成功！');
+                    } else {
+                        alert(data);
+                    }
+                }
+            });
+            var ids = id.split(',');
+            
+            for (var i = 0; i < ids.length; i++) {              
+                var classid = ids[i];
+                $("#item" + classid).remove();
+            }	 
+		
+		
+        }
+
+    }
+    
+    function checkSearchForm() {
+        if ($("#key").val() == '') {
+            alert('请输入关键字！');
+            $("#key").focus();
+            return false;
+        }
+        $("#sform").submit();
+    }
+</script>
+</head>
+<body>
+<div class="header u-header">
+	<a href="javascript:;" onClick="history.back()" class="back"><i class="fa fa-angle-left"></i></a>
+    <div class="m-title">收藏的文档</div>
+    <div class="head-in">
+    	
+    </div>	
+</div> 
+<div class="class_goods">
+  <div class="dropdown clearfix">
+     <div class="search_img">
+        <div class="submenu dro_menu">
+           <ul>
+		   	  {#ArticleCategoryList}
+           </ul>
+        </div>
+     </div>
+     
+  </div>
+</div>
+
+<div class="search-form clearfix">
+     <form name="sform" id="sform" action="favorite.aspx?action=article" method="post">
+        <input type="text" name="Key" class="text" id="key" placeholder="请输入关键字">
+        <button type="submit" class="ps" onClick="return(checkSearchForm())">
+           <i class="fa fa-search" onClick="dosearch();"></i>
+        </button>
+    </form>
+</div>
+     <form name="addform" id="addform" method="post" action="favorite.aspx?action=delarticle">
+     <input type="hidden" name="ids" id="ids" value="0"/>
+<div class="coll-list">
+	<ul id="pagelist">
+          
+           [Loop Times="5"]
+          <li class="item" id="item{KS:Field:id}">
+              <div class="inner">
+              <a href="{KS:Field:channel}">
+                  <img src="{KS:Field:picture}"><!--", "/sysimg/nopic.gif"));-->
+                  <!--", dr["defaultpic"].ToString()));-->
+                  <div class="info">
+                      <div class="title">{KS:Field:title}</div>
+                      <!--", dr["title"].ToString(), M.GetItemUrl(Utils.StrToInt(dr["channelid"].ToString()), Utils.StrToInt(dr["InfoID"].ToString()))));-->
+                      <p class="desc">
+                      	<span class="price">分类:{KS:Field:ClassID}</span>
+                      	<span class="comment">点击率:{KS:Field:Hits}</span>
+                      </p>
+                      <p class="date">收藏时间:{KS:Field:AddDate}</p>
+                  </div>
+              </a>    
+              </div>
+              <div class="ckbar checkbox">
+                  <input type="checkbox" name="CheckGroup" id="CheckGroup{KS:Field:id}" value='{KS:Field:id}' />
+              </div>
+          </li>
+           [/Loop]
+       </ul>
+        <script>
+            var pageCount = "{#PageCount}";
+            var postUrl = "Favorite.aspx";
+            var postParam = "action=article";
+       </script>
+	   <script src="{M:G3InstallDir}Handler/loadpage.js"></script>
+
+    <ul id="pagelistend" style="display:none"></ul>
+  
+	<Br/><br/><br/>
+  
+   <div class="bcz-box">
+   	<span><input type="checkbox" name="chkall" id="chkall" onclick="CheckAll(this.form);"/>全选&nbsp;</span>
+     <a href="javascript:;" onClick="delMyArticle()"  class="btn btn-danger">删除</a>
+
+   </div>
+</div>
+ </form>
+</body>
+</html>
+

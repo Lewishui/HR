@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<script src="{$GetInstallDir}ks_Inc/jQuery.js"></script>
+	<script src="{$GetInstallDir}ks_Inc/Kesion.Common.js"></script>
+	</head>
+<body>
+
+<div id="result">{$GetUserRegResult}</div>
+<script>
+top.document.getElementById("myform").reset();
+KesionJS.Alert($("#result").html(),"top.location.href='{$GetComeUrl}';");
+</script>
+
+
+</body>
+</html>

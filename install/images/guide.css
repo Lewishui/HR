@@ -1,0 +1,82 @@
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,p,blockquote,th,td,figure{margin:0;padding:0;}
+ li{list-style-type:none}
+  ul{margin:0px;padding:0px}
+ img{border:0px;}
+ a{text-decoration:none;color:#333}
+ a:hover{text-decoration:underline}
+body{ font-family:Arial, Helvetica, sans-serif;font-size:12px; background:url(bk.jpg) center top; overflow:hidden}
+.l{ float:left}.r{ float:right}
+.clear{ clear:both;}.blank10{ height:10px; overflow:hidden}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.idx{ width:980px;margin:0 auto;}
+input[type="radio"],input[type="checkbox"]{ background:url(aero.png) no-repeat; height:20px; width:20px; vertical-align:middle;outline: none; -webkit-appearance: none; margin:0 5px 0 0; }
+input[type="radio"]{ background-position:-117px -2px;}
+input[type="radio"]:checked{background-position:-137px -2px;}
+input[type="checkbox"]{ background-position:-18px -2px;}
+input[type="checkbox"]:checked{background-position:-38px -2px;}
+
+.baiyun{ width:980px;margin:0 auto; height:100px;/* background:url(baiyun.png) no-repeat 100% 0;*/ position:absolute}
+.guide{width:880px;margin:0 auto;margin-top:20px;padding-bottom:5px;}
+.guide .guidetitle{ height:70px; line-height:60px}
+.guide .guidetitle .l{ background:url(logo.png) no-repeat -10px 50%; height:70px; width:280px}
+.guide .guidetitle .r{color:#fff;margin-top:10px; position:relative; z-index:9999}
+.guide .guidesm{padding-bottom:10px;color:#fff}
+.guide .guidesm .l{line-height:24px;margin-top:10px; margin-bottom:15px; font-size:14px;}
+.guide .guideboxbig{margin-top:15px}
+.guide .guideboxbig .guidebox{ background:#f3f3f3;height:350px;padding:3px 12px 10px 12px;font-size:12px; line-height:27px;color:#666; overflow:auto; border-radius:3px 3px 0 0; box-shadow:0 1px 1px rgba(0,0,0,0.3)}
+.guide .guideboxbig .guidebox h4{ height:40px; line-height:40px; text-align:center;font-size:16px;color:#005e96; margin-top:8px; }
+.guide .btnbg{width:81px; height:29px; background:#3B7ACA; border-radius:3px;border:0px; margin-right:10px; cursor:pointer; color:#fff;}
+.guide .btnbg:hover{}
+.guidebk{ padding:10px 0; background:#fff; border-radius:0 0 3px 3px; height:30px;}
+.guidebk input{}
+/*.guide .datiao ul li{ float:left;color:#97c3ca;font-size:14px;padding:0px 22px 0px 10px; background:url(bg01.png) no-repeat 100% 50%}
+.guide .datiao ul li.curr{font-weight:bold;color:#e1f082; background:url(bg02.png) no-repeat 100% 50%}
+*/
+.guide .datiao ul li{ float:left;color:#fff;font-size:14px; background:#519EFF; position:relative; height:36px; padding:0 8px 0 30px; line-height:36px; margin-right:20px;} 
+
+.guide .datiao ul li .before{ content:''; display:block; border-left:20px solid #3471C2; border-top:18px solid transparent; border-bottom:18px solid transparent; position:absolute; left:0px; top:0;width:0; height:0;}
+.guide .datiao ul li .after{ content:''; display:block; border-left:20px solid #519EFF; border-top:18px solid transparent; border-bottom:18px solid transparent; position:absolute; right:-20px; top:0;width:0; height:0;}
+
+
+
+
+.guide .datiao ul li.curr{font-weight:bold;color:#519EFF; background:#fff}
+.guide .datiao ul li.curr .before{ content:''; border-left:20px solid #3471C2; border-top:18px solid transparent; border-bottom:18px solid transparent; position:absolute; left:0px; top:0; width:0; height:0;}
+.guide .datiao ul li.curr .after{ content:''; border-left:20px solid #fff; border-top:18px solid transparent; border-bottom:18px solid transparent; position:absolute; right:-20px; top:0;width:0; height:0;}
+
+
+
+
+.guide .hjlist{ background:#f3f3f3;color:#777;margin-top:15px; border-radius:3px; box-shadow:0 1px 1px rgba(0,0,0,0.3)}
+.guide .hjlist h5{padding-top:5px; height:25px;font-size:14px;color:#555;}
+.guide .hjlist ul{ height:24px; line-height:24px}
+.guide .hjlist ul.tit{font-weight:bold;color:#3A79C9}
+.guide .hjlist ul li{ float:left}
+.guide .hjlist ul li.li01{width:220px}
+.guide .hjlist ul li.li02{width:220px}
+.guide .hjlist ul li.li03{width:220px}
+.guide .hjlist ul li.li04{width:220px;}
+.guide .hjlist ul li img{margin:-2px 5px 0px 0px}
+.guide .hjlist ul li.li05{width:280px;}
+.guide .hjlist ul li.li06{width:200px;}
+.guide .hjlist ul li.li07{width:200px;}
+.guide .sjlist{background:#f3f3f3;color:#777;margin-top:15px;border-radius:3px; box-shadow:0 1px 1px rgba(0,0,0,0.3)}
+.guide .sjlist h5{padding-top:5px; height:25px;font-size:14px;color:#555;}
+.guide .sjlist ul li{margin-top:10px;padding:0px 10px; line-height:24px;}
+.guide .sjlist ul li .text{ height:28px; line-height:28px; width:250px;border:1px solid #ddd;border-top:1px solid #aaa;border-left:1px solid #aaa;margin:0px 10px;padding-left:3px;color:#666;}
+.guide .sjlist ul li span{ float:left; line-height:28px; font-size:14px;color:#555;width:115px}
+.foot{width:100%;margin:20px auto;text-align:center; line-height:18px;padding:23px 0px;font-size:11px;font-family:"\5FAE\8F6F\96C5\9ED1"; color:#fff; position:absolute; bottom:0; left:0;}
+.foot a{ color:#fff;}
+
+
+
+
+
+
+
+
+
+
+
+
